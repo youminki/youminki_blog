@@ -106,17 +106,20 @@ body {
 
 .skill-chip-underlined {
   text-decoration: underline;
-  text-decoration-color: var(--text-secondary);
+  text-decoration-color: #ef4444;
   text-underline-offset: 3px;
 }
 
 .skill-chip:hover {
   background-color: var(--accent-color);
   color: #ffffff;
-  text-decoration-color: #ffffff;
   border-color: var(--accent-color);
   transform: translateY(-1px);
   box-shadow: 0 2px 6px var(--shadow-medium);
+}
+
+.skill-chip-underlined:hover {
+  text-decoration-color: #ffffff;
 }
 
 /* Section styling */
@@ -198,13 +201,14 @@ body {
 
   .skills-single-row {
     flex-direction: row;
-    gap: 1rem;
-    flex-wrap: wrap;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    align-items: stretch;
   }
 
   .skills-card {
     flex: 1;
-    min-width: 300px;
+    min-width: 220px;
   }
 
   .section-card {

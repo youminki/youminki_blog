@@ -75,17 +75,19 @@ const Skills = () => {
         <MdBuild className="text-[var(--accent-color)] text-xl" />
         Used Tool & Skill
       </h2>
-      <p className="text-[var(--text-secondary)] mb-6 text-left text-sm">
-        5회 이상 사용해본 스킬은 밑줄로 표시 했습니다.
+      <p className="text-[var(--text-secondary)] mb-8 text-left text-sm leading-relaxed">
+        <span className="text-red-500 font-medium">5회 이상</span> 사용해본
+        스킬은 <span className="text-red-500 font-medium">밑줄</span>로 표시
+        했습니다.
       </p>
       <div className="skills-single-row">
         {experiences.map((exp, index) => (
           <div key={index} className="skills-card">
             <div className="section-card">
-              <h3 className="text-xl font-semibold text-[var(--text-primary)] compact-title">
+              <h3 className="text-base font-semibold text-[var(--text-primary)] compact-title">
                 {exp.title}
               </h3>
-              <div className="flex flex-wrap gap-2 mt-3">
+              <div className="flex flex-wrap gap-1.5 mt-2">
                 {exp.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
