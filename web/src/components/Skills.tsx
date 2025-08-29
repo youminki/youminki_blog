@@ -64,7 +64,6 @@ const Skills = () => {
         { name: 'Discord', underlined: false },
         { name: 'Slack', underlined: true },
         { name: 'Notion', underlined: true },
-        { name: 'Tistory', underlined: true },
       ],
     },
   ];
@@ -87,7 +86,7 @@ const Skills = () => {
               <h3 className="text-base font-semibold text-[var(--text-primary)] compact-title">
                 {exp.title}
               </h3>
-              <div className="flex flex-wrap gap-1.5 mt-2">
+              <div className="flex flex-wrap gap-1.5 mt-3">
                 {exp.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
