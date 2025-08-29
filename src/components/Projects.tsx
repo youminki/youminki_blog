@@ -304,11 +304,11 @@ const Projects = () => {
           onClick={handleBackdropClick}
         >
           <div
-            className="bg-gray-800 rounded-2xl w-full max-w-[800px] h-[85vh] overflow-hidden flex flex-col shadow-2xl"
+            className="bg-gray-800 rounded-2xl w-full max-w-[1000px] h-[85vh] overflow-hidden flex flex-col shadow-2xl"
             style={{
               backgroundColor: '#1f2937',
               borderRadius: '1rem',
-              maxWidth: '700px',
+              maxWidth: '1000px',
               maxHeight: '85vh',
               minHeight: '70vh',
               padding: '1rem',
@@ -372,11 +372,11 @@ const Projects = () => {
                       <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
                       프로젝트 UI
                     </h3>
-                                        <div className="space-y-6">
+                    <div className="space-y-6">
                       {/* First Row */}
-                      <div className="flex flex-col md:flex-row gap-6">
+                      <div className="flex flex-col lg:flex-row gap-6 w-full">
                         {/* UI Card 1 */}
-                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 flex-1">
+                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 w-full lg:w-1/2">
                           <h4 className="text-lg font-semibold text-white mb-3 text-center">
                             메인 화면
                           </h4>
@@ -387,9 +387,9 @@ const Projects = () => {
                             style={{ maxHeight: '350px', objectFit: 'contain' }}
                           />
                         </div>
-                     
+
                         {/* UI Card 2 */}
-                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 flex-1">
+                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 w-full lg:w-1/2">
                           <h4 className="text-lg font-semibold text-white mb-3 text-center">
                             상품 상세
                           </h4>
@@ -401,11 +401,11 @@ const Projects = () => {
                           />
                         </div>
                       </div>
-                     
+
                       {/* Second Row */}
-                      <div className="flex flex-col md:flex-row gap-6">
+                      <div className="flex flex-col lg:flex-row gap-6 w-full">
                         {/* UI Card 3 */}
-                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 flex-1">
+                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 w-full lg:w-1/2">
                           <h4 className="text-lg font-semibold text-white mb-3 text-center">
                             마이페이지
                           </h4>
@@ -416,9 +416,9 @@ const Projects = () => {
                             style={{ maxHeight: '350px', objectFit: 'contain' }}
                           />
                         </div>
-                     
+
                         {/* UI Card 4 */}
-                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 flex-1">
+                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 w-full lg:w-1/2">
                           <h4 className="text-lg font-semibold text-white mb-3 text-center">
                             결제/배송
                           </h4>
