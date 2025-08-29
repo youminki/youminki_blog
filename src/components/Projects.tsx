@@ -3,6 +3,8 @@ import { MdRocketLaunch, MdClose, MdLink } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
 import projectImg1 from '../assets/projectImg1.jpg';
 import projectImg2 from '../assets/projectImg2.jpg';
+import projectImg3 from '../assets/projectImg3.jpg';
+import projectImg4 from '../assets/projectImg4.jpg';
 
 interface Project {
   id: number;
@@ -98,7 +100,7 @@ const Projects = () => {
         'Git',
         'Figma',
       ],
-      image: projectImg1,
+      image: projectImg3,
       githubUrl: 'https://github.com/youminki/adhd-emotion-diary',
       liveUrl: 'https://adhd-emotion-diary.vercel.app',
       features: [
@@ -118,7 +120,7 @@ const Projects = () => {
       description:
         "'In a row'는 클로버 전시회를 소개하고, 각 팀의 디자인 철학과 이야기를 전달하기 위한 웹 초대장입니다. React 기반으로 개발된 이 웹사이트는 전시 기획 의도 설명, 팀 프로젝트 소개, 팟캐스트/도슨트 QR 연동, 그리고 모바일 UX 최적화에 중점을 두고 구현되었습니다.",
       technologies: ['React', 'JavaScript', 'CSS Modules', 'Figma', 'GitHub'],
-      image: projectImg1,
+      image: projectImg4,
       githubUrl: 'https://github.com/youminki/youminki_blog',
       liveUrl: 'https://youminki-blog.vercel.app',
       features: [
@@ -651,10 +653,11 @@ const Projects = () => {
                     </h3>
                     <div className="bg-gray-600 rounded-lg p-6">
                       <p className="text-gray-200">
-                        멋쟁이사자처럼 해커톤에서 진행한 프로젝트로, 감정 조절과 
-                        집중에 어려움을 겪는 사용자들이 자신의 상태를 시각적으로 
-                        기록하고, 뽀모도로 방식의 타이머 및 플래너 기능을 통해 
-                        일상 루틴을 관리할 수 있도록 돕는 웹 플랫폼을 제작했습니다.
+                        멋쟁이사자처럼 해커톤에서 진행한 프로젝트로, 감정 조절과
+                        집중에 어려움을 겪는 사용자들이 자신의 상태를 시각적으로
+                        기록하고, 뽀모도로 방식의 타이머 및 플래너 기능을 통해
+                        일상 루틴을 관리할 수 있도록 돕는 웹 플랫폼을
+                        제작했습니다.
                       </p>
                     </div>
                   </div>
@@ -671,11 +674,12 @@ const Projects = () => {
                           서비스 설계 및 구조 설계
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          서비스 설계 초기 단계부터 직접 참여해 전체 프론트엔드 
-                          구조를 기획하고, 페이지 라우팅 및 레이아웃을 설계했습니다. 
-                          React Router 기반의 SPA 구조로 화면 전환을 매끄럽게 
-                          처리하고, 전역 상태 관리는 Recoil로 설계하여 컴포넌트 
-                          간 데이터 흐름을 명확하게 유지했습니다.
+                          서비스 설계 초기 단계부터 직접 참여해 전체 프론트엔드
+                          구조를 기획하고, 페이지 라우팅 및 레이아웃을
+                          설계했습니다. React Router 기반의 SPA 구조로 화면
+                          전환을 매끄럽게 처리하고, 전역 상태 관리는 Recoil로
+                          설계하여 컴포넌트 간 데이터 흐름을 명확하게
+                          유지했습니다.
                         </p>
                       </div>
 
@@ -684,10 +688,11 @@ const Projects = () => {
                           주요 기능 페이지 개발
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          총 4개의 주요 기능 페이지(감정 기록, 뽀모도로 타이머, 
-                          일정 플래너, 분석 리포트)를 직접 설계하고 개발했습니다. 
-                          컴포넌트 재사용성 극대화를 위해 버튼, 카드, 입력창 등 
-                          공통 UI 요소를 Atomic Design 패턴에 맞게 구현했습니다.
+                          총 4개의 주요 기능 페이지(감정 기록, 뽀모도로 타이머,
+                          일정 플래너, 분석 리포트)를 직접 설계하고
+                          개발했습니다. 컴포넌트 재사용성 극대화를 위해 버튼,
+                          카드, 입력창 등 공통 UI 요소를 Atomic Design 패턴에
+                          맞게 구현했습니다.
                         </p>
                       </div>
 
@@ -696,8 +701,8 @@ const Projects = () => {
                           팀 협업 및 워크플로우
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          Git을 통한 팀원과의 협업 워크플로우를 주도하고 코드 
-                          리뷰 문화를 도입했습니다. 팀 프로젝트에서 프론트엔드 
+                          Git을 통한 팀원과의 협업 워크플로우를 주도하고 코드
+                          리뷰 문화를 도입했습니다. 팀 프로젝트에서 프론트엔드
                           개발을 전담하며 전체적인 개발 프로세스를 경험했습니다.
                         </p>
                       </div>
@@ -716,16 +721,16 @@ const Projects = () => {
                           초기 감정 기록 페이지의 UX 문제 해결
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          <strong>문제점:</strong> 감정 선택 후 기록이 번거롭고, 
+                          <strong>문제점:</strong> 감정 선택 후 기록이 번거롭고,
                           사용자 이탈률이 높았습니다.
                         </p>
                         <p className="text-gray-200 mb-4">
-                          <strong>개선:</strong> 감정 선택 → 즉시 캘린더에 반영되는 
-                          흐름으로 UX를 리디자인했습니다.
+                          <strong>개선:</strong> 감정 선택 → 즉시 캘린더에
+                          반영되는 흐름으로 UX를 리디자인했습니다.
                         </p>
                         <p className="text-gray-200">
-                          <strong>성과:</strong> 사용자 피드백 기반으로 감정 기록 
-                          인터랙션 진입-완료 시간 40% 단축
+                          <strong>성과:</strong> 사용자 피드백 기반으로 감정
+                          기록 인터랙션 진입-완료 시간 40% 단축
                         </p>
                       </div>
 
@@ -734,15 +739,15 @@ const Projects = () => {
                           뽀모도로 타이머 퍼포먼스 최적화
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          <strong>문제점:</strong> 타이머 UI 렌더링 중 불필요한 
+                          <strong>문제점:</strong> 타이머 UI 렌더링 중 불필요한
                           리렌더링이 발생했습니다.
                         </p>
                         <p className="text-gray-200 mb-4">
-                          <strong>개선:</strong> useRef, useCallback 기반으로 
+                          <strong>개선:</strong> useRef, useCallback 기반으로
                           리렌더링을 최소화하고 상태를 분리했습니다.
                         </p>
                         <p className="text-gray-200">
-                          <strong>성과:</strong> CPU 사용률 50% 감소, 모바일 
+                          <strong>성과:</strong> CPU 사용률 50% 감소, 모바일
                           기기에서도 부드러운 타이머 작동
                         </p>
                       </div>
@@ -752,15 +757,15 @@ const Projects = () => {
                           데이터 분석 페이지에서 시각화 구조 리팩토링
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          <strong>문제점:</strong> 조건별 필터링에 따른 차트 
+                          <strong>문제점:</strong> 조건별 필터링에 따른 차트
                           재렌더링이 느렸습니다.
                         </p>
                         <p className="text-gray-200 mb-4">
-                          <strong>개선:</strong> 데이터를 메모이제이션하여 조건 
+                          <strong>개선:</strong> 데이터를 메모이제이션하여 조건
                           변경 시 즉시 차트 렌더링이 되도록 했습니다.
                         </p>
                         <p className="text-gray-200">
-                          <strong>성과:</strong> 차트 필터 적용 시간 평균 1.2초 
+                          <strong>성과:</strong> 차트 필터 적용 시간 평균 1.2초
                           → 0.3초로 개선
                         </p>
                       </div>
@@ -770,16 +775,17 @@ const Projects = () => {
                           공통 컴포넌트 통일 및 디자인 시스템 정립
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          <strong>문제점:</strong> 페이지마다 다른 스타일/컴포넌트로 
-                          UI 일관성이 떨어졌습니다.
+                          <strong>문제점:</strong> 페이지마다 다른
+                          스타일/컴포넌트로 UI 일관성이 떨어졌습니다.
                         </p>
                         <p className="text-gray-200 mb-4">
-                          <strong>개선:</strong> 공통 컴포넌트 디렉토리 구조를 
-                          정리하고, 재사용 가능한 Button, Card, Modal을 설계했습니다.
+                          <strong>개선:</strong> 공통 컴포넌트 디렉토리 구조를
+                          정리하고, 재사용 가능한 Button, Card, Modal을
+                          설계했습니다.
                         </p>
                         <p className="text-gray-200">
-                          <strong>성과:</strong> 코드 재사용률 증가, 유지보수 시간 
-                          절감, 디자이너와의 협업 효율 향상
+                          <strong>성과:</strong> 코드 재사용률 증가, 유지보수
+                          시간 절감, 디자이너와의 협업 효율 향상
                         </p>
                       </div>
                     </div>
@@ -830,16 +836,16 @@ const Projects = () => {
                     <div className="space-y-4">
                       <div className="bg-gray-600 rounded-lg p-4">
                         <p className="text-gray-200">
-                          • 이 프로젝트는 단순한 기능 구현을 넘어, 사용자 경험 
-                          개선과 코드 품질 향상, 팀 협업에 이르기까지 프론트엔드 
+                          • 이 프로젝트는 단순한 기능 구현을 넘어, 사용자 경험
+                          개선과 코드 품질 향상, 팀 협업에 이르기까지 프론트엔드
                           전반을 경험하고 성장할 수 있었던 기회였습니다.
                         </p>
                       </div>
                       <div className="bg-gray-600 rounded-lg p-4">
                         <p className="text-gray-200">
-                          • 특히 실사용자 피드백을 반영한 빠른 기능 개선, UI 
-                          일관성 확보를 위한 시스템화, 성능 최적화를 위한 
-                          리팩토링을 통해 실무와 유사한 개발 역량을 키울 수 
+                          • 특히 실사용자 피드백을 반영한 빠른 기능 개선, UI
+                          일관성 확보를 위한 시스템화, 성능 최적화를 위한
+                          리팩토링을 통해 실무와 유사한 개발 역량을 키울 수
                           있었습니다.
                         </p>
                       </div>
