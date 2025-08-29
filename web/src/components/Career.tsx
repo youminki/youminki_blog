@@ -1,22 +1,35 @@
+import { MdWork } from 'react-icons/md';
+
 const Career = () => {
+  const experiences = [
+    {
+      title: '리프트콤마 - 프론트엔드 개발자',
+      description: '2024.08 ~ 재직중 (프리랜서)',
+    },
+  ];
+
   return (
-    <section className="mb-20">
-      <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-        <span>💼</span>
+    <section>
+      <h2 className="section-title flex items-center gap-4">
+        <MdWork className="text-[var(--accent-color)] text-xl" />
         Career
       </h2>
-      <div className="text-gray-300">
-        <div className="flex items-start gap-4">
-          <span className="text-green-400 mt-1 text-lg">•</span>
-          <div>
-            <p className="font-medium text-white text-lg">
-              2024.08 ~ 재직중(프리랜서)
-            </p>
-            <p className="text-gray-400 text-base">
-              리프트콤마 - 프론트엔드 개발자
-            </p>
+      <div className="space-y-6">
+        {experiences.map((exp, index) => (
+          <div key={index} className="relative">
+            <div className="section-card">
+              {index > 0 && (
+                <div className="section-divider mb-2">
+                  <div className="section-divider-dot"></div>
+                </div>
+              )}
+              <h3 className="text-xl font-semibold text-[var(--text-primary)] compact-title">
+                {exp.title}
+              </h3>
+              <p className="section-content">{exp.description}</p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

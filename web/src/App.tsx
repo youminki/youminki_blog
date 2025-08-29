@@ -80,19 +80,12 @@ function App() {
           {/* Divider Line */}
           <div className="border-b border-[var(--border-color)] my-8"></div>
 
-          {/* Main Content Grid */}
-          <div className="content-grid">
-            {/* Left Column - About Me */}
-            <div>
-              <AboutMe />
-            </div>
-
-            {/* Right Column - Career and School */}
-            <div>
-              <div className="space-y-12">
-                <Career />
-                <School />
-              </div>
+          {/* Content Sections - Column Layout */}
+          <div className="content-sections">
+            <AboutMe />
+            <div className="career-school-row">
+              <Career />
+              <School />
             </div>
           </div>
 

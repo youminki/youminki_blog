@@ -1,3 +1,5 @@
+import { MdPerson } from 'react-icons/md';
+
 const AboutMe = () => {
   const experiences = [
     {
@@ -29,24 +31,23 @@ const AboutMe = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-        <span>🧑‍💻</span>
+      <h2 className="section-title flex items-center gap-4">
+        <MdPerson className="text-[var(--accent-color)] text-xl" />
         About me
       </h2>
-      <div className="grid grid-cols-1 gap-6">
+      <div className="space-y-6">
         {experiences.map((exp, index) => (
-          <div
-            key={index}
-            className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-800 transition-colors"
-          >
-            <span className="text-blue-400 mt-1 text-lg flex-shrink-0">•</span>
-            <div className="flex-1">
-              <p className="leading-relaxed text-base text-gray-300">
-                <strong className="text-white font-semibold">
-                  {exp.title}
-                </strong>{' '}
-                {exp.description}
-              </p>
+          <div key={index} className="relative">
+            <div className="section-card">
+              {index > 0 && (
+                <div className="section-divider mb-2">
+                  <div className="section-divider-dot"></div>
+                </div>
+              )}
+              <h3 className="text-xl font-semibold text-[var(--text-primary)] compact-title">
+                {exp.title}
+              </h3>
+              <p className="section-content">{exp.description}</p>
             </div>
           </div>
         ))}

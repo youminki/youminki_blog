@@ -1,3 +1,5 @@
+import { MdRocketLaunch } from 'react-icons/md';
+
 const Projects = () => {
   const projects = [
     {
@@ -10,8 +12,8 @@ const Projects = () => {
 
   return (
     <section className="mb-20">
-      <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-        <span>🚀</span>
+      <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-4">
+        <MdRocketLaunch className="text-[var(--accent-color)] text-2xl" />
         Projects
       </h2>
       <div className="grid grid-cols-1 gap-8">
