@@ -18,17 +18,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "http://www.youminki.blog/(.*)",
-      "destination": "https://www.youminki.blog/$1",
-      "permanent": true
-    },
-    {
-      "source": "http://youminki.blog/(.*)",
-      "destination": "https://youminki.blog/$1",
-      "permanent": true
-    }
   ]
 }
