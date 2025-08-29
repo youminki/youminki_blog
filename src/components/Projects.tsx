@@ -79,18 +79,20 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: '클로버 전시회 초대장',
+      title: '클로버 전시회 초대장 웹 프로젝트 - In a row',
       description:
-        '‘In a row’는 클로버 전시회를 소개하고, 각 팀의 디자인 철학과 이야기를 전달하기 위한 웹 초대장입니다.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+        "'In a row'는 클로버 전시회를 소개하고, 각 팀의 디자인 철학과 이야기를 전달하기 위한 웹 초대장입니다. React 기반으로 개발된 이 웹사이트는 전시 기획 의도 설명, 팀 프로젝트 소개, 팟캐스트/도슨트 QR 연동, 그리고 모바일 UX 최적화에 중점을 두고 구현되었습니다.",
+      technologies: ['React', 'JavaScript', 'CSS Modules', 'Figma', 'GitHub'],
       image: projectImg1,
       githubUrl: 'https://github.com/youminki/youminki_blog',
       liveUrl: 'https://youminki-blog.vercel.app',
       features: [
+        '전시 소개 및 디자인 컨셉 전달',
+        '팀별 도슨트/팟캐스트 뷰어',
+        '팟캐스트 상세 안내 및 QR 연동',
+        '모바일 UX 최적화',
+        '스크롤 인터랙션 및 스토리텔링',
         '반응형 디자인',
-        '다크/라이트 테마 전환',
-        '모던한 UI/UX',
-        'SEO 최적화',
       ],
     },
   ];
@@ -319,6 +321,205 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Project Details - 클로버 전시회 초대장 전용 */}
+              {selectedProject.id === 4 && (
+                <>
+                  {/* Role & Period */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      프로젝트 정보
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          역할
+                        </h4>
+                        <p className="text-gray-200">
+                          프론트엔드 개발 (모바일 대응 중심)
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          기간
+                        </h4>
+                        <p className="text-gray-200">2023.06 ~ 2023.08</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pages Details */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      주요 페이지 및 기능
+                    </h3>
+                    <div className="space-y-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          About 페이지 – 전시 소개 및 디자인 컨셉
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          전시 전체 흐름을 비주얼 영상 및 타이포그래피로 전달.
+                          video 태그를 활용하여 자동 재생되는 배경 영상 시퀀스를
+                          구성. 사용자가 스크롤을 내릴수록 전시 주제에 대한
+                          스토리텔링이 진행되는 인터랙션 설계.
+                        </p>
+                        <div className="bg-gray-500 rounded-lg p-4">
+                          <h5 className="text-sm font-semibold text-white mb-2">
+                            🎯 개선 포인트:
+                          </h5>
+                          <ul className="text-sm text-gray-200 space-y-1">
+                            <li>
+                              • 콘텐츠 간 시각적 단절 문제를 페이지 분리와
+                              구분선(Linecontainer)으로 해결
+                            </li>
+                            <li>
+                              • autoPlay, muted, loop, playsInline 속성을 모든
+                              영상 요소에 통일적으로 적용하여 브라우저 간 재생
+                              오류 최소화
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          Projects 페이지 – 팀별 도슨트/팟캐스트 뷰어
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          전시 참여 팀(6개)을 Hover 가능한 .gif 요소로
+                          시각화하고 클릭 시 설명 정보와 미디어 정보 표시. 각
+                          팀은 팟캐스트, 도슨트, 팀원, 카테고리 등 상세 정보가
+                          분리되어 구조화됨.
+                        </p>
+                        <div className="bg-gray-500 rounded-lg p-4">
+                          <h5 className="text-sm font-semibold text-white mb-2">
+                            🎯 개선 포인트:
+                          </h5>
+                          <ul className="text-sm text-gray-200 space-y-1">
+                            <li>
+                              • 각 팀의 콘텐츠가 혼재되어 있던 UI를 카테고리
+                              분리 + 재사용 가능한 이미지 맵핑 구조로 정돈
+                            </li>
+                            <li>
+                              • setTimeout, useEffect 활용하여 자동 닫힘 기능
+                              구현 → UX 향상
+                            </li>
+                            <li>
+                              • QR 이미지 로딩 문제 해결을 위해
+                              description.podcastqrImage 경로 최적화
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          Announcement 페이지 – 팟캐스트 상세 안내
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          개별 작품 페이지의 팟캐스트 QR 뷰어. 전시 설명 문구와
+                          함께 모바일로의 접근을 유도하는 안내 메시지 및 QR
+                          이미지 배치.
+                        </p>
+                        <div className="bg-gray-500 rounded-lg p-4">
+                          <h5 className="text-sm font-semibold text-white mb-2">
+                            🎯 개선 포인트:
+                          </h5>
+                          <ul className="text-sm text-gray-200 space-y-1">
+                            <li>
+                              • 버튼형 뒤로가기 이미지 클릭 시 navigate 처리 →
+                              사용자 흐름 중단 없이 이동 가능
+                            </li>
+                            <li>
+                              • QR 인식 영역을 크게 확보하여 모바일 스캔 편의성
+                              강화
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tech Stack Details */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      기술 스택 상세
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          Frontend
+                        </h4>
+                        <p className="text-gray-200">
+                          React, JavaScript, CSS Modules
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          상태 관리
+                        </h4>
+                        <p className="text-gray-200">useState, useEffect</p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          UI 구성 요소
+                        </h4>
+                        <p className="text-gray-200">
+                          Modal, Video, 이미지 기반 인터랙션
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          협업 도구
+                        </h4>
+                        <p className="text-gray-200">Figma, GitHub</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Retrospective */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      프로젝트 회고
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • 디자이너의 Figma 시안과 실제 구현 사이의 시각 차이를
+                          줄이기 위해 정밀한 컴포넌트 설계와 반응형 스타일링에
+                          집중
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • 팀원 간 팟캐스트, 도슨트 미디어 데이터를 정적
+                          객체화하고, 이를 UI와 연결하는 방식으로 효율적인 상태
+                          관리 구조 구현
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • 전시의 "스토리텔링"과 "인터랙션"이라는 키워드를
+                          살리기 위해 scroll 인터랙션, hover animation, modal
+                          전환 등 다양한 사용자 피드백 처리에 집중
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • 특히 모바일 대응성을 고려하여 playsInline, QR 사용
+                          유도, 폰트 크기 및 레이아웃 적응 방식 등 반응형 UI/UX
+                          설계 능력을 키움
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
 
               {/* Links */}
               <div className="bg-gray-700 rounded-xl p-8">
