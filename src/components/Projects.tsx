@@ -366,163 +366,145 @@ const Projects = () => {
               {/* Project Details - Melpik 사용자 웹 & 하이브리드 앱 전용 */}
               {selectedProject.id === 1 && (
                 <>
-                  {/* Project UI Showcase */}
-                  <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl p-8 mb-8 border border-gray-600">
-                    <h3 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                      <span className="w-4 h-4 bg-[var(--accent-color)] rounded-full"></span>
-                      🎨 프로젝트 UI 시연
+                  {/* Project UI Images */}
+                  <div className="bg-gray-700 rounded-xl p-8 mb-8 ">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      프로젝트 UI
                     </h3>
-                    <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                      Melpik 서비스의 핵심 화면들을 직접 구현하여 사용자 경험을 극대화했습니다. 
-                      각 화면은 모바일 우선 설계로 제작되어 모든 디바이스에서 최적의 경험을 제공합니다.
-                    </p>
-                    <div className="grid grid-cols-2 gap-6">
+                    <div
+                      className="grid grid-cols-2 md:grid-cols-2 gap-4"
+                      style={{
+                        objectFit: 'contain',
+                        gap: '1rem',
+                      }}
+                    >
                       {/* UI Card 1 */}
-                      <div className="bg-gray-600 rounded-xl p-6 hover:bg-gray-500 transition-all duration-300 hover:scale-105 border border-gray-500">
-                        <h4 className="text-xl font-bold text-white mb-4 text-center">
-                          🏠 메인 화면
+                      <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
+                        <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                          메인 화면
                         </h4>
-                        <p className="text-gray-300 text-sm mb-4 text-center">
-                          맞춤형 패션 추천과 인기 상품을 한눈에
-                        </p>
                         <img
                           src={melpikUI1}
                           alt="Melpik 메인 화면"
                           className="w-full rounded-lg shadow-lg"
-                          style={{ objectFit: 'contain', maxHeight: '400px' }}
+                          style={{ objectFit: 'contain', maxHeight: '600px' }}
                         />
                       </div>
 
                       {/* UI Card 2 */}
-                      <div className="bg-gray-600 rounded-xl p-6 hover:bg-gray-500 transition-all duration-300 hover:scale-105 border border-gray-500">
-                        <h4 className="text-xl font-bold text-white mb-4 text-center">
-                          👗 상품 상세
+                      <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
+                        <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                          상품 상세
                         </h4>
-                        <p className="text-gray-300 text-sm mb-4 text-center">
-                          상세 정보와 이미지 슬라이더로 구매 결정 지원
-                        </p>
                         <img
                           src={melpikUI2}
                           alt="Melpik 상품 상세 화면"
                           className="w-full rounded-lg shadow-lg"
-                          style={{ objectFit: 'contain', maxHeight: '400px' }}
+                          style={{ objectFit: 'contain', maxHeight: '600px' }}
                         />
                       </div>
 
                       {/* UI Card 3 */}
-                      <div className="bg-gray-600 rounded-xl p-6 hover:bg-gray-500 transition-all duration-300 hover:scale-105 border border-gray-500">
-                        <h4 className="text-xl font-bold text-white mb-4 text-center">
-                          👤 마이페이지
+                      <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
+                        <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                          마이페이지
                         </h4>
-                        <p className="text-gray-300 text-sm mb-4 text-center">
-                          개인 옷장과 찜한 상품을 체계적으로 관리
-                        </p>
                         <img
                           src={melpikUI3}
                           alt="Melpik 마이페이지"
                           className="w-full rounded-lg shadow-lg"
-                          style={{ objectFit: 'contain', maxHeight: '400px' }}
+                          style={{ objectFit: 'contain', maxHeight: '600px' }}
                         />
                       </div>
 
                       {/* UI Card 4 */}
-                      <div className="bg-gray-600 rounded-xl p-6 hover:bg-gray-500 transition-all duration-300 hover:scale-105 border border-gray-500">
-                        <h4 className="text-xl font-bold text-white mb-4 text-center">
-                          💳 결제/배송
+                      <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
+                        <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                          결제/배송
                         </h4>
-                        <p className="text-gray-300 text-sm mb-4 text-center">
-                          카카오 지도 연동으로 편리한 주소 입력
-                        </p>
                         <img
                           src={melpikUI4}
                           alt="Melpik 결제/배송 화면"
                           className="w-full rounded-lg shadow-lg"
-                          style={{ objectFit: 'contain', maxHeight: '400px' }}
+                          style={{ objectFit: 'contain', maxHeight: '600px' }}
                         />
                       </div>
                     </div>
                   </div>
 
-                  {/* Project Overview */}
-                  <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl p-8 mb-8 border border-gray-600">
-                    <h3 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                      <span className="w-4 h-4 bg-[var(--accent-color)] rounded-full"></span>
-                      📋 프로젝트 개요
+                  {/* Role & Period */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      프로젝트 정보
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="bg-gray-600 rounded-lg p-6 border border-gray-500 hover:bg-gray-500 transition-colors duration-200">
-                        <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                          🎯 담당 역할
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          역할
                         </h4>
-                        <p className="text-gray-200 leading-relaxed">
-                          프론트엔드 개발 전담으로 웹과 모바일 하이브리드 앱을 
-                          동시에 구현하여 크로스 플랫폼 사용자 경험을 제공했습니다.
+                        <p className="text-gray-200">
+                          프론트엔드 개발 전담 (웹 + 모바일 하이브리드 앱 구현)
                         </p>
                       </div>
-                      <div className="bg-gray-600 rounded-lg p-6 border border-gray-500 hover:bg-gray-500 transition-colors duration-200">
-                        <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                          ⏰ 개발 기간
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          기간
                         </h4>
-                        <p className="text-gray-200 leading-relaxed">
-                          2024년 7월부터 2025년 7월까지 1년간의 
-                          장기 프로젝트로 안정성과 확장성을 고려한 설계를 진행했습니다.
-                        </p>
+                        <p className="text-gray-200">2024.07 ~ 2025.07</p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Core Features */}
-                  <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl p-8 mb-8 border border-gray-600">
-                    <h3 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                      <span className="w-4 h-4 bg-[var(--accent-color)] rounded-full"></span>
-                      🚀 핵심 구현 기능
+                  {/* Main Features */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      주요 구현 페이지 및 기능
                     </h3>
-                    <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                      사용자 중심의 직관적인 인터페이스와 강력한 기능을 통해 
-                      패션 쇼핑 경험을 혁신적으로 개선했습니다.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="bg-gray-600 rounded-lg p-6 border border-gray-500 hover:bg-gray-500 transition-all duration-200 hover:scale-105">
-                        <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                          🏠 홈 & 카테고리
+                    <div className="space-y-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          홈 / 카테고리 페이지
                         </h4>
-                        <p className="text-gray-200 leading-relaxed">
-                          사용자 맞춤형 태그/필터 시스템과 AI 기반 상품 추천을 
-                          구현했습니다. React Query와 Lazy Loading으로 
-                          빠른 로딩과 부드러운 사용자 경험을 제공합니다.
+                        <p className="text-gray-200 mb-4">
+                          사용자 기반 태그/필터 기능 및 제품 검색 기능을
+                          구현했습니다. 인기 상품, 추천 스타일 섹션을 동적으로
+                          구성하여 React Query + Lazy Loading을 적용했습니다.
                         </p>
                       </div>
 
-                      <div className="bg-gray-600 rounded-lg p-6 border border-gray-500 hover:bg-gray-500 transition-all duration-200 hover:scale-105">
-                        <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                          👗 상품 상세 페이지
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          상세 페이지 (Product Detail)
                         </h4>
-                        <p className="text-gray-200 leading-relaxed">
-                          고화질 이미지 슬라이더와 찜하기 기능으로 구매 결정을 
-                          지원합니다. 사이즈, 소재, 스타일링 팁 등 상세 정보를 
-                          체계적으로 구성했습니다.
+                        <p className="text-gray-200 mb-4">
+                          사용자 반응을 고려한 이미지 슬라이더, 찜하기(하트),
+                          장바구니 담기 기능을 구현했습니다. 상품 관련 상세 정보
+                          (사이즈, 소재, 스타일링 팁)를 구성했습니다.
                         </p>
                       </div>
 
-                      <div className="bg-gray-600 rounded-lg p-6 border border-gray-500 hover:bg-gray-500 transition-all duration-200 hover:scale-105">
-                        <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                          👤 마이페이지 & 옷장
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          마이페이지 (My Closet)
                         </h4>
-                        <p className="text-gray-200 leading-relaxed">
-                          개인화된 옷장 시스템으로 찜한 상품과 구매 내역을 
-                          체계적으로 관리합니다. 사용자 패턴 분석을 통한 
-                          맞춤형 상품 추천을 제공합니다.
+                        <p className="text-gray-200 mb-4">
+                          찜한 상품, 구매 내역, 등록 정보 수정 기능을
+                          구현했습니다. 사용자 옷장 기반 상품 추천 로직을
+                          적용했습니다.
                         </p>
                       </div>
 
-                      <div className="bg-gray-600 rounded-lg p-6 border border-gray-500 hover:bg-gray-500 transition-all duration-200 hover:scale-105">
-                        <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                          💳 결제 & 배송 시스템
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          결제 / 배송 페이지
                         </h4>
-                        <p className="text-gray-200 leading-relaxed">
-                          카카오 지도 API 연동으로 편리한 주소 검색과 입력을 
-                          구현했습니다. 장바구니 연동 결제 프로세스로 
-                          원활한 쇼핑 경험을 제공합니다.
+                        <p className="text-gray-200 mb-4">
+                          주소 검색 + 카카오 지도 연동을 구현했습니다. 최근 구조
+                          변경으로 모달 제거 후 직접 입력 방식으로 개선했으며,
+                          장바구니 연동 결제 프로세스를 구성했습니다.
                         </p>
                       </div>
                     </div>
