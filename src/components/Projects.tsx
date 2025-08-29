@@ -5,7 +5,10 @@ import projectImg1 from '../assets/projectImg1.jpg';
 import projectImg2 from '../assets/projectImg2.jpg';
 import projectImg3 from '../assets/projectImg3.jpg';
 import projectImg4 from '../assets/projectImg4.jpg';
-import melpikUI from '../assets/MelpikUI_1.gif';
+import melpikUI1 from '../assets/MelpikUI_1.gif';
+import melpikUI2 from '../assets/MelpikUI_2.gif';
+import melpikUI3 from '../assets/MelpikUI_3.gif';
+import melpikUI4 from '../assets/MelpikUI_4.gif';
 
 interface Project {
   id: number;
@@ -363,19 +366,61 @@ const Projects = () => {
               {/* Project Details - Melpik 사용자 웹 & 하이브리드 앱 전용 */}
               {selectedProject.id === 1 && (
                 <>
-                  {/* Project Image */}
+                  {/* Project UI Images */}
                   <div className="bg-gray-700 rounded-xl p-8 mb-8">
                     <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
                       <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
                       프로젝트 UI
                     </h3>
-                    <div className="w-full flex justify-center">
-                      <img
-                        src={melpikUI}
-                        alt="Melpik 사용자 웹 & 하이브리드 앱 UI"
-                        className="w-full max-w-2xl rounded-lg shadow-lg"
-                        style={{ maxHeight: '400px', objectFit: 'contain' }}
-                      />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                            메인 화면
+                          </h4>
+                          <img
+                            src={melpikUI1}
+                            alt="Melpik 메인 화면"
+                            className="w-full rounded-lg shadow-lg"
+                            style={{ maxHeight: '300px', objectFit: 'contain' }}
+                          />
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                            상품 상세
+                          </h4>
+                          <img
+                            src={melpikUI2}
+                            alt="Melpik 상품 상세 화면"
+                            className="w-full rounded-lg shadow-lg"
+                            style={{ maxHeight: '300px', objectFit: 'contain' }}
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                            마이페이지
+                          </h4>
+                          <img
+                            src={melpikUI3}
+                            alt="Melpik 마이페이지"
+                            className="w-full rounded-lg shadow-lg"
+                            style={{ maxHeight: '300px', objectFit: 'contain' }}
+                          />
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                            결제/배송
+                          </h4>
+                          <img
+                            src={melpikUI4}
+                            alt="Melpik 결제/배송 화면"
+                            className="w-full rounded-lg shadow-lg"
+                            style={{ maxHeight: '300px', objectFit: 'contain' }}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
 
