@@ -1,5 +1,4 @@
-import React from 'react';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 
 const ThemeToggle: React.FC = () => {
@@ -34,8 +33,7 @@ const ThemeToggle: React.FC = () => {
       }}
       onMouseLeave={e => {
         e.currentTarget.style.transform = 'scale(1)';
-        e.currentTarget.style.boxShadow =
-          '0 10px 25px -5px rgba(0, 0, 0, 0.1)';
+        e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.1)';
         e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
         e.currentTarget.style.borderColor = 'var(--border-color)';
       }}
