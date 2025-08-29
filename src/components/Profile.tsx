@@ -1,16 +1,30 @@
-import profileImage from '../assets/profile-photo.jpeg';
-
+// public 폴더의 이미지를 사용하도록 변경
 const Profile = () => {
+  const handleImageLoad = () => {
+    console.log('프로필 이미지 로드 성공');
+    console.log('이미지 경로:', '/profile-photo.jpeg');
+  };
+
+  const handleImageError = (error: any) => {
+    console.error('프로필 이미지 로드 실패:', error);
+    console.error('시도한 이미지 경로:', '/profile-photo.jpeg');
+    console.error('에러 타입:', error.type);
+    console.error('에러 타겟:', error.target);
+  };
+
   return (
     <div className="space-y-8">
       {/* Profile Picture - Centered */}
       <div className="flex justify-center">
         <div className="w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-700">
           <img
-            src={profileImage}
+            src="/profile-photo.jpeg"
             alt="유민기 면접사진"
             className="w-full h-full object-cover"
             style={{ width: '210px', height: '210px' }}
+            onLoad={handleImageLoad}
+            onError={handleImageError}
+            crossOrigin="anonymous"
           />
         </div>
       </div>

@@ -16,7 +16,7 @@ const HomePage = () => {
           <div className="profile-image">
             <div className="profile-image-container">
               <img
-                src="/src/assets/면접사진.jpeg"
+                src="/profile-photo.jpeg"
                 alt="유민기 면접사진"
                 className="profile-image"
               />
