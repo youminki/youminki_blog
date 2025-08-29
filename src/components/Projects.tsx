@@ -115,7 +115,7 @@ const Projects = () => {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '2.5rem',
+          gap: '5rem',
         }}
       >
         {projects.map(project => (
@@ -126,11 +126,11 @@ const Projects = () => {
               openModal(project);
             }}
             className="bg-gray-800 rounded-xl border border-gray-700 hover:border-transparent transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-2xl overflow-hidden w-full relative group rainbow-border"
-            style={{ minWidth: '320px', borderRadius: '1rem' }}
+            style={{ minWidth: '320px', borderRadius: '1rem', padding: '1rem' }}
           >
             {/* Project Image - 고정 높이 200px */}
             <div
-              className="w-full h-50 relative overflow-hidden"
+              className="w-full h-50 relative overflow-hidden p-3"
               style={{ height: '300px' }}
             >
               {project.image ? (
