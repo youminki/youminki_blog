@@ -412,6 +412,8 @@ body {
 /* Rainbow border animation for project cards */
 .rainbow-border {
   position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .rainbow-border::before {
@@ -450,13 +452,13 @@ body {
   border-radius: 1rem;
   background: linear-gradient(
     45deg,
-    #5a3c5a,
-    #6a4c3a,
-    #5a6a3c,
-    #3c5a6a,
-    #3c4a6a,
-    #5a3c5a,
-    #6a3c5a
+    #4a2c4a,
+    #5a3c2a,
+    #4a5a2c,
+    #2c4a5a,
+    #2c3a5a,
+    #4a2c4a,
+    #5a2c4a
   );
   background-size: 200% 200%;
   animation: rainbow-border 4s cubic-bezier(0.4, 0, 0.2, 1) infinite reverse;
@@ -465,24 +467,37 @@ body {
   z-index: 0;
   border: 2px solid transparent;
   background-clip: padding-box;
-  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.3));
 }
 
 .rainbow-border:hover::before {
   opacity: 1;
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
-  transform: scale(1.02);
 }
 
 .rainbow-border:hover::after {
   opacity: 1;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
-  transform: scale(0.98);
 }
 
 .rainbow-border > * {
   position: relative;
   z-index: 1;
+}
+
+/* Project cards grid container */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Project card */
+.project-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 @keyframes rainbow-border {
