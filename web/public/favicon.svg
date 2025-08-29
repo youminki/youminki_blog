@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Purple background -->
+  <rect x="0" y="0" width="100" height="100" fill="#8b5cf6"/>
+  
+  <!-- Maximum size white 'Y' letter -->
+  <text x="50" y="70" font-family="Arial, sans-serif" font-size="70" font-weight="900" text-anchor="middle" fill="white">Y</text>
+</svg>
