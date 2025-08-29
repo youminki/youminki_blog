@@ -29,7 +29,8 @@ const HomePage = () => {
             <div className="quote-card">
               <p className="quote-text">
                 "개발을 할 때가 가장 행복한{' '}
-                <span className="quote-highlight">개발자</span> 유민기입니다.."
+                <span className="quote-highlight">프론트엔드 개발자</span>{' '}
+                유민기입니다."
               </p>
             </div>
 
