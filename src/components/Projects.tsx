@@ -304,11 +304,11 @@ const Projects = () => {
           onClick={handleBackdropClick}
         >
           <div
-            className="bg-gray-800 rounded-2xl w-full max-w-[1000px] h-[85vh] overflow-hidden flex flex-col shadow-2xl"
+            className="bg-gray-800 rounded-2xl w-full max-w-[800px] h-[85vh] overflow-hidden flex flex-col shadow-2xl"
             style={{
               backgroundColor: '#1f2937',
               borderRadius: '1rem',
-              maxWidth: '1000px',
+              maxWidth: '700px',
               maxHeight: '85vh',
               minHeight: '70vh',
               padding: '1rem',
@@ -372,63 +372,57 @@ const Projects = () => {
                       <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
                       프로젝트 UI
                     </h3>
-                    <div className="space-y-6">
-                      {/* First Row */}
-                      <div className="flex flex-col lg:flex-row gap-6 w-full">
-                        {/* UI Card 1 */}
-                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 w-full lg:w-1/2">
-                          <h4 className="text-lg font-semibold text-white mb-3 text-center">
-                            메인 화면
-                          </h4>
-                          <img
-                            src={melpikUI1}
-                            alt="Melpik 메인 화면"
-                            className="w-full rounded-lg shadow-lg"
-                            style={{ maxHeight: '350px', objectFit: 'contain' }}
-                          />
-                        </div>
-
-                        {/* UI Card 2 */}
-                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 w-full lg:w-1/2">
-                          <h4 className="text-lg font-semibold text-white mb-3 text-center">
-                            상품 상세
-                          </h4>
-                          <img
-                            src={melpikUI2}
-                            alt="Melpik 상품 상세 화면"
-                            className="w-full rounded-lg shadow-lg"
-                            style={{ maxHeight: '350px', objectFit: 'contain' }}
-                          />
-                        </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* UI Card 1 */}
+                      <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
+                        <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                          메인 화면
+                        </h4>
+                        <img
+                          src={melpikUI1}
+                          alt="Melpik 메인 화면"
+                          className="w-full rounded-lg shadow-lg"
+                          style={{ maxHeight: '300px', objectFit: 'contain' }}
+                        />
                       </div>
 
-                      {/* Second Row */}
-                      <div className="flex flex-col lg:flex-row gap-6 w-full">
-                        {/* UI Card 3 */}
-                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 w-full lg:w-1/2">
-                          <h4 className="text-lg font-semibold text-white mb-3 text-center">
-                            마이페이지
-                          </h4>
-                          <img
-                            src={melpikUI3}
-                            alt="Melpik 마이페이지"
-                            className="w-full rounded-lg shadow-lg"
-                            style={{ maxHeight: '350px', objectFit: 'contain' }}
-                          />
-                        </div>
+                      {/* UI Card 2 */}
+                      <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
+                        <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                          상품 상세
+                        </h4>
+                        <img
+                          src={melpikUI2}
+                          alt="Melpik 상품 상세 화면"
+                          className="w-full rounded-lg shadow-lg"
+                          style={{ maxHeight: '300px', objectFit: 'contain' }}
+                        />
+                      </div>
 
-                        {/* UI Card 4 */}
-                        <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200 w-full lg:w-1/2">
-                          <h4 className="text-lg font-semibold text-white mb-3 text-center">
-                            결제/배송
-                          </h4>
-                          <img
-                            src={melpikUI4}
-                            alt="Melpik 결제/배송 화면"
-                            className="w-full rounded-lg shadow-lg"
-                            style={{ maxHeight: '350px', objectFit: 'contain' }}
-                          />
-                        </div>
+                      {/* UI Card 3 */}
+                      <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
+                        <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                          마이페이지
+                        </h4>
+                        <img
+                          src={melpikUI3}
+                          alt="Melpik 마이페이지"
+                          className="w-full rounded-lg shadow-lg"
+                          style={{ maxHeight: '300px', objectFit: 'contain' }}
+                        />
+                      </div>
+
+                      {/* UI Card 4 */}
+                      <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
+                        <h4 className="text-lg font-semibold text-white mb-3 text-center">
+                          결제/배송
+                        </h4>
+                        <img
+                          src={melpikUI4}
+                          alt="Melpik 결제/배송 화면"
+                          className="w-full rounded-lg shadow-lg"
+                          style={{ maxHeight: '300px', objectFit: 'contain' }}
+                        />
                       </div>
                     </div>
                   </div>
