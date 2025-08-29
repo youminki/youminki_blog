@@ -52,18 +52,31 @@ const Projects = () => {
 
     {
       id: 2,
-      title: '멜픽 관리자 웹',
+      title: 'Melpik 관리자 페이지',
       description:
-        'Melpik 관리자 페이지는 사용자 웹과 하이브리드 앱에서 발생하는 주문, 상품, 유저 데이터를 통합 관리할 수 있는 내부 운영 시스템입니다.',
-      technologies: ['React', 'JavaScript', 'CSS3', 'LocalStorage'],
+        'Melpik 관리자 페이지는 사용자 웹과 하이브리드 앱에서 발생하는 주문, 상품, 유저 데이터를 통합 관리할 수 있는 내부 운영 시스템입니다. 서비스 운영자들이 상품 등록/수정, 주문 처리, 통계 확인, 유저 정보 관리 등을 직관적으로 수행할 수 있도록 설계되었습니다.',
+      technologies: [
+        'React 19',
+        'TypeScript',
+        'Styled Components',
+        'React Query',
+        'Chart.js',
+        'ApexCharts',
+        'Axios',
+        'Context API',
+      ],
       image: projectImg2,
-      githubUrl: 'https://github.com/youminki/todo-app',
-      liveUrl: 'https://todo-app-demo.vercel.app',
+      githubUrl: 'https://github.com/youminki/melpik-admin',
+      liveUrl: 'https://admin-me1pik.com',
       features: [
-        'CRUD 기능',
-        '로컬 스토리지',
-        '반응형 디자인',
-        '드래그 앤 드롭',
+        '상품 관리 (Product CRUD)',
+        '주문/결제 관리 시스템',
+        '유저 관리 및 권한 관리',
+        '통계/대시보드 시각화',
+        '코드 스플리팅 + Lazy Loading',
+        'React Query 기반 상태 관리',
+        '에러 처리 & 사용자 피드백 시스템',
+        '모바일 대응 반응형 구조',
       ],
     },
     {
@@ -79,7 +92,7 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: '클로버 전시회 초대장 웹 프로젝트 - In a row',
+      title: '클로버 전시회 초대장 - In a row',
       description:
         "'In a row'는 클로버 전시회를 소개하고, 각 팀의 디자인 철학과 이야기를 전달하기 위한 웹 초대장입니다. React 기반으로 개발된 이 웹사이트는 전시 기획 의도 설명, 팀 프로젝트 소개, 팟캐스트/도슨트 QR 연동, 그리고 모바일 UX 최적화에 중점을 두고 구현되었습니다.",
       technologies: ['React', 'JavaScript', 'CSS Modules', 'Figma', 'GitHub'],
@@ -321,6 +334,195 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Project Details - Melpik 관리자 페이지 전용 */}
+              {selectedProject.id === 2 && (
+                <>
+                  {/* Role & Period */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      프로젝트 정보
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          역할
+                        </h4>
+                        <p className="text-gray-200">
+                          관리자 시스템 프론트엔드 전담 개발
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          기간
+                        </h4>
+                        <p className="text-gray-200">2024.07 ~ 2025.07</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Main Features */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      구현한 주요 기능
+                    </h3>
+                    <div className="space-y-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          상품 관리 (Product CRUD)
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          상품 목록 조회, 검색 필터링, 신규 상품 등록, 수정, 
+                          삭제 기능을 구현했습니다. 이미지 업로드 및 썸네일 
+                          미리보기 기능을 포함하여 카테고리, 해시태그, 가격, 
+                          상태 등 복합 필드 관리 UI를 구성했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          주문/결제 관리
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          결제 상태, 배송 상태, 사용자 정보 기반 필터링을 
+                          구현했습니다. 배송준비중, 배송중, 배송완료 등의 상태 
+                          전환 처리를 통해 주문 프로세스를 효율적으로 관리할 수 
+                          있습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          유저 관리
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          회원 정보 목록, 권한 관리, 활동 로그 확인 기능을 
+                          구현했습니다. 이벤트 참여자, 구매자 분류를 위한 검색 
+                          및 통계 기능을 통해 사용자 데이터를 체계적으로 관리할 
+                          수 있습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          통계/대시보드
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          총 주문 건수, 상품별 판매량, 인기 카테고리를 시각화했습니다. 기간 필터(일간/주간/월간)와 차트(막대/선 그래프)를 통해 데이터를 직관적으로 분석할 수 있습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Technical Implementation */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      기술적 구현 및 개선점
+                    </h3>
+                    <div className="space-y-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          코드 스플리팅 + Lazy Loading 적용
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          초기 관리자 대시보드 로딩 속도를 최적화했습니다. 불필요한 컴포넌트 렌더링을 지연시켜 UX를 향상시켰습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          React Query 기반 상태 관리로 전환
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          서버 상태와 UI 상태를 분리하여 데이터 일관성을 확보했습니다. 중복 API 요청 방지 및 캐싱을 적용했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          에러 처리 & 사용자 피드백 시스템 강화
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          API 호출 실패 시 Alert 메시지 처리를 구현했습니다. 제출 완료 시 확인 메시지 및 페이지 리디렉션 로직을 추가했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          모바일 대응을 고려한 반응형 구조 적용
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          사이드바 메뉴 축소, 토글형 필터링 UI를 구성했습니다. 모바일 접근 시 최소 기능만 표시되도록 대응했습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tech Stack Details */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      기술 스택 상세
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          Frontend
+                        </h4>
+                        <p className="text-gray-200">
+                          React 19, TypeScript, Styled Components
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          상태 관리
+                        </h4>
+                        <p className="text-gray-200">React Query, Context API</p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          차트 라이브러리
+                        </h4>
+                        <p className="text-gray-200">Chart.js, ApexCharts</p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          배포 환경
+                        </h4>
+                        <p className="text-gray-200">Netlify</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Retrospective */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      프로젝트 회고
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • 실제 운영자가 사용하는 시스템인 만큼, 사용성(Usability)과 정보 구조 설계(Information Architecture)에 대한 감각을 키울 수 있던 경험이었습니다.
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • 데이터 흐름 구조를 정리하고, 서버-프론트 간 연동 설계를 하면서 실시간 데이터 처리와 상태 관리 최적화에 자신감을 얻게 되었습니다.
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • 관리자의 반복 업무를 자동화하고 효율화하는 기능을 기획부터 구현까지 맡으며, 실무에 가까운 B2B SaaS형 대시보드 개발 경험을 쌓았습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
 
               {/* Project Details - 클로버 전시회 초대장 전용 */}
               {selectedProject.id === 4 && (
