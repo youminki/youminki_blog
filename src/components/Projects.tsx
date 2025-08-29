@@ -115,7 +115,7 @@ const Projects = () => {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '5rem',
+          gap: '4rem',
         }}
       >
         {projects.map(project => (
@@ -194,10 +194,24 @@ const Projects = () => {
                 style={{ marginTop: 'auto', paddingTop: '20px' }}
               >
                 <span
-                  className="text-[var(--accent-color)] text-xs font-medium bg-gray-700 rounded-full border border-gray-600 hover:border-[var(--accent-color)] hover:bg-gray-600 transition-all duration-200 inline-block"
+                  className="text-xs font-medium rounded-full transition-all duration-200 inline-block"
                   style={{
                     padding: '10px 20px',
                     fontSize: '12px',
+                    color: '#ffffff',
+                    backgroundColor: 'transparent',
+                    border: '2px solid #a78bfa',
+                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+                  }}
+                  onMouseEnter={e => {
+                    const target = e.target as HTMLElement;
+                    target.style.borderColor = '#c4b5fd';
+                    target.style.backgroundColor = '#a78bfa';
+                  }}
+                  onMouseLeave={e => {
+                    const target = e.target as HTMLElement;
+                    target.style.borderColor = '#a78bfa';
+                    target.style.backgroundColor = 'transparent';
                   }}
                 >
                   클릭하여 자세히 보기
