@@ -372,8 +372,9 @@ const Projects = () => {
                       <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
                       프로젝트 UI
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-4">
+                    <div className="space-y-6">
+                      {/* First Row */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <h4 className="text-lg font-semibold text-white mb-3 text-center">
                             메인 화면
@@ -382,7 +383,7 @@ const Projects = () => {
                             src={melpikUI1}
                             alt="Melpik 메인 화면"
                             className="w-full rounded-lg shadow-lg"
-                            style={{ maxHeight: '300px', objectFit: 'contain' }}
+                            style={{ maxHeight: '350px', objectFit: 'contain' }}
                           />
                         </div>
                         <div>
@@ -393,11 +394,12 @@ const Projects = () => {
                             src={melpikUI2}
                             alt="Melpik 상품 상세 화면"
                             className="w-full rounded-lg shadow-lg"
-                            style={{ maxHeight: '300px', objectFit: 'contain' }}
+                            style={{ maxHeight: '350px', objectFit: 'contain' }}
                           />
                         </div>
                       </div>
-                      <div className="space-y-4">
+                      {/* Second Row */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <h4 className="text-lg font-semibold text-white mb-3 text-center">
                             마이페이지
@@ -406,7 +408,7 @@ const Projects = () => {
                             src={melpikUI3}
                             alt="Melpik 마이페이지"
                             className="w-full rounded-lg shadow-lg"
-                            style={{ maxHeight: '300px', objectFit: 'contain' }}
+                            style={{ maxHeight: '350px', objectFit: 'contain' }}
                           />
                         </div>
                         <div>
@@ -417,7 +419,7 @@ const Projects = () => {
                             src={melpikUI4}
                             alt="Melpik 결제/배송 화면"
                             className="w-full rounded-lg shadow-lg"
-                            style={{ maxHeight: '300px', objectFit: 'contain' }}
+                            style={{ maxHeight: '350px', objectFit: 'contain' }}
                           />
                         </div>
                       </div>
