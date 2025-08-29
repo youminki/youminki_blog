@@ -91,7 +91,9 @@ function App() {
 
           {/* Full Width Sections */}
           <div className="section-spacing">
-            <Skills />
+            <div className="w-full">
+              <Skills />
+            </div>
             <Projects />
           </div>
         </div>

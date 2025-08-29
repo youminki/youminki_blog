@@ -72,6 +72,53 @@ body {
   gap: 0.125rem;
 }
 
+/* Skills grid layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.125rem;
+}
+
+/* Skills single row layout */
+.skills-single-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  max-width: 100%;
+}
+
+.skills-card {
+  width: 100%;
+}
+
+/* Skill chip styling */
+.skill-chip {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow-light);
+}
+
+.skill-chip-underlined {
+  text-decoration: underline;
+  text-decoration-color: var(--text-secondary);
+  text-underline-offset: 3px;
+}
+
+.skill-chip:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  text-decoration-color: #ffffff;
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px var(--shadow-medium);
+}
+
 /* Section styling */
 .section-card {
   background-color: var(--bg-secondary);
@@ -142,6 +189,22 @@ body {
 
   .career-school-row > section {
     flex: 1;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .skills-single-row {
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .skills-card {
+    flex: 1;
+    min-width: 300px;
   }
 
   .section-card {
