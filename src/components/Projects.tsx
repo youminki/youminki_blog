@@ -22,25 +22,39 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: '포트폴리오 웹사이트',
+      title: 'Melpik 사용자 웹 & 하이브리드 앱',
       description:
-        'React와 TypeScript를 사용한 개인 포트폴리오 웹사이트입니다. 반응형 디자인과 다크 테마를 적용했습니다.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+        '사용자 맞춤형 패션 추천과 개인 옷장 기능을 중심으로 한 웹 서비스로, 웹앱 + 하이브리드 앱(iOS/Android) 형태로 제작되었습니다. 관리자 페이지를 별도로 구축하여 상품/유저/주문/통계 관리가 가능한 통합 운영 시스템도 구현하였습니다.',
+      technologies: [
+        'React 19',
+        'TypeScript',
+        'React Native',
+        'Expo',
+        'WebView',
+        'Styled Components',
+        'React Query',
+        'Vite',
+      ],
       image: projectImg1,
-      githubUrl: 'https://github.com/youminki/youminki_blog',
-      liveUrl: 'https://youminki-blog.vercel.app',
+      githubUrl: 'https://github.com/youminki/melpik',
+      liveUrl: 'https://me1pik.com/melpik',
       features: [
-        '반응형 디자인',
-        '다크/라이트 테마 전환',
-        '모던한 UI/UX',
-        'SEO 최적화',
+        '사용자 맞춤형 패션 추천 시스템',
+        '개인 옷장 및 찜하기 기능',
+        '웹앱 + 하이브리드 앱 동시 지원',
+        '관리자 통합 운영 시스템',
+        'React Query 기반 상태 관리',
+        'Vite 도입으로 로딩 속도 개선',
+        '모바일 UX 최적화',
+        '앱스토어 배포 완료',
       ],
     },
+
     {
       id: 2,
-      title: '투두 리스트 앱',
+      title: '멜픽 관리자 웹',
       description:
-        '사용자 친화적인 인터페이스로 일정을 관리할 수 있는 투두 리스트 애플리케이션입니다.',
+        'Melpik 관리자 페이지는 사용자 웹과 하이브리드 앱에서 발생하는 주문, 상품, 유저 데이터를 통합 관리할 수 있는 내부 운영 시스템입니다.',
       technologies: ['React', 'JavaScript', 'CSS3', 'LocalStorage'],
       image: projectImg2,
       githubUrl: 'https://github.com/youminki/todo-app',
@@ -54,25 +68,30 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: '날씨 정보 앱',
+      title: 'ADHD 감정일기 웹 서비스',
       description:
-        '실시간 날씨 정보를 제공하는 웹 애플리케이션으로, 사용자 위치 기반 날씨 데이터를 표시합니다.',
+        '사용자의 기록을 기록하고, 집약 세션을 통해 목표를 향해 경기를 준비하기 위해 만들었습니다.',
       technologies: ['React', 'OpenWeather API', 'Geolocation', 'Tailwind CSS'],
-      image: 'https://picsum.photos/800/400?random=3',
+      image: projectImg1,
       githubUrl: 'https://github.com/youminki/weather-app',
       liveUrl: 'https://weather-app-demo.vercel.app',
       features: ['실시간 날씨', '위치 기반', '5일 예보', '아이콘 표시'],
     },
     {
       id: 4,
-      title: '쇼핑몰 웹사이트',
+      title: '클로버 전시회 초대장',
       description:
-        '전자상거래 기능을 갖춘 쇼핑몰 웹사이트로, 상품 검색과 장바구니 기능을 제공합니다.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      image: 'https://picsum.photos/800/400?random=4',
-      githubUrl: 'https://github.com/youminki/shopping-mall',
-      liveUrl: 'https://shopping-mall-demo.vercel.app',
-      features: ['상품 검색', '장바구니', '결제 시스템', '관리자 패널'],
+        '‘In a row’는 클로버 전시회를 소개하고, 각 팀의 디자인 철학과 이야기를 전달하기 위한 웹 초대장입니다.',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+      image: projectImg1,
+      githubUrl: 'https://github.com/youminki/youminki_blog',
+      liveUrl: 'https://youminki-blog.vercel.app',
+      features: [
+        '반응형 디자인',
+        '다크/라이트 테마 전환',
+        '모던한 UI/UX',
+        'SEO 최적화',
+      ],
     },
   ];
 
@@ -154,7 +173,7 @@ const Projects = () => {
                 </h3>
 
                 {/* Project Description */}
-                <p className="text-gray-300 text-sm mb-5 px-6 line-clamp-2 leading-relaxed">
+                <p className="text-gray-300 text-sm mb-5 px-6 line-clamp-5 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -168,7 +187,7 @@ const Projects = () => {
                       alignItems: 'center',
                     }}
                   >
-                    {project.technologies.slice(0, 3).map((tech, index) => (
+                    {project.technologies.slice(0, 5).map((tech, index) => (
                       <span
                         key={index}
                         className="px-4 py-2 bg-gray-700 text-gray-300 text-xs rounded-full border border-gray-600 hover:border-[var(--accent-color)] transition-colors text-center"
@@ -246,18 +265,21 @@ const Projects = () => {
             style={{
               backgroundColor: '#1f2937',
               borderRadius: '1rem',
-              maxWidth: '800px',
-              minWidth: '40vw',
+              maxWidth: '700px',
               maxHeight: '85vh',
               minHeight: '70vh',
+              padding: '1rem',
             }}
             onClick={e => e.stopPropagation()}
           >
             {/* Modal Header */}
             <div className="flex justify-between items-start p-8 border-b border-gray-700 bg-gray-900 rounded-t-2xl flex-shrink-0">
-              <h2 className="text-3xl font-bold text-white pr-4 leading-tight">
-                {selectedProject.title}
-              </h2>
+              <div className="flex-1 pr-4">
+                <h2 className="text-2xl font-bold text-white mb-2">
+                  {selectedProject.title}
+                </h2>
+                <p className="text-gray-300 text-sm">프로젝트 상세 정보</p>
+              </div>
               <button
                 onClick={closeModal}
                 className="text-gray-400 hover:text-white transition-colors p-3 rounded-full hover:bg-gray-700 flex-shrink-0"
@@ -278,25 +300,6 @@ const Projects = () => {
                 <p className="text-gray-200 leading-relaxed text-lg">
                   {selectedProject.description}
                 </p>
-              </div>
-
-              {/* Features */}
-              <div className="bg-gray-700 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-                  <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
-                  주요 기능
-                </h3>
-                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  {selectedProject.features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center gap-4 text-gray-200 bg-gray-600 p-6 rounded-lg hover:bg-gray-500 transition-colors"
-                    >
-                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full flex-shrink-0"></span>
-                      <span className="text-lg">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               {/* Technologies */}
