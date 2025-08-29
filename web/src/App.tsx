@@ -3,7 +3,7 @@ import AboutMe from './components/AboutMe';
 import Career from './components/Career';
 import School from './components/School';
 import Skills from './components/Skills';
-import Projects from './components/Projects';
+
 import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
 import { MdEmail, MdPhone, MdLink } from 'react-icons/md';
@@ -87,14 +87,6 @@ function App() {
               <Career />
               <School />
             </div>
-          </div>
-
-          {/* Full Width Sections */}
-          <div className="section-spacing">
-            <div className="w-full">
-              <Skills />
-            </div>
-            <Projects />
           </div>
         </div>
       </main>
