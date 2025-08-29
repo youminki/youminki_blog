@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { MdRocketLaunch, MdClose, MdLink } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
+import projectImg1 from '../assets/projectImg1.jpg';
+import projectImg2 from '../assets/projectImg2.jpg';
 
 interface Project {
   id: number;
@@ -10,7 +12,7 @@ interface Project {
   githubUrl?: string;
   liveUrl?: string;
   features: string[];
-  image: string; // Added image property
+  image: string; // image로 다시 변경
 }
 
 const Projects = () => {
@@ -24,7 +26,7 @@ const Projects = () => {
       description:
         'React와 TypeScript를 사용한 개인 포트폴리오 웹사이트입니다. 반응형 디자인과 다크 테마를 적용했습니다.',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-      image: 'https://picsum.photos/800/400?random=1',
+      image: projectImg1,
       githubUrl: 'https://github.com/youminki/youminki_blog',
       liveUrl: 'https://youminki-blog.vercel.app',
       features: [
@@ -40,7 +42,7 @@ const Projects = () => {
       description:
         '사용자 친화적인 인터페이스로 일정을 관리할 수 있는 투두 리스트 애플리케이션입니다.',
       technologies: ['React', 'JavaScript', 'CSS3', 'LocalStorage'],
-      image: 'https://picsum.photos/800/400?random=2',
+      image: projectImg2,
       githubUrl: 'https://github.com/youminki/todo-app',
       liveUrl: 'https://todo-app-demo.vercel.app',
       features: [
@@ -126,30 +128,40 @@ const Projects = () => {
             className="bg-gray-800 rounded-xl border border-gray-700 hover:border-[var(--accent-color)] transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-2xl overflow-hidden w-full"
             style={{ minWidth: '320px' }}
           >
-            {/* Project Image - 더 작은 높이 */}
-            <div className="w-full h-28 relative overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-              {/* Image Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-              {/* Project Title Overlay */}
-              <div className="absolute bottom-2 left-2 right-2">
-                <h3 className="text-base font-bold text-white mb-1 drop-shadow-lg line-clamp-1">
-                  {project.title}
-                </h3>
-                <p className="text-gray-200 text-xs drop-shadow-lg line-clamp-1">
-                  {project.description}
-                </p>
-              </div>
+            {/* Project Image - 고정 높이 200px */}
+            <div
+              className="w-full h-50 relative overflow-hidden"
+              style={{ height: '200px' }}
+            >
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gray-700 text-gray-400 text-sm">
+                  이미지가 없습니다
+                </div>
+              )}
             </div>
 
-            {/* Project Info Below Image */}
-            <div className="p-4">
-              {/* Technologies */}
+            {/* Project Info Below Image - 별도 높이 설정 */}
+            <div
+              className="p-4 bg-gray-800 border-t border-gray-700"
+              style={{ minHeight: '120px' }}
+            >
+              {/* Project Title */}
+              <h3 className="text-lg font-bold text-white mb-2 line-clamp-1">
+                {project.title}
+              </h3>
+
+              {/* Project Description */}
+              <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+                {project.description}
+              </p>
+
+              {/* Technologies Tags */}
               <div className="flex flex-wrap gap-2 mb-3">
                 {project.technologies.slice(0, 3).map((tech, index) => (
                   <span
