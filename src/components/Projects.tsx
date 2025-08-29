@@ -125,13 +125,13 @@ const Projects = () => {
               console.log('프로젝트 클릭됨:', project.title);
               openModal(project);
             }}
-            className="bg-gray-800 rounded-xl border border-gray-700 hover:border-[var(--accent-color)] transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-2xl overflow-hidden w-full"
-            style={{ minWidth: '320px' }}
+            className="bg-gray-800 rounded-xl border border-gray-700 hover:border-[var(--accent-color)] transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-2xl overflow-hidden w-full relative group"
+            style={{ minWidth: '320px', borderRadius: '1rem' }}
           >
             {/* Project Image - 고정 높이 200px */}
             <div
               className="w-full h-50 relative overflow-hidden"
-              style={{ height: '200px' }}
+              style={{ height: '300px' }}
             >
               {project.image ? (
                 <img
@@ -148,39 +148,58 @@ const Projects = () => {
 
             {/* Project Info Below Image - 별도 높이 설정 */}
             <div
-              className="p-4 bg-gray-800 border-t border-gray-700"
-              style={{ minHeight: '120px' }}
+              className="bg-gray-800 border-t border-gray-700"
+              style={{ minHeight: '140px', padding: '1rem' }}
             >
               {/* Project Title */}
-              <h3 className="text-lg font-bold text-white mb-2 line-clamp-1">
+              <h3 className="text-lg font-bold text-white mb-4 px-6 pt-6 line-clamp-1">
                 {project.title}
               </h3>
 
               {/* Project Description */}
-              <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+              <p className="text-gray-300 text-sm mb-5 px-6 line-clamp-2 leading-relaxed">
                 {project.description}
               </p>
 
               {/* Technologies Tags */}
-              <div className="flex flex-wrap gap-2 mb-3">
-                {project.technologies.slice(0, 3).map((tech, index) => (
-                  <span
-                    key={index}
-                    className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded-full border border-gray-600"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                {project.technologies.length > 3 && (
-                  <span className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded-full border border-gray-600">
-                    +{project.technologies.length - 3}
-                  </span>
-                )}
+              <div className="px-6 mb-6">
+                <div
+                  className="grid grid-cols-3 gap-4"
+                  style={{
+                    gap: '0.5rem',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  {project.technologies.slice(0, 3).map((tech, index) => (
+                    <span
+                      key={index}
+                      className="px-4 py-2 bg-gray-700 text-gray-300 text-xs rounded-full border border-gray-600 hover:border-[var(--accent-color)] transition-colors text-center"
+                      title={tech}
+                    >
+                      {tech.length > 10 ? `${tech.substring(0, 10)}...` : tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="px-4 py-2 bg-gray-700 text-gray-300 text-xs rounded-full border border-gray-600 hover:border-[var(--accent-color)] transition-colors text-center">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
               </div>
 
               {/* Click Indicator */}
-              <div className="text-center">
-                <span className="text-[var(--accent-color)] text-xs font-medium">
+              <div
+                className="text-center px-6"
+                style={{ marginTop: 'auto', paddingTop: '20px' }}
+              >
+                <span
+                  className="text-[var(--accent-color)] text-xs font-medium bg-gray-700 rounded-full border border-gray-600 hover:border-[var(--accent-color)] hover:bg-gray-600 transition-all duration-200 inline-block"
+                  style={{
+                    padding: '10px 20px',
+                    fontSize: '12px',
+                  }}
+                >
                   클릭하여 자세히 보기
                 </span>
               </div>
