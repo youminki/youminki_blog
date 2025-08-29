@@ -24,7 +24,7 @@ const Projects = () => {
       id: 1,
       title: 'Melpik 사용자 웹 & 하이브리드 앱',
       description:
-        '사용자 맞춤형 패션 추천과 개인 옷장 기능을 중심으로 한 웹 서비스로, 웹앱 + 하이브리드 앱(iOS/Android) 형태로 제작되었습니다. 관리자 페이지를 별도로 구축하여 상품/유저/주문/통계 관리가 가능한 통합 운영 시스템도 구현하였습니다.',
+        '서비스 확장성과 접근성을 고려해 웹앱 + 하이브리드 앱(iOS/Android) 형태로 제작되었으며, Melpik은 사용자 맞춤형 패션 추천과 개인 옷장 기능을 중심으로 한 웹 서비스입니다. 관리자 페이지를 별도로 구축하여 상품/유저/주문/통계 관리가 가능한 통합 운영 시스템도 구현하였습니다.',
       technologies: [
         'React 19',
         'TypeScript',
@@ -34,6 +34,8 @@ const Projects = () => {
         'Styled Components',
         'React Query',
         'Vite',
+        'Android Studio',
+        'Xcode',
       ],
       image: projectImg1,
       githubUrl: 'https://github.com/youminki/melpik',
@@ -47,6 +49,8 @@ const Projects = () => {
         'Vite 도입으로 로딩 속도 개선',
         '모바일 UX 최적화',
         '앱스토어 배포 완료',
+        '카카오 지도 연동',
+        'SEO 대응 및 공유 기능',
       ],
     },
 
@@ -335,6 +339,260 @@ const Projects = () => {
                 </div>
               </div>
 
+              {/* Project Details - Melpik 사용자 웹 & 하이브리드 앱 전용 */}
+              {selectedProject.id === 1 && (
+                <>
+                  {/* Role & Period */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      프로젝트 정보
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          역할
+                        </h4>
+                        <p className="text-gray-200">
+                          프론트엔드 개발 전담 (웹 + 모바일 하이브리드 앱 구현)
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          기간
+                        </h4>
+                        <p className="text-gray-200">2024.07 ~ 2025.07</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Main Features */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      주요 구현 페이지 및 기능
+                    </h3>
+                    <div className="space-y-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          홈 / 카테고리 페이지
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          사용자 기반 태그/필터 기능 및 제품 검색 기능을 구현했습니다. 
+                          인기 상품, 추천 스타일 섹션을 동적으로 구성하여 
+                          React Query + Lazy Loading을 적용했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          상세 페이지 (Product Detail)
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          사용자 반응을 고려한 이미지 슬라이더, 찜하기(하트), 
+                          장바구니 담기 기능을 구현했습니다. 상품 관련 상세 정보
+                          (사이즈, 소재, 스타일링 팁)를 구성했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          마이페이지 (My Closet)
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          찜한 상품, 구매 내역, 등록 정보 수정 기능을 구현했습니다. 
+                          사용자 옷장 기반 상품 추천 로직을 적용했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          결제 / 배송 페이지
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          주소 검색 + 카카오 지도 연동을 구현했습니다. 최근 구조 
+                          변경으로 모달 제거 후 직접 입력 방식으로 개선했으며, 
+                          장바구니 연동 결제 프로세스를 구성했습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hybrid App Development */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      하이브리드 앱 제작 요소
+                    </h3>
+                    <div className="space-y-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          앱 개발 및 배포
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          웹앱을 기반으로 React Native + Expo + WebView를 활용하여 
+                          하이브리드 앱을 제작했습니다. 앱의 메인 화면은 
+                          https://me1pik.com/melpik 웹앱을 렌더링하는 형태로 구성했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          플랫폼별 테스트 및 배포
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          안드로이드(Android Studio) 및 iOS(Xcode) 각각 테스트 및 
+                          배포를 진행했습니다. EAS Build를 활용하여 앱스토어 제출용 
+                          앱 번들(.aab / .ipa)을 생성하고 배포를 완료했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          기술적 고려 사항
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          deeplink 대응 처리로 웹 링크 → 앱 내부 페이지로 연결했습니다. 
+                          앱 내 StatusBar, Splash, Loading 처리 커스터마이징과 
+                          모바일에서의 입력 UX 개선(가상 키보드, 터치 간격 조정 등)을 
+                          구현했습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Improvements */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      개선한 점
+                    </h3>
+                    <div className="space-y-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          초기 로딩 속도 개선
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          Vite 도입 및 코드 스플리팅을 적용했습니다. React Lazy + 
+                          Suspense 적용으로 초기 로딩 시간을 8초 → 2.5초로 단축했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          상태 관리 구조 개선
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          Redux에서 TanStack Query 기반으로 전환하여 데이터 일관성을 
+                          확보하고 API 호출을 최적화했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          하이브리드 앱 최적화
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          WebView와의 상호작용 문제를 해결하기 위해 postMessage 구조를 
+                          설계했습니다. 모바일 입력 UX, 위치 권한, 하드웨어 뒤로가기 
+                          등의 문제를 처리했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          SEO 대응 및 공유 기능 개선
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          og:image, meta tag 설정으로 SNS 공유 시 미리보기 이미지를 
+                          제공했습니다. 제품 상세 페이지 링크 공유 시 사용자별 맞춤 
+                          정보를 연결했습니다.
+                        </p>
+                      </div>
+
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          웹-앱 통합 구조 설계
+                        </h4>
+                        <p className="text-gray-200 mb-4">
+                          웹-앱 통합 구조를 직접 설계 및 구현하여 플랫폼 확장성을 
+                          확보했습니다. 복잡한 사용자 흐름과 관리자 기능을 각각의 
+                          목적에 맞게 설계하여 직관적인 UI/UX 구성을 실현했습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tech Stack Details */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      기술 스택 상세
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          Frontend
+                        </h4>
+                        <p className="text-gray-200">
+                          React 19, TypeScript, Vite, Styled Components
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          상태 관리
+                        </h4>
+                        <p className="text-gray-200">
+                          React Query, Context API
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          하이브리드 앱
+                        </h4>
+                        <p className="text-gray-200">
+                          React Native (Expo), WebView
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-6">
+                        <h4 className="text-lg font-semibold text-white mb-3">
+                          배포 및 빌드
+                        </h4>
+                        <p className="text-gray-200">
+                          Netlify (웹), App Store, Play Store, EAS Build (앱), 
+                          Android Studio, Xcode
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Retrospective */}
+                  <div className="bg-gray-700 rounded-xl p-8">
+                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                      <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
+                      프로젝트 회고
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • Melpik 프로젝트는 단순한 웹 개발을 넘어, 하이브리드 앱 
+                          환경까지 통합한 사용자 경험을 고려하며 개발한 실전 중심 
+                          프로젝트였습니다.
+                        </p>
+                      </div>
+                      <div className="bg-gray-600 rounded-lg p-4">
+                        <p className="text-gray-200">
+                          • 웹/앱 동시 유지보수를 고려한 모듈화된 설계 구조, UX 
+                          중심의 페이지 흐름, 모바일 최적화 처리 경험을 통해 
+                          프론트엔드 개발자로서의 기술적 깊이와 넓이를 확장할 수 
+                          있었습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
               {/* Project Details - Melpik 관리자 페이지 전용 */}
               {selectedProject.id === 2 && (
                 <>
@@ -374,9 +632,9 @@ const Projects = () => {
                           상품 관리 (Product CRUD)
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          상품 목록 조회, 검색 필터링, 신규 상품 등록, 수정, 
-                          삭제 기능을 구현했습니다. 이미지 업로드 및 썸네일 
-                          미리보기 기능을 포함하여 카테고리, 해시태그, 가격, 
+                          상품 목록 조회, 검색 필터링, 신규 상품 등록, 수정,
+                          삭제 기능을 구현했습니다. 이미지 업로드 및 썸네일
+                          미리보기 기능을 포함하여 카테고리, 해시태그, 가격,
                           상태 등 복합 필드 관리 UI를 구성했습니다.
                         </p>
                       </div>
@@ -386,9 +644,9 @@ const Projects = () => {
                           주문/결제 관리
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          결제 상태, 배송 상태, 사용자 정보 기반 필터링을 
-                          구현했습니다. 배송준비중, 배송중, 배송완료 등의 상태 
-                          전환 처리를 통해 주문 프로세스를 효율적으로 관리할 수 
+                          결제 상태, 배송 상태, 사용자 정보 기반 필터링을
+                          구현했습니다. 배송준비중, 배송중, 배송완료 등의 상태
+                          전환 처리를 통해 주문 프로세스를 효율적으로 관리할 수
                           있습니다.
                         </p>
                       </div>
@@ -398,9 +656,9 @@ const Projects = () => {
                           유저 관리
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          회원 정보 목록, 권한 관리, 활동 로그 확인 기능을 
-                          구현했습니다. 이벤트 참여자, 구매자 분류를 위한 검색 
-                          및 통계 기능을 통해 사용자 데이터를 체계적으로 관리할 
+                          회원 정보 목록, 권한 관리, 활동 로그 확인 기능을
+                          구현했습니다. 이벤트 참여자, 구매자 분류를 위한 검색
+                          및 통계 기능을 통해 사용자 데이터를 체계적으로 관리할
                           수 있습니다.
                         </p>
                       </div>
@@ -410,7 +668,10 @@ const Projects = () => {
                           통계/대시보드
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          총 주문 건수, 상품별 판매량, 인기 카테고리를 시각화했습니다. 기간 필터(일간/주간/월간)와 차트(막대/선 그래프)를 통해 데이터를 직관적으로 분석할 수 있습니다.
+                          총 주문 건수, 상품별 판매량, 인기 카테고리를
+                          시각화했습니다. 기간 필터(일간/주간/월간)와
+                          차트(막대/선 그래프)를 통해 데이터를 직관적으로 분석할
+                          수 있습니다.
                         </p>
                       </div>
                     </div>
@@ -428,7 +689,9 @@ const Projects = () => {
                           코드 스플리팅 + Lazy Loading 적용
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          초기 관리자 대시보드 로딩 속도를 최적화했습니다. 불필요한 컴포넌트 렌더링을 지연시켜 UX를 향상시켰습니다.
+                          초기 관리자 대시보드 로딩 속도를 최적화했습니다.
+                          불필요한 컴포넌트 렌더링을 지연시켜 UX를
+                          향상시켰습니다.
                         </p>
                       </div>
 
@@ -437,7 +700,9 @@ const Projects = () => {
                           React Query 기반 상태 관리로 전환
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          서버 상태와 UI 상태를 분리하여 데이터 일관성을 확보했습니다. 중복 API 요청 방지 및 캐싱을 적용했습니다.
+                          서버 상태와 UI 상태를 분리하여 데이터 일관성을
+                          확보했습니다. 중복 API 요청 방지 및 캐싱을
+                          적용했습니다.
                         </p>
                       </div>
 
@@ -446,7 +711,9 @@ const Projects = () => {
                           에러 처리 & 사용자 피드백 시스템 강화
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          API 호출 실패 시 Alert 메시지 처리를 구현했습니다. 제출 완료 시 확인 메시지 및 페이지 리디렉션 로직을 추가했습니다.
+                          API 호출 실패 시 Alert 메시지 처리를 구현했습니다.
+                          제출 완료 시 확인 메시지 및 페이지 리디렉션 로직을
+                          추가했습니다.
                         </p>
                       </div>
 
@@ -455,7 +722,8 @@ const Projects = () => {
                           모바일 대응을 고려한 반응형 구조 적용
                         </h4>
                         <p className="text-gray-200 mb-4">
-                          사이드바 메뉴 축소, 토글형 필터링 UI를 구성했습니다. 모바일 접근 시 최소 기능만 표시되도록 대응했습니다.
+                          사이드바 메뉴 축소, 토글형 필터링 UI를 구성했습니다.
+                          모바일 접근 시 최소 기능만 표시되도록 대응했습니다.
                         </p>
                       </div>
                     </div>
@@ -480,7 +748,9 @@ const Projects = () => {
                         <h4 className="text-lg font-semibold text-white mb-3">
                           상태 관리
                         </h4>
-                        <p className="text-gray-200">React Query, Context API</p>
+                        <p className="text-gray-200">
+                          React Query, Context API
+                        </p>
                       </div>
                       <div className="bg-gray-600 rounded-lg p-6">
                         <h4 className="text-lg font-semibold text-white mb-3">
@@ -506,17 +776,24 @@ const Projects = () => {
                     <div className="space-y-4">
                       <div className="bg-gray-600 rounded-lg p-4">
                         <p className="text-gray-200">
-                          • 실제 운영자가 사용하는 시스템인 만큼, 사용성(Usability)과 정보 구조 설계(Information Architecture)에 대한 감각을 키울 수 있던 경험이었습니다.
+                          • 실제 운영자가 사용하는 시스템인 만큼,
+                          사용성(Usability)과 정보 구조 설계(Information
+                          Architecture)에 대한 감각을 키울 수 있던
+                          경험이었습니다.
                         </p>
                       </div>
                       <div className="bg-gray-600 rounded-lg p-4">
                         <p className="text-gray-200">
-                          • 데이터 흐름 구조를 정리하고, 서버-프론트 간 연동 설계를 하면서 실시간 데이터 처리와 상태 관리 최적화에 자신감을 얻게 되었습니다.
+                          • 데이터 흐름 구조를 정리하고, 서버-프론트 간 연동
+                          설계를 하면서 실시간 데이터 처리와 상태 관리 최적화에
+                          자신감을 얻게 되었습니다.
                         </p>
                       </div>
                       <div className="bg-gray-600 rounded-lg p-4">
                         <p className="text-gray-200">
-                          • 관리자의 반복 업무를 자동화하고 효율화하는 기능을 기획부터 구현까지 맡으며, 실무에 가까운 B2B SaaS형 대시보드 개발 경험을 쌓았습니다.
+                          • 관리자의 반복 업무를 자동화하고 효율화하는 기능을
+                          기획부터 구현까지 맡으며, 실무에 가까운 B2B SaaS형
+                          대시보드 개발 경험을 쌓았습니다.
                         </p>
                       </div>
                     </div>
