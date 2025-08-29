@@ -408,3 +408,59 @@ body {
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
+
+/* Rainbow border animation for project cards */
+.rainbow-border {
+  position: relative;
+}
+
+.rainbow-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(
+    45deg,
+    #8b0000,
+    #b8860b,
+    #bdb76b,
+    #556b2f,
+    #006400,
+    #008b8b,
+    #2f4f4f,
+    #191970,
+    #000080,
+    #4b0082,
+    #8b008b,
+    #8b0000
+  );
+  background-size: 400% 400%;
+  animation: rainbow-border 4s ease infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.rainbow-border:hover::before {
+  opacity: 1;
+}
+
+.rainbow-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rainbow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

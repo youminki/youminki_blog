@@ -125,7 +125,7 @@ const Projects = () => {
               console.log('프로젝트 클릭됨:', project.title);
               openModal(project);
             }}
-            className="bg-gray-800 rounded-xl border border-gray-700 hover:border-[var(--accent-color)] transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-2xl overflow-hidden w-full relative group"
+            className="bg-gray-800 rounded-xl border border-gray-700 hover:border-transparent transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-2xl overflow-hidden w-full relative group rainbow-border"
             style={{ minWidth: '320px', borderRadius: '1rem' }}
           >
             {/* Project Image - 고정 높이 200px */}
