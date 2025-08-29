@@ -1,3 +1,5 @@
+import profileImage from '../assets/profile-photo.jpeg';
+
 const Profile = () => {
   return (
     <div className="space-y-8">
@@ -5,7 +7,7 @@ const Profile = () => {
       <div className="flex justify-center">
         <div className="w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-700">
           <img
-            src="/profile-photo.jpeg"
+            src={profileImage}
             alt="유민기 면접사진"
             className="w-full h-full object-cover"
             style={{ width: '210px', height: '210px' }}
