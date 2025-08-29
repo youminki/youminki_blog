@@ -5,16 +5,18 @@ import School from './components/School';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
+import ThemeToggle from './components/ThemeToggle';
 import { MdEmail, MdPhone, MdLink } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#ffffff] text-[#37352f]">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] w-full">
       <Header />
+      <ThemeToggle />
 
-      <main className="py-16">
-        <div className="max-w-[800px] mx-auto px-6">
+      <main className="py-16 w-full">
+        <div className="max-w-[800px] mx-auto px-6 w-full">
           {/* Profile and Quote Row - Using CSS classes */}
           <div className="profile-grid">
             {/* Left Column - Profile Image */}
@@ -76,7 +78,7 @@ function App() {
           </div>
 
           {/* Divider Line */}
-          <div className="border-b border-[#e3e2e0] my-8"></div>
+          <div className="border-b border-[var(--border-color)] my-8"></div>
 
           {/* Main Content Grid */}
           <div className="content-grid">
