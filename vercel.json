@@ -2,6 +2,7 @@
   "buildCommand": "yarn build",
   "outputDirectory": "web/dist",
   "framework": "vite",
+  "public": "public",
   "rewrites": [
     {
       "source": "/(.*)",
