@@ -367,12 +367,18 @@ const Projects = () => {
               {selectedProject.id === 1 && (
                 <>
                   {/* Project UI Images */}
-                  <div className="bg-gray-700 rounded-xl p-8 mb-8">
+                  <div className="bg-gray-700 rounded-xl p-8 mb-8 ">
                     <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
                       <span className="w-3 h-3 bg-[var(--accent-color)] rounded-full"></span>
                       프로젝트 UI
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div
+                      className="grid grid-cols-2 md:grid-cols-2 gap-4"
+                      style={{
+                        objectFit: 'contain',
+                        gap: '1rem',
+                      }}
+                    >
                       {/* UI Card 1 */}
                       <div className="bg-gray-600 rounded-xl p-4 hover:bg-gray-500 transition-colors duration-200">
                         <h4 className="text-lg font-semibold text-white mb-3 text-center">
@@ -382,7 +388,7 @@ const Projects = () => {
                           src={melpikUI1}
                           alt="Melpik 메인 화면"
                           className="w-full rounded-lg shadow-lg"
-                          style={{ maxHeight: '300px', objectFit: 'contain' }}
+                          style={{ objectFit: 'contain', maxHeight: '600px' }}
                         />
                       </div>
 
@@ -395,7 +401,7 @@ const Projects = () => {
                           src={melpikUI2}
                           alt="Melpik 상품 상세 화면"
                           className="w-full rounded-lg shadow-lg"
-                          style={{ maxHeight: '300px', objectFit: 'contain' }}
+                          style={{ objectFit: 'contain', maxHeight: '600px' }}
                         />
                       </div>
 
@@ -408,7 +414,7 @@ const Projects = () => {
                           src={melpikUI3}
                           alt="Melpik 마이페이지"
                           className="w-full rounded-lg shadow-lg"
-                          style={{ maxHeight: '300px', objectFit: 'contain' }}
+                          style={{ objectFit: 'contain', maxHeight: '600px' }}
                         />
                       </div>
 
@@ -421,7 +427,7 @@ const Projects = () => {
                           src={melpikUI4}
                           alt="Melpik 결제/배송 화면"
                           className="w-full rounded-lg shadow-lg"
-                          style={{ maxHeight: '300px', objectFit: 'contain' }}
+                          style={{ objectFit: 'contain', maxHeight: '600px' }}
                         />
                       </div>
                     </div>
