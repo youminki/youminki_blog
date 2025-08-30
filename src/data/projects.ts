@@ -54,7 +54,7 @@ export const PROJECTS_DATA: Project[] = [
       'Context API',
     ],
     image: projectImg2,
-    githubUrl: 'https://github.com/youminki/melpik-admin',
+    githubUrl: 'https://github.com/youminki/Me1pik',
     liveUrl: 'https://admin-me1pik.com',
     features: [
       '상품 관리 (Product CRUD)',
