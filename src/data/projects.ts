@@ -103,8 +103,8 @@ export const PROJECTS_DATA: Project[] = [
       "'In a row'는 클로버 전시회를 소개하고, 각 팀의 디자인 철학과 이야기를 전달하기 위한 웹 초대장입니다. React 기반으로 개발된 이 웹사이트는 전시 기획 의도 설명, 팀 프로젝트 소개, 팟캐스트/도슨트 QR 연동, 그리고 모바일 UX 최적화에 중점을 두고 구현되었습니다.",
     technologies: ['React', 'JavaScript', 'CSS Modules', 'Figma', 'GitHub'],
     image: projectImg4,
-    githubUrl: 'https://github.com/youminki/youminki_blog',
-    liveUrl: 'https://youminki-blog.vercel.app',
+    githubUrl: 'https://github.com/2024Clover-website/Clover-Client',
+
     features: [
       '전시 소개 및 디자인 컨셉 전달',
       '팀별 도슨트/팟캐스트 뷰어',
