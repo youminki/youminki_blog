@@ -126,7 +126,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/MelpikUI_1.gif"
+                  src="/src/assets/melpik/MelpikUI_1.gif"
                   alt="MelpikUI 화면 1 - 메인 홈 화면"
                   style={{
                     width: '100%',
@@ -158,7 +158,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/MelpikUI_2.gif"
+                  src="/src/assets/melpik/MelpikUI_2.gif"
                   alt="MelpikUI 화면 2 - 이용권 결제"
                   style={{
                     width: '100%',
@@ -190,7 +190,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/MelpikUI_3.gif"
+                  src="/src/assets/melpik/MelpikUI_3.gif"
                   alt="MelpikUI 화면 3 - 제품 상세/결제"
                   style={{
                     width: '100%',
@@ -222,7 +222,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/MelpikUI_4.gif"
+                  src="/src/assets/melpik/MelpikUI_4.gif"
                   alt="MelpikUI 화면 4 - 각 페이지 구성"
                   style={{
                     width: '100%',
@@ -262,6 +262,248 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
               >
                 💡 <strong>MelpikUI</strong>는 패션 쇼핑몰 앱으로, 사용자
                 친화적인 인터페이스와 직관적인 네비게이션을 제공합니다.
+              </p>
+            </div>
+          </div>
+        );
+      }
+      return null;
+    };
+
+    // Melpik 관리자 페이지인 경우 관리자 화면설계 이미지 섹션 렌더링
+    const renderAdminMelpikScreenshots = () => {
+      const projectTitle = project.title.toLowerCase();
+      if (projectTitle.includes('melpik') && projectTitle.includes('관리자')) {
+        return (
+          <div style={{ marginBottom: '20px' }}>
+            <h4
+              style={styles.sectionTitle}
+              data-modal-section-title-id={
+                styles.sectionTitle['--modal-section-title-id']
+              }
+            >
+              🛠️ 관리자 화면설계
+            </h4>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                gap: '15px',
+                marginBottom: '15px',
+              }}
+            >
+              {/* 전체 메뉴리스트 */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/admin-melpik/Adobe Express - 전체 메뉴리스트.gif"
+                  alt="전체 메뉴리스트"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  📋 전체 메뉴리스트
+                </p>
+              </div>
+
+              {/* 회원 관리리스트 */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/admin-melpik/Adobe Express - 회원 관리리스트.gif"
+                  alt="회원 관리리스트"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  👥 회원 관리리스트
+                </p>
+              </div>
+
+              {/* 제품 관리리스트 */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/admin-melpik/Adobe Express - 제품 관리리스트.gif"
+                  alt="제품 관리리스트"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🛍️ 제품 관리리스트
+                </p>
+              </div>
+
+              {/* 설정 관리리스트 */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/admin-melpik/Adobe Express - 설정 관리리스트.gif"
+                  alt="설정 관리리스트"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  ⚙️ 설정 관리리스트
+                </p>
+              </div>
+
+              {/* 브랜드_이용권 관리리스트 */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/admin-melpik/Adobe Express - 브랜드_이용권 관리리스트.gif"
+                  alt="브랜드_이용권 관리리스트"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🎫 브랜드_이용권 관리
+                </p>
+              </div>
+
+              {/* 대여_구매내역 관리리스트 */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/admin-melpik/Adobe Express - 대여_구매내역 관리리스트.gif"
+                  alt="대여_구매내역 관리리스트"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  📊 대여_구매내역 관리
+                </p>
+              </div>
+            </div>
+            <div
+              style={{
+                backgroundColor: '#1e293b',
+                padding: '12px',
+                borderRadius: '6px',
+                border: '1px solid #a78bfa',
+                textAlign: 'center',
+              }}
+            >
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '13px',
+                  color: '#cbd5e1',
+                  lineHeight: 1.4,
+                }}
+              >
+                💡 <strong>Melpik 관리자</strong>는 쇼핑몰 운영을 위한 종합적인
+                관리 시스템으로, 회원 관리, 제품 관리, 설정 관리, 이용권 관리,
+                거래 내역 관리 등의 기능을 제공합니다.
               </p>
             </div>
           </div>
@@ -444,6 +686,9 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
               )}
             </div>
           </div>
+
+          {/* Melpik 관리자 페이지인 경우 관리자 화면설계 이미지 섹션 렌더링 */}
+          {renderAdminMelpikScreenshots()}
 
           {/* Melpik 사용자 웹 & 하이브리드 앱인 경우 화면설계 이미지 섹션 렌더링 (관리자 제외) */}
           {renderMelpikUIScreenshots()}
