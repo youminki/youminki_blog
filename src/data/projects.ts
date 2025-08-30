@@ -83,8 +83,8 @@ export const PROJECTS_DATA: Project[] = [
       'Figma',
     ],
     image: projectImg3,
-    githubUrl: 'https://github.com/youminki/adhd-emotion-diary',
-    liveUrl: 'https://adhd-emotion-diary.vercel.app',
+    githubUrl: 'https://github.com/mju-likelion/12th-hackathon-team2-web',
+    liveUrl: 'https://lucent-chaja-aa9610.netlify.app/',
     features: [
       '감정 기록 및 시각화',
       '뽀모도로 타이머',
