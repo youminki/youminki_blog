@@ -313,7 +313,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           </div>
 
           {/* 프로젝트 설명 */}
-          <div style={{ marginBottom: '20px' }}>
+          <div style={{ marginBottom: '15px' }}>
             <p
               style={styles.projectDescription}
               data-modal-project-desc-id={
@@ -325,7 +325,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           </div>
 
           {/* 사용 기술 */}
-          <div style={{ marginBottom: '20px' }}>
+          <div style={{ marginBottom: '15px' }}>
             <h4
               style={styles.sectionTitle}
               data-modal-section-title-id={
@@ -353,7 +353,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           </div>
 
           {/* 주요 기능 */}
-          <div style={{ marginBottom: '20px' }}>
+          <div style={{ marginBottom: '15px' }}>
             <h4
               style={styles.sectionTitle}
               data-modal-section-title-id={
@@ -383,11 +383,11 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           </div>
 
           {/* 프로젝트 링크 */}
-          <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+          <div style={{ marginBottom: '15px', textAlign: 'center' }}>
             <div
               style={{
                 display: 'flex',
-                gap: '10px',
+                gap: '8px',
                 justifyContent: 'center',
                 flexWrap: 'wrap',
               }}
@@ -400,10 +400,11 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                   style={{
                     backgroundColor: '#333',
                     color: 'white',
-                    padding: '10px 20px',
-                    borderRadius: '6px',
+                    padding: '8px 16px',
+                    borderRadius: '4px',
                     textDecoration: 'none',
                     fontWeight: 'bold',
+                    fontSize: '14px',
                     transition: 'background-color 0.2s',
                   }}
                   onMouseEnter={e => {
@@ -424,10 +425,11 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                   style={{
                     backgroundColor: '#a78bfa',
                     color: 'white',
-                    padding: '10px 20px',
-                    borderRadius: '6px',
+                    padding: '8px 16px',
+                    borderRadius: '4px',
                     textDecoration: 'none',
                     fontWeight: 'bold',
+                    fontSize: '14px',
                     transition: 'background-color 0.2s',
                   }}
                   onMouseEnter={e => {
