@@ -287,7 +287,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                gridTemplateColumns: '1fr',
                 gap: '15px',
                 marginBottom: '15px',
               }}
