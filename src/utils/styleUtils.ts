@@ -78,7 +78,7 @@ export const createScopedStyles = (componentName: string): ModalStyles => {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.95)',
+      backgroundColor: 'rgba(0, 0, 0, 0.85)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -90,11 +90,12 @@ export const createScopedStyles = (componentName: string): ModalStyles => {
 
     // 모달 컨테이너
     container: {
+      position: 'relative',
       backgroundColor: '#0f172a',
       color: '#f8fafc',
       padding: '30px',
       borderRadius: '0px',
-      maxWidth: '600px',
+      maxWidth: '700px',
       width: '90%',
       maxHeight: '80vh',
       overflow: 'auto',
