@@ -126,7 +126,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/MelpikUI_1.gif"
+                  src="/src/assets/melpik/홈페이지_모바일UI.gif"
                   alt="MelpikUI 화면 1 - 메인 홈 화면"
                   style={{
                     width: '100%',
@@ -158,7 +158,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/MelpikUI_2.gif"
+                  src="/src/assets/melpik/이용권결제_모바일UI.gif"
                   alt="MelpikUI 화면 2 - 이용권 결제"
                   style={{
                     width: '100%',
@@ -190,7 +190,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/MelpikUI_3.gif"
+                  src="/src/assets/melpik/제품결제_모바일UI.gif"
                   alt="MelpikUI 화면 3 - 제품 상세/결제"
                   style={{
                     width: '100%',
@@ -222,7 +222,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/MelpikUI_4.gif"
+                  src="/src/assets/melpik/페이지네이션_모바일UI.gif"
                   alt="MelpikUI 화면 4 - 각 페이지 구성"
                   style={{
                     width: '100%',
@@ -263,6 +263,280 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 💡 <strong>MelpikUI</strong>는 패션 쇼핑몰 앱으로, 사용자
                 친화적인 인터페이스와 직관적인 네비게이션을 제공합니다.
               </p>
+            </div>
+
+            {/* Web UI 이미지들 */}
+            <h4
+              style={styles.sectionTitle}
+              data-modal-section-title-id={
+                styles.sectionTitle['--modal-section-title-id']
+              }
+            >
+              🌐 웹 UI 화면
+            </h4>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr',
+                gap: '15px',
+                marginBottom: '15px',
+              }}
+            >
+              {/* 홈_웹UI.gif */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/melpik/Web/홈_웹UI.gif"
+                  alt="Melpik 웹 UI - 홈 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🏠 홈 화면
+                </p>
+              </div>
+
+              {/* 홈상세_웹UI.gif */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/melpik/Web/홈상세_웹UI.gif"
+                  alt="Melpik 웹 UI - 홈 상세 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🏠 홈 상세 화면
+                </p>
+              </div>
+
+              {/* 브랜드_웹UI.gif */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/melpik/Web/브랜드_웹UI.gif"
+                  alt="Melpik 웹 UI - 브랜드 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🏷️ 브랜드 화면
+                </p>
+              </div>
+
+              {/* 다이어리_웹UI.gif */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/melpik/Web/다이어리_웹UI.gif"
+                  alt="Melpik 웹 UI - 다이어리 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  📅 다이어리 화면
+                </p>
+              </div>
+
+              {/* 이용내역_이용권_웹UI.gif */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/melpik/Web/이용내역_이용권_웹UI.gif"
+                  alt="Melpik 웹 UI - 이용내역 및 이용권 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  📋 이용내역 및 이용권
+                </p>
+              </div>
+
+              {/* 결제수단_내옷장_웹UI.gif */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/melpik/Web/결제수단_내옷장_웹UI.gif"
+                  alt="Melpik 웹 UI - 결제수단 및 내옷장 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  💳 결제수단 및 내옷장
+                </p>
+              </div>
+
+              {/* 고객센터_웹UI.gif */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/melpik/Web/고객센터_웹UI.gif"
+                  alt="Melpik 웹 UI - 고객센터 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🎧 고객센터 화면
+                </p>
+              </div>
+
+              {/* 내정보_웹UI.gif */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/melpik/Web/내정보_웹UI.gif"
+                  alt="Melpik 웹 UI - 내정보 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  👤 내정보 화면
+                </p>
+              </div>
             </div>
           </div>
         );
