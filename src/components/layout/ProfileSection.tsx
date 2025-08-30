@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdEmail, MdPhone, MdLink } from 'react-icons/md';
+import { MdEmail, MdPhone, MdLink, MdLocationOn } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
 
 const ProfileSection: React.FC = () => {
@@ -29,6 +29,10 @@ const ProfileSection: React.FC = () => {
 
         {/* Contact Information */}
         <div className="contact-container">
+          <div className="contact-item">
+            <MdLocationOn className="contact-icon" />
+            <span className="contact-text">경기도 안양시</span>
+          </div>
           <div className="contact-item">
             <MdEmail className="contact-icon" />
             <span className="contact-text">dbalsrl7648@gmail.com</span>
