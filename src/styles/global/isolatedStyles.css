@@ -18,7 +18,7 @@
   --modal-overlay: rgba(0, 0, 0, 0.95);
 
   /* 크기 변수 격리 */
-  --modal-border-radius: 12px;
+  --modal-border-radius: 0px;
   --modal-padding: 30px;
   --modal-padding-mobile: 20px;
   --modal-max-width: 600px;
@@ -43,7 +43,7 @@
   --modal-scrollbar-track: #0f172a;
   --modal-scrollbar-thumb: #a78bfa;
   --modal-scrollbar-thumb-hover: #8b5cf6;
-  --modal-scrollbar-border-radius: 4px;
+  --modal-scrollbar-border-radius: 0px;
 }
 
 /* 모달 전용 스타일 격리 */

@@ -93,6 +93,183 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
       e.currentTarget.style.backgroundColor = isHover ? '#8b5cf6' : '#a78bfa';
     };
 
+    // Melpik 사용자 웹 & 하이브리드 앱인 경우 화면설계 이미지 섹션 렌더링 (관리자 제외)
+    const renderMelpikUIScreenshots = () => {
+      const projectTitle = project.title.toLowerCase();
+      if (projectTitle.includes('melpik') && !projectTitle.includes('관리자')) {
+        return (
+          <div style={{ marginBottom: '20px' }}>
+            <h4
+              style={styles.sectionTitle}
+              data-modal-section-title-id={
+                styles.sectionTitle['--modal-section-title-id']
+              }
+            >
+              🎨 화면설계 UI
+            </h4>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                gap: '15px',
+                marginBottom: '15px',
+              }}
+            >
+              {/* MelpikUI_1.gif - 메인 홈 화면 */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/MelpikUI_1.gif"
+                  alt="MelpikUI 화면 1 - 메인 홈 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🏠 메인 홈 화면
+                </p>
+              </div>
+
+              {/* MelpikUI_2.gif - 이용권 결제*/}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/MelpikUI_2.gif"
+                  alt="MelpikUI 화면 2 - 이용권 결제"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🎭 이용권 결제
+                </p>
+              </div>
+
+              {/* MelpikUI_3.gif - 제품 상세/결제 */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/MelpikUI_3.gif"
+                  alt="MelpikUI 화면 3 - 제품 상세/결제"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🛍️ 제품 상세/결제
+                </p>
+              </div>
+
+              {/* MelpikUI_4.gif - 각 페이지  */}
+              <div
+                style={{
+                  border: '2px solid #a78bfa',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: '#1a1a1a',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src="/src/assets/MelpikUI_4.gif"
+                  alt="MelpikUI 화면 4 - 각 페이지 구성"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid #374151',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🔍 각 페이지 구성
+                </p>
+              </div>
+            </div>
+            <div
+              style={{
+                backgroundColor: '#1e293b',
+                padding: '12px',
+                borderRadius: '6px',
+                border: '1px solid #a78bfa',
+                textAlign: 'center',
+              }}
+            >
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '13px',
+                  color: '#cbd5e1',
+                  lineHeight: 1.4,
+                }}
+              >
+                💡 <strong>MelpikUI</strong>는 패션 쇼핑몰 앱으로, 사용자
+                친화적인 인터페이스와 직관적인 네비게이션을 제공합니다.
+              </p>
+            </div>
+          </div>
+        );
+      }
+      return null;
+    };
+
     return (
       <div
         style={styles.overlay}
@@ -265,6 +442,9 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
               )}
             </div>
           </div>
+
+          {/* Melpik 사용자 웹 & 하이브리드 앱인 경우 화면설계 이미지 섹션 렌더링 (관리자 제외) */}
+          {renderMelpikUIScreenshots()}
 
           {/* 닫기 버튼 */}
           <div

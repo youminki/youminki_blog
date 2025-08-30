@@ -93,7 +93,7 @@ export const createScopedStyles = (componentName: string): ModalStyles => {
       backgroundColor: '#0f172a',
       color: '#f8fafc',
       padding: '30px',
-      borderRadius: '12px',
+      borderRadius: '0px',
       maxWidth: '600px',
       width: '90%',
       maxHeight: '80vh',
@@ -105,6 +105,9 @@ export const createScopedStyles = (componentName: string): ModalStyles => {
       // 스크롤바 관련 스타일
       scrollbarWidth: 'thin',
       scrollbarColor: '#a78bfa #0f172a',
+      // 스크롤바로 인한 내용 짤림 방지
+      paddingRight: '35px',
+      boxSizing: 'border-box',
     },
 
     // 모달 헤더
@@ -252,6 +255,8 @@ export const createResponsiveModalStyles = (isMobile: boolean): ModalStyles => {
         ...baseStyles.container,
         width: '95%',
         padding: '20px',
+        // 모바일에서도 스크롤바로 인한 내용 짤림 방지
+        paddingRight: '25px',
         // 모바일용 스크롤바 스타일
         scrollbarWidth: 'thin',
         scrollbarColor: 'rgba(167, 139, 250, 0.5) #0f172a',

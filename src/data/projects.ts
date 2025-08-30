@@ -23,8 +23,8 @@ export const PROJECTS_DATA: Project[] = [
       'Xcode',
     ],
     image: projectImg1,
-    githubUrl: 'https://github.com/youminki/melpik',
-    liveUrl: 'https://me1pik.com/melpik',
+    githubUrl: 'https://github.com/youminki/Me1pik',
+    liveUrl: 'https://me1pik.com/landing',
     features: [
       '사용자 맞춤형 패션 추천 시스템',
       '개인 옷장 및 찜하기 기능',
