@@ -1,0 +1,369 @@
+/* isolatedStyles.css - CSS 충돌 방지를 위한 전역 스타일 격리 */
+
+/* CSS 변수 격리 */
+:root {
+  /* 모달 관련 CSS 변수 */
+  --modal-z-index-overlay: 99999;
+  --modal-z-index-content: 100000;
+  --modal-z-index-header: 100001;
+
+  /* 색상 변수 격리 (다크모드 전용) */
+  --modal-primary: #a78bfa;
+  --modal-primary-hover: #8b5cf6;
+  --modal-background: #0f172a;
+  --modal-background-secondary: #1e293b;
+  --modal-text-primary: #f8fafc;
+  --modal-text-secondary: #cbd5e1;
+  --modal-border: #a78bfa;
+  --modal-overlay: rgba(0, 0, 0, 0.95);
+
+  /* 크기 변수 격리 */
+  --modal-border-radius: 12px;
+  --modal-padding: 30px;
+  --modal-padding-mobile: 20px;
+  --modal-max-width: 600px;
+  --modal-max-height: 80vh;
+  --modal-gap: 8px;
+
+  /* 폰트 변수 격리 */
+  --modal-font-title: 28px;
+  --modal-font-title-mobile: 24px;
+  --modal-font-subtitle: 24px;
+  --modal-font-subtitle-mobile: 20px;
+  --modal-font-section: 18px;
+  --modal-font-body: 16px;
+  --modal-font-small: 14px;
+
+  /* 애니메이션 변수 격리 */
+  --modal-transition: 0.2s;
+  --modal-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+
+  /* 스크롤바 변수 (다크모드 전용) */
+  --modal-scrollbar-width: 8px;
+  --modal-scrollbar-track: #0f172a;
+  --modal-scrollbar-thumb: #a78bfa;
+  --modal-scrollbar-thumb-hover: #8b5cf6;
+  --modal-scrollbar-border-radius: 4px;
+}
+
+/* 모달 전용 스타일 격리 */
+[data-modal-id] {
+  /* 모달 오버레이 격리 */
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: var(--modal-overlay) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: var(--modal-z-index-overlay) !important;
+  padding: var(--modal-padding) !important;
+}
+
+[data-modal-container-id] {
+  /* 모달 컨테이너 격리 */
+  background-color: var(--modal-background) !important;
+  color: var(--modal-text-primary) !important;
+  padding: var(--modal-padding) !important;
+  border-radius: var(--modal-border-radius) !important;
+  max-width: var(--modal-max-width) !important;
+  width: 90% !important;
+  max-height: var(--modal-max-height) !important;
+  overflow: auto !important;
+  border: 2px solid var(--modal-border) !important;
+  box-shadow: var(--modal-box-shadow) !important;
+
+  /* 커스텀 스크롤바 스타일 */
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--modal-scrollbar-thumb) var(--modal-scrollbar-track) !important;
+}
+
+/* Webkit 브라우저용 커스텀 스크롤바 */
+[data-modal-container-id]::-webkit-scrollbar {
+  width: var(--modal-scrollbar-width) !important;
+}
+
+[data-modal-container-id]::-webkit-scrollbar-track {
+  background: var(--modal-scrollbar-track) !important;
+  border-radius: var(--modal-scrollbar-border-radius) !important;
+  margin: 4px 0 !important;
+}
+
+[data-modal-container-id]::-webkit-scrollbar-thumb {
+  background: var(--modal-scrollbar-thumb) !important;
+  border-radius: var(--modal-scrollbar-border-radius) !important;
+  border: 1px solid var(--modal-scrollbar-track) !important;
+  transition: background-color 0.3s ease !important;
+}
+
+[data-modal-container-id]::-webkit-scrollbar-thumb:hover {
+  background: var(--modal-scrollbar-thumb-hover) !important;
+}
+
+[data-modal-container-id]::-webkit-scrollbar-corner {
+  background: var(--modal-scrollbar-track) !important;
+}
+
+/* Firefox용 커스텀 스크롤바 */
+[data-modal-container-id] {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--modal-scrollbar-thumb) var(--modal-scrollbar-track) !important;
+}
+
+/* 스크롤바 애니메이션 */
+@keyframes scrollbar-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+[data-modal-container-id]:hover::-webkit-scrollbar-thumb {
+  animation: scrollbar-fade-in 0.3s ease !important;
+}
+
+/* 스크롤바 그라데이션 효과 */
+[data-modal-container-id]::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    135deg,
+    var(--modal-scrollbar-thumb) 0%,
+    var(--modal-scrollbar-thumb-hover) 100%
+  ) !important;
+}
+
+/* 스크롤바 그림자 효과 */
+[data-modal-container-id]::-webkit-scrollbar-thumb {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 스크롤바 호버 시 확대 효과 */
+[data-modal-container-id]::-webkit-scrollbar-thumb:hover {
+  transform: scale(1.1) !important;
+  transition: transform 0.2s ease !important;
+}
+
+/* 모달 헤더 */
+[data-modal-header-id] {
+  /* 모달 헤더 격리 */
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}
+
+[data-modal-title-id] {
+  /* 모달 제목 격리 */
+  font-size: var(--modal-font-title) !important;
+  font-weight: bold !important;
+  color: var(--modal-primary) !important;
+  margin: 0 !important;
+}
+
+[data-modal-project-title-id] {
+  /* 프로젝트 제목 격리 */
+  font-size: var(--modal-font-subtitle) !important;
+  font-weight: bold !important;
+  margin-bottom: 15px !important;
+  margin-top: 0 !important;
+  color: var(--modal-text-primary) !important;
+}
+
+[data-modal-project-desc-id] {
+  /* 프로젝트 설명 격리 */
+  font-size: var(--modal-font-body) !important;
+  line-height: 1.6 !important;
+  color: var(--modal-text-secondary) !important;
+  margin: 0 !important;
+}
+
+[data-modal-section-title-id] {
+  /* 섹션 제목 격리 */
+  font-size: var(--modal-font-section) !important;
+  font-weight: bold !important;
+  margin-bottom: 10px !important;
+  color: var(--modal-primary) !important;
+  margin-top: 0 !important;
+}
+
+[data-modal-tech-container-id] {
+  /* 기술 태그 컨테이너 격리 */
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: var(--modal-gap) !important;
+}
+
+[data-modal-tech-tag-id] {
+  /* 기술 태그 격리 */
+  background-color: var(--modal-background-secondary) !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-size: var(--modal-font-small) !important;
+  border: 1px solid var(--modal-border) !important;
+  color: var(--modal-text-primary) !important;
+}
+
+[data-modal-features-list-id] {
+  /* 기능 리스트 격리 */
+  padding-left: 20px !important;
+  margin: 0 !important;
+}
+
+[data-modal-feature-item-id] {
+  /* 기능 아이템 격리 */
+  margin-bottom: 8px !important;
+  color: var(--modal-text-secondary) !important;
+}
+
+[data-modal-button-container-id] {
+  /* 버튼 컨테이너 격리 */
+  text-align: center !important;
+}
+
+[data-modal-close-button-id] {
+  /* 닫기 버튼 격리 */
+  background-color: var(--modal-primary) !important;
+  color: var(--modal-text-primary) !important;
+  padding: 12px 24px !important;
+  border-radius: var(--modal-border-radius) !important;
+  border: none !important;
+  font-size: var(--modal-font-body) !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: background-color var(--modal-transition) !important;
+}
+
+[data-modal-close-button-id]:hover {
+  background-color: var(--modal-primary-hover) !important;
+}
+
+/* 반응형 디자인 격리 */
+@media (max-width: 768px) {
+  [data-modal-container-id] {
+    width: 95% !important;
+    padding: var(--modal-padding-mobile) !important;
+  }
+
+  [data-modal-title-id] {
+    font-size: var(--modal-font-title-mobile) !important;
+  }
+
+  [data-modal-project-title-id] {
+    font-size: var(--modal-font-subtitle-mobile) !important;
+  }
+
+  /* 모바일에서 스크롤바 숨기기 */
+  [data-modal-container-id]::-webkit-scrollbar {
+    width: 4px !important;
+  }
+
+  [data-modal-container-id]::-webkit-scrollbar-thumb {
+    background: rgba(167, 139, 250, 0.5) !important;
+  }
+}
+
+/* CSS 충돌 방지를 위한 우선순위 설정 */
+[data-modal-id],
+[data-modal-container-id],
+[data-modal-header-id],
+[data-modal-title-id],
+[data-modal-project-title-id],
+[data-modal-project-desc-id],
+[data-modal-section-title-id],
+[data-modal-tech-container-id],
+[data-modal-tech-tag-id],
+[data-modal-features-list-id],
+[data-modal-feature-item-id],
+[data-modal-button-container-id],
+[data-modal-close-button-id] {
+  /* !important로 우선순위 보장 */
+  box-sizing: border-box !important;
+  font-family: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Tailwind CSS와의 충돌 방지 */
+[data-modal-id] *,
+[data-modal-container-id] * {
+  /* 모달 내부 요소들의 Tailwind CSS 클래스 충돌 방지 */
+  all: unset;
+  box-sizing: border-box;
+}
+
+/* 모달 내부 요소들의 기본 스타일 복원 */
+[data-modal-container-id] h1,
+[data-modal-container-id] h2,
+[data-modal-container-id] h3,
+[data-modal-container-id] h4,
+[data-modal-container-id] h5,
+[data-modal-container-id] h6 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: var(--modal-text-primary) !important;
+}
+
+[data-modal-container-id] p {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: var(--modal-text-secondary) !important;
+}
+
+[data-modal-container-id] ul,
+[data-modal-container-id] ol {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-modal-container-id] li {
+  display: list-item;
+  margin: 0;
+  padding: 0;
+  color: var(--modal-text-secondary) !important;
+}
+
+[data-modal-container-id] button {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--modal-text-primary) !important;
+}
+
+[data-modal-container-id] span {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  color: var(--modal-text-primary) !important;
+}
+
+/* 스크롤바 관련 추가 스타일 */
+[data-modal-container-id] img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+[data-modal-container-id] a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--modal-text-primary) !important;
+}
+
+/* 다크모드 전용 애니메이션 */
+[data-modal-container-id],
+[data-modal-container-id] * {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease !important;
+}

@@ -1,0 +1,68 @@
+import type { SkillCategory } from '../types';
+
+export const SKILLS_DATA: SkillCategory[] = [
+  {
+    title: 'Skills (Front-end)',
+    skills: [
+      { name: 'React.js', underlined: true },
+      { name: 'Vite', underlined: true },
+      { name: 'Next.js', underlined: true },
+      { name: 'Styled-components', underlined: true },
+      { name: 'CSS-in-JS', underlined: true },
+      { name: 'TailwindCss', underlined: false },
+      { name: 'Chakra.UI', underlined: false },
+      { name: 'AntD', underlined: false },
+      { name: 'Shadcn', underlined: false },
+      { name: 'Framer-Motion', underlined: false },
+      { name: 'Axios', underlined: true },
+      { name: 'Tanstack-Query', underlined: false },
+      { name: 'React Hook Form', underlined: true },
+      { name: 'React Context', underlined: true },
+      { name: 'Zustand', underlined: false },
+      { name: 'Recoil', underlined: true },
+      { name: 'Redux', underlined: false },
+    ],
+  },
+  {
+    title: 'Mobile & Cross-platform',
+    skills: [
+      { name: 'React Native', underlined: false },
+      { name: 'iOS', underlined: false },
+      { name: 'SwiftUI', underlined: false },
+      { name: 'Android', underlined: false },
+      { name: 'Kotlin', underlined: false },
+      { name: 'WebView Integration', underlined: false },
+      { name: 'Native Bridge', underlined: false },
+    ],
+  },
+  {
+    title: 'Language & Deployment',
+    skills: [
+      { name: 'Javascript', underlined: true },
+      { name: 'Typescript', underlined: true },
+      { name: 'Vercel', underlined: true },
+      { name: 'Netlify', underlined: true },
+      { name: 'GitHub Pages', underlined: false },
+      { name: 'Nginx', underlined: false },
+      { name: 'CloudFlare', underlined: false },
+      { name: 'Docker', underlined: false },
+    ],
+  },
+  {
+    title: 'Tools & Communication',
+    skills: [
+      { name: 'Git', underlined: true },
+      { name: 'Github', underlined: true },
+      { name: 'Gitlab', underlined: false },
+      { name: 'Storybook', underlined: false },
+      { name: 'Husky', underlined: false },
+      { name: 'Lint-staged', underlined: false },
+      { name: 'Figma', underlined: true },
+      { name: 'Figjam', underlined: false },
+      { name: 'Zeplin', underlined: false },
+      { name: 'Discord', underlined: false },
+      { name: 'Slack', underlined: true },
+      { name: 'Notion', underlined: true },
+    ],
+  },
+];
