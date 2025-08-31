@@ -6837,34 +6837,6 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
               </article>
             ))}
           </div>
-
-          {/* 더보기 버튼 */}
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <button
-              style={{
-                padding: '0.75rem 2rem',
-                backgroundColor: 'var(--accent-color)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '0.5rem',
-                fontSize: '1rem',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow =
-                  '0 4px 12px var(--shadow-medium)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              더 많은 포스트 보기
-            </button>
-          </div>
         </div>
       </main>
 
