@@ -1462,7 +1462,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           {/* 모달 내용 */}
           <div
             style={{
-              padding: '2rem',
+              padding: '0.75rem',
               maxHeight: '75vh',
               overflowY: 'auto',
               scrollbarWidth: 'thin',
@@ -1471,7 +1471,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
             className="custom-scrollbar"
           >
             {/* 프로젝트 이미지 */}
-            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+            <div style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
               <img
                 src={project.image}
                 alt={project.title}
@@ -1486,13 +1486,13 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
             </div>
 
             {/* 프로젝트 설명 */}
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: '0.75rem' }}>
               <p
                 style={{
                   color: 'var(--text-primary)',
-                  lineHeight: '1.8',
+                  lineHeight: '1.4',
                   fontSize: '1rem',
-                  marginBottom: '1.5rem',
+                  marginBottom: '0.5rem',
                 }}
               >
                 {project.description}
@@ -1500,13 +1500,13 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
             </div>
 
             {/* 사용 기술 */}
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: '0.75rem' }}>
               <h4
                 style={{
                   fontSize: '1.125rem',
                   fontWeight: '600',
                   color: 'var(--text-primary)',
-                  marginBottom: '1rem',
+                  marginBottom: '0.25rem',
                 }}
               >
                 사용 기술 ({project.technologies.length}개)
@@ -1518,33 +1518,66 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                   flexWrap: 'wrap',
                 }}
               >
-                {project.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    style={{
-                      backgroundColor: 'var(--bg-secondary)',
-                      color: 'var(--text-secondary)',
-                      padding: '0.5rem 1rem',
-                      borderRadius: '1.5rem',
-                      fontSize: '0.875rem',
-                      border: '1px solid var(--border-color)',
-                      transition: 'all 0.2s ease',
-                    }}
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {project.technologies.map((tech, index) => {
+                  // 각 기술별로 다른 색상 적용
+                  const getTechColors = () => {
+                    const colorPalette = [
+                      { bg: '#3b82f6', text: 'white', border: '#3b82f6' }, // 파란색
+                      { bg: '#06b6d4', text: 'white', border: '#06b6d6' }, // 청록색
+                      { bg: '#8b5cf6', text: 'white', border: '#8b5cf6' }, // 보라색
+                      { bg: '#10b981', text: 'white', border: '#10b981' }, // 초록색
+                      { bg: '#f59e0b', text: 'white', border: '#f59e0b' }, // 주황색
+                      { bg: '#ef4444', text: 'white', border: '#ef4444' }, // 빨간색
+                      { bg: '#ec4899', text: 'white', border: '#ec4899' }, // 분홍색
+                      { bg: '#84cc16', text: 'white', border: '#84cc16' }, // 연두색
+                    ];
+
+                    return (
+                      colorPalette[index % colorPalette.length] ||
+                      colorPalette[0]
+                    );
+                  };
+
+                  const colors = getTechColors();
+
+                  return (
+                    <span
+                      key={index}
+                      style={{
+                        backgroundColor: colors.bg,
+                        color: colors.text,
+                        padding: '0.5rem 1rem',
+                        borderRadius: '1.5rem',
+                        fontSize: '0.875rem',
+                        border: `1px solid ${colors.border}`,
+                        transition: 'all 0.2s ease',
+                        cursor: 'pointer',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                        e.currentTarget.style.boxShadow =
+                          '0 4px 8px rgba(0, 0, 0, 0.2)';
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = 'none';
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  );
+                })}
               </div>
             </div>
 
             {/* 주요 기능 */}
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: '0.75rem' }}>
               <h4
                 style={{
                   fontSize: '1.125rem',
                   fontWeight: '600',
                   color: 'var(--text-primary)',
-                  marginBottom: '1rem',
+                  marginBottom: '0.25rem',
                 }}
               >
                 주요 기능 ({project.features.length}개)
@@ -1592,7 +1625,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
             </div>
 
             {/* 프로젝트 링크 */}
-            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+            <div style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
               <div
                 style={{
                   display: 'flex',

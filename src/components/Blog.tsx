@@ -6,6 +6,34 @@ const Blog = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('전체');
 
+  // 카테고리별 썸네일 색상 함수
+  const getCategoryThumbnailColor = (category: string) => {
+    switch (category) {
+      case '전체':
+        return '#dbeafe'; // 연한 파란색
+      case 'React':
+        return '#cffafe'; // 연한 청록색
+      case 'TypeScript':
+        return '#e9d5ff'; // 연한 보라색
+      default:
+        return '#f1f5f9'; // 기본 회색
+    }
+  };
+
+  // 카테고리별 텍스트 색상 함수
+  const getCategoryTextColor = (category: string) => {
+    switch (category) {
+      case '전체':
+        return '#1e40af'; // 진한 파란색
+      case 'React':
+        return '#0891b2'; // 진한 청록색
+      case 'TypeScript':
+        return '#7c3aed'; // 진한 보라색
+      default:
+        return '#64748b'; // 기본 회색
+    }
+  };
+
   const blogPosts: BlogPost[] = [
     {
       id: 1,
@@ -745,9 +773,7 @@ React 19는 단순한 기능 추가가 아닌, React 개발의 패러다임을 �
 
 React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를 통해 구축된 애플리케이션들은 더 나은 성능, 더 나은 사용자 경험, 그리고 더 나은 개발자 경험을 제공할 것입니다.`,
       category: 'React',
-      date: '2025.09.01',
-      thumbnailColor: '#f1f5f9',
-      categoryColor: '#3b82f6',
+      date: '2024.12.05',
       tags: [
         'React',
         'React19',
@@ -757,9 +783,341 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
         'useOptimistic',
       ],
     },
+    {
+      id: 2,
+      title: 'TypeScript 5.9의 새로운 기능들',
+      content: `# TypeScript 5.9: 개발자 경험의 새로운 진보
+
+2025년 8월 1일, Microsoft가 TypeScript 5.9를 공식 발표했습니다! 이번 릴리스는 개발자들의 생산성을 크게 향상시키는 혁신적인 기능들과 최적화를 포함하고 있으며, TypeScript 7.0을 위한 중요한 준비 단계이기도 합니다.
+
+## 🚀 주요 새로운 기능
+
+### 1. 최소화되고 업데이트된 tsc --init
+
+기존의 \`tsc --init\` 명령어는 너무 많은 주석과 설정으로 인해 복잡했습니다. TypeScript 5.9에서는 이를 대폭 개선했습니다.
+
+**기존 방식의 문제점:**
+- 과도하게 많은 주석 처리된 설정들
+- 개발자들이 대부분의 내용을 즉시 삭제하는 패턴
+- 실제로는 에디터의 자동완성이나 공식 문서를 더 선호
+
+**TypeScript 5.9의 새로운 접근:**
+\`\`\`json
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    // "rootDir": "./src",
+    // "outDir": "./dist",
+
+    // Environment Settings
+    "module": "nodenext",
+    "target": "esnext",
+    "types": [],
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+  }
+}
+\`\`\`
+
+### 2. import defer 지원
+
+ECMAScript의 지연된 모듈 평가 제안을 지원하는 새로운 \`import defer\` 구문이 추가되었습니다.
+
+**기본 사용법:**
+\`\`\`typescript
+// 모듈을 즉시 실행하지 않고 가져오기
+import defer * as feature from "./some-feature.js";
+
+// 실제로 접근할 때까지 모듈이 실행되지 않음
+console.log(feature.specialConstant); // 이때 모듈 실행
+\`\`\`
+
+**실제 사용 예시:**
+\`\`\`typescript
+// ./some-feature.ts
+initializationWithSideEffects();
+
+function initializationWithSideEffects() {
+  specialConstant = 42;
+  console.log("사이드 이펙트가 발생했습니다!");
+}
+
+export let specialConstant: number;
+\`\`\`
+
+\`\`\`typescript
+// main.ts
+import defer * as feature from "./some-feature.js";
+
+// 아직 사이드 이펙트가 발생하지 않음
+console.log("모듈을 가져왔지만 실행되지 않음");
+
+// 이때 처음으로 모듈이 실행됨
+console.log(feature.specialConstant); // 42
+\`\`\`
+
+**제한사항:**
+\`\`\`typescript
+// ❌ 허용되지 않음
+import defer { doSomething } from "some-module";
+import defer defaultExport from "some-module";
+
+// ✅ 올바른 사용법
+import defer * as feature from "some-module";
+\`\`\`
+
+### 3. --module node20 지원
+
+Node.js 20의 모듈 시스템을 완벽하게 지원하는 새로운 모듈 설정이 추가되었습니다.
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "module": "node20",
+    "target": "es2022"
+  }
+}
+\`\`\`
+
+이 설정을 사용하면 Node.js 20의 최신 모듈 기능들을 안전하게 활용할 수 있습니다.
+
+### 4. DOM API 요약 설명
+
+DOM API에 대한 더 나은 IntelliSense 지원이 추가되었습니다. 이제 DOM 메서드와 속성에 대한 간단한 설명을 에디터에서 바로 확인할 수 있습니다.
+
+\`\`\`typescript
+// 호버하면 상세한 설명이 나타남
+document.querySelector('.my-element'); 
+// "CSS 선택자와 일치하는 첫 번째 요소를 반환합니다"
+
+element.addEventListener('click', handler);
+// "지정된 이벤트 타입에 대한 이벤트 리스너를 추가합니다"
+\`\`\`
+
+### 5. 확장 가능한 호버 (프리뷰)
+
+복잡한 타입 정보를 더 잘 탐색할 수 있는 새로운 호버 기능이 프리뷰로 제공됩니다.
+
+**새로운 기능:**
+- 호버 툴팁에서 \`+\` 버튼을 클릭하여 타입을 더 자세히 확장
+- \`-\` 버튼을 클릭하여 이전 뷰로 축소
+- 복잡한 제네릭 타입도 단계별로 탐색 가능
+
+\`\`\`typescript
+type ComplexType<T> = {
+  data: T;
+  meta: {
+    timestamp: Date;
+    version: string;
+    nested: {
+      deep: {
+        value: T[];
+      }
+    }
+  }
+}
+
+// 호버 시 단계별로 확장하여 확인 가능
+const example: ComplexType<User> = /* ... */;
+\`\`\`
+
+### 6. 구성 가능한 최대 호버 길이
+
+호버 툴팁의 길이를 사용자가 설정할 수 있게 되었습니다.
+
+**VS Code 설정:**
+\`\`\`json
+{
+  "js/ts.hover.maximumLength": 5000
+}
+\`\`\`
+
+기본값도 기존보다 훨씬 큰 값으로 설정되어 더 많은 정보를 볼 수 있습니다.
+
+## 🎯 성능 최적화
+
+### 1. 매퍼에서 인스턴스화 캐싱
+
+복잡한 라이브러리(Zod, tRPC 등)에서 발생하는 성능 문제를 해결하기 위해 타입 인스턴스화 캐싱이 개선되었습니다.
+
+**개선 효과:**
+- 중복된 타입 인스턴스화 작업 방지
+- 메모리 할당 최적화
+- 복잡한 제네릭 타입 처리 속도 향상
+
+### 2. 클로저 생성 최적화
+
+파일 존재 확인 등의 코드 경로에서 불필요한 클로저 생성을 피하도록 최적화되었습니다.
+
+**성능 향상:**
+- 대규모 프로젝트에서 약 11% 속도 향상
+- 메모리 사용량 감소
+- 파일 시스템 접근 최적화
+
+## 🔄 주목할 만한 행동 변화
+
+### 1. lib.d.ts 변경사항
+
+DOM 타입 생성에 변화가 있어 기존 코드에 영향을 줄 수 있습니다.
+
+**주요 변경사항:**
+- \`ArrayBuffer\`가 더 이상 여러 \`TypedArray\` 타입의 상위 타입이 아님
+- \`Buffer\` (Node.js)와 관련된 타입 관계 변화
+
+**일반적인 에러 메시지:**
+\`\`\`typescript
+// 다음과 같은 에러가 발생할 수 있습니다
+error TS2345: Argument of type 'ArrayBufferLike' is not assignable to parameter of type 'BufferSource'.
+error TS2322: Type 'ArrayBufferLike' is not assignable to type 'ArrayBuffer'.
+error TS2322: Type 'Buffer' is not assignable to type 'Uint8Array<ArrayBufferLike>'.
+\`\`\`
+
+**해결 방법:**
+\`\`\`typescript
+// 1. @types/node 업데이트
+npm update @types/node --save-dev
+
+// 2. 더 구체적인 타입 지정
+let data = new Uint8Array([0, 1, 2, 3, 4]);
+- someFunc(data)
++ someFunc(data.buffer) // .buffer 속성 사용
+
+// 3. 명시적 타입 선언
+- const arr: Uint8Array = buffer;
++ const arr: Uint8Array<ArrayBuffer> = buffer;
+\`\`\`
+
+### 2. 타입 인자 추론 변화
+
+타입 변수 "누출"을 수정하는 과정에서 일부 코드베이스에서 새로운 타입 에러가 발생할 수 있습니다.
+
+**해결 방법:**
+\`\`\`typescript
+// 제네릭 함수 호출에 명시적인 타입 인자 추가
+- someGenericFunction(args)
++ someGenericFunction<SpecificType>(args)
+\`\`\`
+
+## 🔮 TypeScript의 미래: 6.0과 7.0
+
+### TypeScript 6.0의 역할
+- TypeScript 7.0을 위한 전환점 역할
+- 설정 및 타입 검사 동작의 점진적 변화
+- API 호환성은 TypeScript 5.9와 완전히 동일
+
+### TypeScript 7.0의 비전
+- Native 포트로 완전히 재작성된 버전
+- 현재 Visual Studio Code에서 미리 체험 가능
+- 획기적인 성능 향상 예상
+
+## 💡 실무 적용 가이드
+
+### 1. 점진적 마이그레이션 전략
+
+**단계 1: 기본 업그레이드**
+\`\`\`bash
+npm install -D typescript@5.9
+\`\`\`
+
+**단계 2: 새로운 기능 활용**
+\`\`\`typescript
+// import defer 도입
+import defer * as heavyModule from './expensive-initialization';
+
+// 조건부 로딩
+if (shouldLoadFeature) {
+  await heavyModule.initialize();
+}
+\`\`\`
+
+**단계 3: 최적화된 설정 적용**
+\`\`\`bash
+npx tsc --init  # 새로운 최적화된 tsconfig.json 생성
+\`\`\`
+
+### 2. 성능 최적화 체크리스트
+
+- [ ] 복잡한 타입 라이브러리 사용 시 컴파일 시간 측정
+- [ ] \`import defer\`를 활용한 조건부 모듈 로딩 검토
+- [ ] 새로운 호버 기능으로 개발 경험 개선
+- [ ] DOM API 사용 시 새로운 타입 정의 활용
+
+### 3. 문제 해결 가이드
+
+**타입 에러 발생 시:**
+1. \`@types/node\` 최신 버전으로 업데이트
+2. 더 구체적인 타입 명시
+3. 제네릭 함수에 명시적 타입 인자 추가
+
+**성능 이슈 해결:**
+1. 복잡한 타입 인스턴스화 패턴 검토
+2. 파일 존재 확인 로직 최적화
+3. 불필요한 클로저 생성 방지
+
+## 📈 마이그레이션 체크리스트
+
+### 기본 설정
+- [ ] TypeScript 5.9 설치
+- [ ] 새로운 \`tsc --init\` 실행 및 설정 검토
+- [ ] \`@types/node\` 업데이트 (Node.js 사용 시)
+
+### 새 기능 활용
+- [ ] \`import defer\` 적용 가능한 모듈 식별
+- [ ] \`--module node20\` 설정 검토 (Node.js 20 사용 시)
+- [ ] 호버 최대 길이 설정 조정
+
+### 호환성 확인
+- [ ] 타입 에러 검토 및 수정
+- [ ] DOM 관련 타입 사용 코드 검증
+- [ ] 성능 테스트 및 최적화 효과 확인
+
+### 팀 협업
+- [ ] 팀원들에게 새로운 기능 공유
+- [ ] 코딩 스타일 가이드 업데이트
+- [ ] CI/CD 파이프라인에서 TypeScript 버전 업데이트
+
+## 🎉 결론
+
+TypeScript 5.9는 단순한 버전 업데이트가 아닌, 개발자 경험의 근본적인 개선을 가져다주는 중요한 릴리스입니다. 새로운 \`import defer\` 구문부터 성능 최적화, 그리고 TypeScript 7.0을 위한 준비까지, 이번 업데이트는 TypeScript 생태계의 미래를 위한 탄탄한 기반을 마련했습니다.
+
+특히 대규모 프로젝트에서 체감할 수 있는 성능 향상과 개발자 도구의 개선은 일상적인 개발 워크플로우에 실질적인 도움을 제공할 것입니다. 새로운 기능들을 점진적으로 도입하면서 TypeScript 7.0의 혁신적인 변화에 대비해보세요.
+
+## 📚 추가 자료
+
+더 자세한 내용과 최신 정보는 [TypeScript 5.9 공식 발표](https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/)를 참고하세요.
+
+TypeScript 팀의 지속적인 혁신 덕분에 우리는 더 안전하고 효율적인 개발 환경을 누릴 수 있게 되었습니다. 🚀`,
+      category: 'TypeScript',
+      date: '2025.08.01',
+      tags: [
+        'TypeScript',
+        'TypeScript5.9',
+        'Frontend',
+        'JavaScript',
+        'Performance',
+        'Developer Tools',
+      ],
+    },
   ];
 
-  const categories = ['전체', 'React'];
+  const categories = ['전체', 'React', 'TypeScript'];
 
   const filteredPosts =
     selectedCategory === '전체'
@@ -796,47 +1154,111 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
               justifyContent: 'center',
             }}
           >
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => handleCategoryClick(category)}
-                style={{
-                  padding: '0.5rem 1rem',
-                  borderRadius: '1.5rem',
-                  border: '1px solid var(--border-color)',
-                  backgroundColor:
-                    selectedCategory === category
-                      ? 'var(--accent-color)'
-                      : 'var(--bg-secondary)',
-                  color:
-                    selectedCategory === category
-                      ? 'white'
-                      : 'var(--text-primary)',
-                  fontSize: '0.875rem',
-                  fontWeight: '500',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={e => {
-                  if (selectedCategory !== category) {
-                    e.currentTarget.style.backgroundColor =
-                      'var(--accent-color)';
-                    e.currentTarget.style.color = 'white';
-                    e.currentTarget.style.borderColor = 'var(--accent-color)';
+            {categories.map(category => {
+              // 각 카테고리별로 다른 색상 적용 (새로운 카테고리도 자동으로 색상 할당)
+              const getCategoryColors = (cat: string, isSelected: boolean) => {
+                // 미리 정의된 색상 팔레트
+                const colorPalette = [
+                  { bg: '#3b82f6', color: 'white', border: '#3b82f6' }, // 파란색
+                  { bg: '#06b6d4', color: 'white', border: '#06b6d4' }, // 청록색
+                  { bg: '#8b5cf6', color: 'white', border: '#8b5cf6' }, // 보라색
+                  { bg: '#10b981', color: 'white', border: '#10b981' }, // 초록색
+                  { bg: '#f59e0b', color: 'white', border: '#f59e0b' }, // 주황색
+                  { bg: '#ef4444', color: 'white', border: '#ef4444' }, // 빨간색
+                  { bg: '#ec4899', color: 'white', border: '#ec4899' }, // 분홍색
+                  { bg: '#84cc16', color: 'white', border: '#84cc16' }, // 연두색
+                ];
+
+                const lightColorPalette = [
+                  { bg: '#dbeafe', color: '#1e40af', border: '#93c5fd' }, // 연한 파란색
+                  { bg: '#cffafe', color: '#0891b2', border: '#67e8f9' }, // 연한 청록색
+                  { bg: '#e9d5ff', color: '#7c3aed', border: '#c4b5fd' }, // 연한 보라색
+                  { bg: '#d1fae5', color: '#047857', border: '#6ee7b7' }, // 연한 초록색
+                  { bg: '#fed7aa', color: '#ea580c', border: '#fdba74' }, // 연한 주황색
+                  { bg: '#fecaca', color: '#dc2626', border: '#fca5a5' }, // 연한 빨간색
+                  { bg: '#fce7f3', color: '#be185d', border: '#f9a8d4' }, // 연한 분홍색
+                  { bg: '#ecfccb', color: '#65a30d', border: '#bef264' }, // 연한 연두색
+                ];
+
+                // 카테고리 인덱스 찾기
+                const categoryIndex = categories.indexOf(cat);
+
+                if (isSelected) {
+                  // 선택된 상태: 진한 색상
+                  if (cat === '전체') {
+                    return { bg: '#3b82f6', color: 'white', border: '#3b82f6' };
                   }
-                }}
-                onMouseLeave={e => {
-                  if (selectedCategory !== category) {
-                    e.currentTarget.style.backgroundColor =
-                      'var(--bg-secondary)';
-                    e.currentTarget.style.color = 'var(--text-primary)';
-                    e.currentTarget.style.borderColor = 'var(--border-color)';
+                  return (
+                    colorPalette[categoryIndex % colorPalette.length] ||
+                    colorPalette[0]
+                  );
+                } else {
+                  // 선택되지 않은 상태: 연한 색상
+                  if (cat === '전체') {
+                    return {
+                      bg: '#dbeafe',
+                      color: '#1e40af',
+                      border: '#93c5fd',
+                    };
                   }
-                }}
-              >
-                {category}
-              </button>
-            ))}
+                  return (
+                    lightColorPalette[
+                      categoryIndex % lightColorPalette.length
+                    ] || lightColorPalette[0]
+                  );
+                }
+              };
+
+              const colors = getCategoryColors(
+                category,
+                selectedCategory === category
+              );
+
+              return (
+                <button
+                  key={category}
+                  onClick={() => handleCategoryClick(category)}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    borderRadius: '1.5rem',
+                    border: `1px solid ${colors.border}`,
+                    backgroundColor: colors.bg,
+                    color: colors.color,
+                    fontSize: '0.875rem',
+                    fontWeight: '500',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    boxShadow:
+                      selectedCategory === category
+                        ? '0 4px 12px rgba(0, 0, 0, 0.15)'
+                        : 'none',
+                  }}
+                  onMouseEnter={e => {
+                    if (selectedCategory !== category) {
+                      const hoverColors = getCategoryColors(category, false);
+                      e.currentTarget.style.backgroundColor = hoverColors.bg;
+                      e.currentTarget.style.color = hoverColors.color;
+                      e.currentTarget.style.borderColor = hoverColors.border;
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow =
+                        '0 4px 8px rgba(0, 0, 0, 0.1)';
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (selectedCategory !== category) {
+                      const normalColors = getCategoryColors(category, false);
+                      e.currentTarget.style.backgroundColor = normalColors.bg;
+                      e.currentTarget.style.color = normalColors.color;
+                      e.currentTarget.style.borderColor = normalColors.border;
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }
+                  }}
+                >
+                  {category}
+                </button>
+              );
+            })}
           </div>
 
           {/* 포스트 개수 표시 */}
@@ -889,11 +1311,11 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                 <div
                   style={{
                     height: '200px',
-                    backgroundColor: post.thumbnailColor,
+                    backgroundColor: getCategoryThumbnailColor(post.category),
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: post.categoryColor,
+                    color: getCategoryTextColor(post.category),
                     fontSize: '1.5rem',
                     fontWeight: '700',
                   }}
@@ -907,12 +1329,15 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                   <div style={{ marginBottom: '0.75rem' }}>
                     <span
                       style={{
-                        backgroundColor: post.categoryColor,
-                        color: 'white',
+                        backgroundColor: getCategoryThumbnailColor(
+                          post.category
+                        ),
+                        color: getCategoryTextColor(post.category),
                         padding: '0.25rem 0.75rem',
                         borderRadius: '1rem',
                         fontSize: '0.75rem',
                         fontWeight: '500',
+                        border: `1px solid ${getCategoryTextColor(post.category)}`,
                       }}
                     >
                       {post.category}
@@ -1098,7 +1523,7 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
             {/* 모달 내용 */}
             <div
               style={{
-                padding: '2rem',
+                padding: '0.75rem',
                 maxHeight: '75vh',
                 overflowY: 'auto',
                 scrollbarWidth: 'thin',
@@ -1109,7 +1534,7 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
               <div
                 style={{
                   color: 'var(--text-primary)',
-                  lineHeight: '1.8',
+                  lineHeight: '1.4',
                   fontSize: '1rem',
                 }}
               >
@@ -1223,8 +1648,8 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                           style={{
                             fontSize: '1.75rem',
                             fontWeight: '700',
-                            marginTop: '2.5rem',
-                            marginBottom: '1.5rem',
+                            marginTop: '1.5rem',
+                            marginBottom: '1rem',
                             color: 'var(--text-primary)',
                             borderBottom: '2px solid var(--accent-color)',
                             paddingBottom: '0.5rem',
@@ -1240,8 +1665,8 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                           style={{
                             fontSize: '1.375rem',
                             fontWeight: '600',
-                            marginTop: '2rem',
-                            marginBottom: '1rem',
+                            marginTop: '1.25rem',
+                            marginBottom: '0.75rem',
                             color: 'var(--accent-color)',
                             paddingLeft: '0.5rem',
                             borderLeft: '4px solid var(--accent-color)',
@@ -1252,7 +1677,7 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                       );
                     } else if (line.trim() === '') {
                       elements.push(
-                        <div key={key} style={{ height: '1.5rem' }} />
+                        <div key={key} style={{ height: '1rem' }} />
                       );
                     } else if (line.startsWith('- ')) {
                       elements.push(
@@ -1286,7 +1711,7 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                         <p
                           key={key}
                           style={{
-                            marginBottom: '1rem',
+                            marginBottom: '0.75rem',
                             fontWeight: '600',
                             color: 'var(--accent-color)',
                             fontSize: '1.125rem',
@@ -1303,8 +1728,8 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                         <div
                           key={key}
                           style={{
-                            marginBottom: '1.5rem',
-                            padding: '1.5rem',
+                            marginBottom: '1rem',
+                            padding: '1rem',
                             backgroundColor: line.startsWith('**Q:')
                               ? 'var(--bg-secondary)'
                               : 'var(--bg-primary)',
@@ -1318,13 +1743,13 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                               color: line.startsWith('**Q:')
                                 ? 'var(--accent-color)'
                                 : 'var(--text-primary)',
-                              marginBottom: '0.75rem',
+                              marginBottom: '0.5rem',
                               fontSize: '1rem',
                             }}
                           >
                             {line.startsWith('**Q:') ? '❓ 질문' : '💡 답변'}
                           </div>
-                          <div style={{ lineHeight: '1.7' }}>
+                          <div style={{ lineHeight: '1.6' }}>
                             {line.replace(/\*\*Q:\s*|\*\*A:\s*/g, '')}
                           </div>
                         </div>
@@ -1342,8 +1767,8 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                           <p
                             key={key}
                             style={{
-                              marginBottom: '1.25rem',
-                              lineHeight: '1.8',
+                              marginBottom: '0.75rem',
+                              lineHeight: '1.6',
                               fontSize: '1rem',
                               color: 'var(--text-primary)',
                             }}
@@ -1389,8 +1814,8 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                         <p
                           key={key}
                           style={{
-                            marginBottom: '1.25rem',
-                            lineHeight: '1.8',
+                            marginBottom: '0.75rem',
+                            lineHeight: '1.6',
                             fontSize: '1rem',
                             color: 'var(--text-primary)',
                           }}
@@ -1408,8 +1833,8 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
               {/* 태그 섹션 */}
               <div
                 style={{
-                  marginTop: '3rem',
-                  paddingTop: '2rem',
+                  marginTop: '2rem',
+                  paddingTop: '1.5rem',
                   borderTop: '2px solid var(--border-color)',
                 }}
               >
@@ -1418,7 +1843,7 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
                     fontSize: '1.125rem',
                     fontWeight: '600',
                     color: 'var(--text-primary)',
-                    marginBottom: '1rem',
+                    marginBottom: '0.75rem',
                   }}
                 >
                   📍 관련 태그

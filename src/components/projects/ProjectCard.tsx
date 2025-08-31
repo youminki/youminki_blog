@@ -66,18 +66,50 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(
               사용 기술 ({project.technologies.length}개)
             </h4>
             <div className="flex flex-wrap gap-3">
-              {project.technologies.slice(0, 6).map((tech, index) => (
-                <span
-                  key={index}
-                  className="px-4 py-2 bg-gray-700 text-gray-300 text-xs font-medium rounded-lg border border-blue-500 hover:border-blue-400 hover:bg-gray-600 transition-all duration-200 shadow-sm"
-                  style={{
-                    marginBottom: '8px',
-                    marginRight: '8px',
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
+              {project.technologies.slice(0, 6).map((tech, index) => {
+                // 각 기술별로 다른 색상 적용
+                const getTechColors = () => {
+                  const colorPalette = [
+                    { bg: '#3b82f6', text: 'white', border: '#3b82f6' }, // 파란색
+                    { bg: '#06b6d4', text: 'white', border: '#06b6d4' }, // 청록색
+                    { bg: '#8b5cf6', text: 'white', border: '#8b5cf6' }, // 보라색
+                    { bg: '#10b981', text: 'white', border: '#10b981' }, // 초록색
+                    { bg: '#f59e0b', text: 'white', border: '#f59e0b' }, // 주황색
+                    { bg: '#ef4444', text: 'white', border: '#ef4444' }, // 빨간색
+                  ];
+
+                  return (
+                    colorPalette[index % colorPalette.length] || colorPalette[0]
+                  );
+                };
+
+                const colors = getTechColors();
+
+                return (
+                  <span
+                    key={index}
+                    className="px-4 py-2 text-xs font-medium rounded-lg transition-all duration-200 shadow-sm"
+                    style={{
+                      backgroundColor: colors.bg,
+                      color: colors.text,
+                      border: `1px solid ${colors.border}`,
+                      marginBottom: '8px',
+                      marginRight: '8px',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow =
+                        '0 4px 8px rgba(0, 0, 0, 0.2)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    {tech}
+                  </span>
+                );
+              })}
               {project.technologies.length > 6 && (
                 <span
                   className="px-4 py-2 bg-gray-600 text-gray-400 text-xs font-medium rounded-lg border border-gray-500 shadow-sm"
