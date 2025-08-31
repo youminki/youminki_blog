@@ -6,7 +6,6 @@ export interface BlogPost {
   content: string;
   category: string;
   date: string;
-  readTime: string;
   thumbnailColor: string;
   categoryColor: string;
   tags: string[];

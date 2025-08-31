@@ -9,467 +9,757 @@ const Blog = () => {
   const blogPosts: BlogPost[] = [
     {
       id: 1,
-      title: 'React 18의 새로운 기능들',
-      content: `React 18에서 추가된 Concurrent Features, Automatic Batching, Suspense on the Server 등 새로운 기능들을 살펴보고 실제 프로젝트에 어떻게 적용할 수 있는지 알아봅니다.
+      title: 'React 19의 새로운 기능들',
+      content: `# React 19: 혁신적인 개발자 경험의 시작
 
-## 주요 기능
+React 19는 2024년 12월 5일에 안정적으로 릴리스되었으며, 이는 React 생태계의 새로운 시대를 열었습니다. 이번 업데이트는 단순한 기능 추가가 아닌, 개발자들이 더 직관적이고 효율적으로 React 애플리케이션을 구축할 수 있도록 하는 근본적인 변화를 가져왔습니다.
 
-### 1. Concurrent Features
-- React의 렌더링을 중단하고 재개할 수 있는 기능
-- 사용자 입력에 즉시 반응하는 UI 구현 가능
-- 백그라운드에서 렌더링 작업 수행
+## 🚀 핵심 혁신: Actions 시스템
 
-### 2. Automatic Batching
-- 여러 상태 업데이트를 자동으로 배치 처리
-- 불필요한 리렌더링 방지
-- 성능 향상
+### Actions란 무엇인가?
+Actions는 React 19의 가장 중요한 새로운 기능으로, 비동기 작업을 선언적으로 처리할 수 있게 해주는 시스템입니다. 기존의 복잡한 상태 관리 로직을 자동화하여 개발자가 비즈니스 로직에 집중할 수 있도록 합니다.
 
-### 3. Suspense on the Server
-- 서버 사이드 렌더링에서도 Suspense 사용 가능
-- 스트리밍 SSR 지원
-- 점진적 HTML 전송
+### 1. 액션 (Actions) - 비동기 작업의 혁신
 
-## 실제 적용 예시
-
+**기존 React 18 이전의 복잡한 패턴:**
 \`\`\`jsx
-import { Suspense, lazy } from 'react';
+function UpdateName() {
+  const [name, setName] = useState("");
+  const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-const LazyComponent = lazy(() => import('./LazyComponent'));
-
-function App() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <LazyComponent />
-    </Suspense>
-  );
-}
-\`\`\`
-
-이러한 기능들을 활용하면 더 나은 사용자 경험을 제공할 수 있습니다.`,
-      category: 'React',
-      date: '2024.01.15',
-      readTime: '5분 읽기',
-      thumbnailColor: '#f1f5f9',
-      categoryColor: '#3b82f6',
-      tags: ['React', 'Frontend', 'JavaScript', 'React18'],
-    },
-    {
-      id: 2,
-      title: 'TypeScript로 더 안전한 코드 작성하기',
-      content: `TypeScript의 타입 시스템을 활용하여 런타임 에러를 줄이고 코드 품질을 향상시키는 방법들을 실무 경험을 바탕으로 정리했습니다.
-
-## TypeScript의 장점
-
-### 1. 타입 안전성
-- 컴파일 타임에 타입 오류 감지
-- 런타임 에러 사전 방지
-- 코드 품질 향상
-
-### 2. 개발자 경험
-- 자동완성과 IntelliSense
-- 리팩토링 시 안전성
-- 명확한 API 문서화
-
-### 3. 팀 협업
-- 코드 가독성 향상
-- 명확한 인터페이스 정의
-- 유지보수성 증대
-
-## 실무 활용 팁
-
-\`\`\`typescript
-// 유니온 타입 활용
-type Status = 'loading' | 'success' | 'error';
-
-// 제네릭 활용
-interface ApiResponse<T> {
-  data: T;
-  status: Status;
-  message: string;
-}
-
-// 타입 가드 활용
-function isString(value: unknown): value is string {
-  return typeof value === 'string';
-}
-\`\`\`
-
-TypeScript를 적극 활용하면 더 안전하고 유지보수하기 좋은 코드를 작성할 수 있습니다.`,
-      category: 'TypeScript',
-      date: '2024.01.10',
-      readTime: '7분 읽기',
-      thumbnailColor: '#ecfdf5',
-      categoryColor: '#10b981',
-      tags: ['TypeScript', 'Development', 'BestPractices', 'TypeSafety'],
-    },
-    {
-      id: 3,
-      title: 'Next.js 13 App Router 완벽 가이드',
-      content: `Next.js 13의 새로운 App Router를 사용하여 현대적인 웹 애플리케이션을 구축하는 방법과 기존 Pages Router와의 차이점을 자세히 알아봅니다.
-
-## App Router의 특징
-
-### 1. 파일 기반 라우팅
-- 폴더 구조로 라우트 정의
-- 중첩 레이아웃 지원
-- 동적 라우트와 정적 라우트
-
-### 2. 서버 컴포넌트
-- 기본적으로 서버에서 렌더링
-- 클라이언트 번들 크기 감소
-- SEO 최적화
-
-### 3. 스트리밍
-- 점진적 HTML 전송
-- 사용자 경험 향상
-- 로딩 상태 관리
-
-## 실제 구현 예시
-
-\`\`\`tsx
-// app/layout.tsx
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body>
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
-  );
-}
-
-// app/page.tsx
-export default function HomePage() {
-  return (
-    <main>
-      <h1>Welcome to Next.js 13</h1>
-    </main>
-  );
-}
-\`\`\`
-
-App Router를 활용하면 더 현대적이고 효율적인 웹 애플리케이션을 구축할 수 있습니다.`,
-      category: 'Next.js',
-      date: '2024.01.05',
-      readTime: '10분 읽기',
-      thumbnailColor: '#faf5ff',
-      categoryColor: '#8b5cf6',
-      tags: ['Next.js', 'React', 'WebDevelopment', 'AppRouter'],
-    },
-    {
-      id: 4,
-      title: '실무에서 자주 사용하는 CSS Grid 레이아웃 패턴',
-      content: `CSS Grid를 활용한 실무 레이아웃 패턴들을 정리했습니다. 반응형 디자인과 복잡한 레이아웃을 효율적으로 구현하는 방법을 알아봅니다.
-
-## Grid 레이아웃의 장점
-
-### 1. 2차원 레이아웃
-- 행과 열을 동시에 제어
-- 복잡한 레이아웃 구현 가능
-- 유연한 공간 배분
-
-### 2. 반응형 디자인
-- 미디어 쿼리와 연동
-- 다양한 화면 크기 대응
-- 자동 레이아웃 조정
-
-### 3. 성능 최적화
-- 불필요한 마크업 감소
-- CSS 계산 최적화
-- 렌더링 성능 향상
-
-## 실무 활용 예시
-
-\`\`\`css
-/* 카드 그리드 레이아웃 */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
-
-/* 반응형 그리드 */
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
-  }
-}
-\`\`\`
-
-CSS Grid를 마스터하면 복잡한 레이아웃도 쉽게 구현할 수 있습니다.`,
-      category: 'CSS',
-      date: '2024.01.01',
-      readTime: '8분 읽기',
-      thumbnailColor: '#fef3c7',
-      categoryColor: '#f59e0b',
-      tags: ['CSS', 'Grid', 'Layout', 'ResponsiveDesign'],
-    },
-    {
-      id: 5,
-      title: 'JavaScript 성능 최적화 실전 가이드',
-      content: `JavaScript 애플리케이션의 성능을 향상시키는 실전적인 방법들을 정리했습니다. 메모리 누수 방지, 렌더링 최적화, 번들 크기 감소 등 다양한 기법을 알아봅니다.
-
-## 성능 최적화 핵심
-
-### 1. 메모리 관리
-- 클로저 메모리 누수 방지
-- 이벤트 리스너 정리
-- 가비지 컬렉션 최적화
-
-### 2. 렌더링 최적화
-- 불필요한 리렌더링 방지
-- 가상화 기법 활용
-- 디바운싱과 쓰로틀링
-
-### 3. 번들 최적화
-- Tree Shaking
-- 코드 스플리팅
-- 동적 임포트
-
-## 실무 적용 예시
-
-\`\`\`javascript
-// 디바운싱 구현
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
+  const handleSubmit = async () => {
+    try {
+      setIsPending(true);
+      setError(null);
+      setIsSuccess(false);
+      
+      const result = await updateName(name);
+      
+      if (result.success) {
+        setIsSuccess(true);
+        redirect("/profile");
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsPending(false);
+    }
   };
-}
 
-// 가상화 스크롤
-const VirtualList = ({ items, itemHeight, containerHeight }) => {
-  const [scrollTop, setScrollTop] = useState(0);
-  const visibleItems = items.slice(
-    Math.floor(scrollTop / itemHeight),
-    Math.floor((scrollTop + containerHeight) / itemHeight)
-  );
-  
   return (
-    <div style={{ height: containerHeight, overflow: 'auto' }}>
-      {visibleItems.map(item => (
-        <div key={item.id} style={{ height: itemHeight }}>
-          {item.content}
-        </div>
-      ))}
+    <div>
+      <input 
+        value={name} 
+        onChange={(e) => setName(e.target.value)}
+        disabled={isPending}
+      />
+      <button 
+        onClick={handleSubmit} 
+        disabled={isPending || !name.trim()}
+      >
+        {isPending ? "업데이트 중..." : "업데이트"}
+      </button>
+      {error && <p style={{color: 'red'}}>{error}</p>}
+      {isSuccess && <p style={{color: 'green'}}>성공적으로 업데이트되었습니다!</p>}
     </div>
   );
-};
+}
 \`\`\`
 
-성능 최적화는 사용자 경험을 크게 향상시킬 수 있습니다.`,
-      category: 'JavaScript',
-      date: '2023.12.28',
-      readTime: '12분 읽기',
-      thumbnailColor: '#fef2f2',
-      categoryColor: '#ef4444',
-      tags: ['JavaScript', 'Performance', 'Optimization', 'Memory'],
-    },
-    {
-      id: 6,
-      title: '프론트엔드 개발자 면접 준비 가이드',
-      content: `프론트엔드 개발자 면접에서 자주 나오는 질문들과 답변 방법을 정리했습니다. 기술적 질문부터 프로젝트 설명까지 체계적으로 준비하는 방법을 알아봅니다.
-
-## 면접 준비 포인트
-
-### 1. 기술적 질문
-- JavaScript 핵심 개념
-- React 생명주기와 훅
-- 웹 성능 최적화
-- 브라우저 렌더링 과정
-
-### 2. 프로젝트 설명
-- 문제 해결 과정
-- 기술 선택 이유
-- 팀 협업 경험
-- 성과와 개선점
-
-### 3. 코딩 테스트
-- 알고리즘 문제 풀이
-- 코드 품질과 가독성
-- 에러 처리 방법
-- 테스트 코드 작성
-
-## 면접 질문 예시
-
-**Q: React의 Virtual DOM이 무엇이고 왜 사용하나요?**
-
-A: Virtual DOM은 실제 DOM의 가상 표현으로, 메모리에 가벼운 복사본을 만들어 상태 변경을 추적합니다. 실제 DOM 조작은 비용이 크므로, Virtual DOM에서 변경사항을 계산한 후 최소한의 DOM 업데이트만 수행하여 성능을 향상시킵니다.
-
-**Q: 웹 성능을 측정하는 방법은?**
-
-A: Lighthouse, WebPageTest, Chrome DevTools의 Performance 탭 등을 사용합니다. Core Web Vitals, First Contentful Paint, Largest Contentful Paint 등의 지표를 중점적으로 확인합니다.
-
-체계적인 준비로 좋은 결과를 얻을 수 있습니다.`,
-      category: '개발팁',
-      date: '2023.12.25',
-      readTime: '15분 읽기',
-      thumbnailColor: '#e0e7ff',
-      categoryColor: '#6366f1',
-      tags: ['Interview', 'Career', 'Frontend', 'Preparation'],
-    },
-    {
-      id: 7,
-      title: 'Git으로 협업하는 개발팀을 위한 가이드',
-      content: `Git을 활용한 효율적인 협업 방법과 워크플로우를 정리했습니다. 브랜치 전략, 커밋 메시지 작성법, 코드 리뷰 프로세스 등 실무에서 바로 적용할 수 있는 내용들입니다.
-
-## Git 협업 핵심
-
-### 1. 브랜치 전략
-- Git Flow vs GitHub Flow
-- Feature 브랜치 활용
-- Hotfix 브랜치 관리
-- 브랜치 네이밍 컨벤션
-
-### 2. 커밋 메시지
-- Conventional Commits
-- 의미있는 커밋 메시지
-- 커밋 단위 관리
-- 히스토리 정리
-
-### 3. 코드 리뷰
-- Pull Request 작성법
-- 리뷰어 역할과 책임
-- 자동화 도구 활용
-- 리뷰 문화 조성
-
-## 실무 워크플로우
-
-\`\`\`bash
-# 기능 개발 시작
-git checkout -b feature/user-authentication
-git add .
-git commit -m "feat: 사용자 인증 기능 구현
-
-- JWT 토큰 기반 인증
-- 로그인/로그아웃 API 연동
-- 보안 미들웨어 추가"
-
-# 개발 완료 후 PR 생성
-git push origin feature/user-authentication
-# GitHub에서 Pull Request 생성
-\`\`\`
-
-**PR 템플릿 예시:**
-- 변경사항 요약
-- 테스트 방법
-- 관련 이슈
-- 스크린샷 (UI 변경시)
-
-효율적인 Git 워크플로우로 팀 생산성을 높일 수 있습니다.`,
-      category: '개발팁',
-      date: '2023.12.20',
-      readTime: '10분 읽기',
-      thumbnailColor: '#f3e8ff',
-      categoryColor: '#a855f7',
-      tags: ['Git', 'Collaboration', 'Workflow', 'TeamWork'],
-    },
-    {
-      id: 8,
-      title: '웹 접근성(Accessibility) 실무 적용법',
-      content: `웹 접근성을 실무에 적용하는 구체적인 방법들을 정리했습니다. WCAG 가이드라인 준수, 스크린 리더 지원, 키보드 네비게이션 등 실제 개발에서 고려해야 할 요소들을 알아봅니다.
-
-## 접근성 핵심 요소
-
-### 1. 시맨틱 마크업
-- HTML5 시맨틱 태그 활용
-- 적절한 헤딩 구조
-- ARIA 속성 활용
-- 의미있는 링크 텍스트
-
-### 2. 키보드 네비게이션
-- Tab 순서 관리
-- 포커스 표시
-- 키보드 단축키
-- 스킵 링크
-
-### 3. 스크린 리더 지원
-- 대체 텍스트 제공
-- 라벨과 입력 필드 연결
-- 상태 변경 알림
-- 오류 메시지 전달
-
-## 실무 적용 예시
-
+**React 19의 간단하고 직관적인 Actions:**
 \`\`\`jsx
-// 접근성 개선된 컴포넌트
-function AccessibleButton({ children, onClick, ariaLabel }) {
+function UpdateName() {
+  const [name, setName] = useState("");
+  
+  // Actions를 사용한 비동기 처리
+  const handleSubmit = async () => {
+    'use server'; // 서버 액션 표시
+    
+    try {
+      const result = await updateName(name);
+      if (result.success) {
+        redirect("/profile");
+      }
+      return { error: result.error };
+    } catch (err) {
+      return { error: err.message };
+    }
+  };
+
   return (
-    <button
-      onClick={onClick}
-      aria-label={ariaLabel}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onClick();
-        }
-      }}
-      style={{
-        padding: '0.75rem 1.5rem',
-        borderRadius: '0.5rem',
-        border: 'none',
-        backgroundColor: 'var(--accent-color)',
-        color: 'white',
-        cursor: 'pointer',
-        outline: 'none',
-      }}
-    >
-      {children}
-    </button>
+    <form action={handleSubmit}>
+      <input 
+        name="name"
+        value={name} 
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button type="submit">업데이트</button>
+    </form>
   );
 }
-
-// 스크린 리더용 상태 알림
-const [status, setStatus] = useState('');
-useEffect(() => {
-  if (status) {
-    // 스크린 리더에게 상태 변경 알림
-    const announcement = document.createElement('div');
-    announcement.setAttribute('aria-live', 'polite');
-    announcement.setAttribute('aria-atomic', 'true');
-    announcement.textContent = status;
-    document.body.appendChild(announcement);
-    
-    setTimeout(() => {
-      document.body.removeChild(announcement);
-    }, 1000);
-  }
-}, [status]);
 \`\`\`
 
-접근성을 고려한 개발은 모든 사용자를 위한 포용적인 웹을 만듭니다.`,
-      category: '개발팁',
-      date: '2023.12.15',
-      readTime: '13분 읽기',
-      thumbnailColor: '#ecfdf5',
-      categoryColor: '#059669',
-      tags: ['Accessibility', 'WCAG', 'InclusiveDesign', 'UX'],
+### 2. useActionState - 폼 상태 관리의 혁신
+
+**기존의 복잡한 폼 상태 관리:**
+\`\`\`jsx
+function ChangeName() {
+  const [name, setName] = useState("");
+  const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!name.trim()) {
+      setError("이름을 입력해주세요");
+      return;
+    }
+
+    setIsPending(true);
+    setError(null);
+    
+    try {
+      const result = await updateName(name);
+      if (result.success) {
+        setIsSuccess(true);
+        setName("");
+        setTimeout(() => setIsSuccess(false), 3000);
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError("서버 오류가 발생했습니다");
+    } finally {
+      setIsPending(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        disabled={isPending}
+        placeholder="새로운 이름을 입력하세요"
+      />
+      <button type="submit" disabled={isPending || !name.trim()}>
+        {isPending ? "변경 중..." : "이름 변경"}
+      </button>
+      {error && <p style={{color: 'red'}}>{error}</p>}
+      {isSuccess && <p style={{color: 'green'}}>이름이 성공적으로 변경되었습니다!</p>}
+    </form>
+  );
+}
+\`\`\`
+
+**React 19의 useActionState 활용:**
+\`\`\`jsx
+function ChangeName() {
+  const [name, setName] = useState("");
+  
+  const [state, formAction, isPending] = useActionState(
+    async (prevState, formData) => {
+      const newName = formData.get("name");
+      
+      if (!newName.trim()) {
+        return { error: "이름을 입력해주세요", success: false };
+      }
+
+      try {
+        const result = await updateName(newName);
+        if (result.success) {
+          setName("");
+          return { error: null, success: true, message: "이름이 성공적으로 변경되었습니다!" };
+        } else {
+          return { error: result.error, success: false };
+        }
+      } catch (err) {
+        return { error: "서버 오류가 발생했습니다", success: false };
+      }
+    },
+    { error: null, success: false, message: "" }
+  );
+
+  return (
+    <form action={formAction}>
+      <input
+        type="text"
+        name="name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        disabled={isPending}
+        placeholder="새로운 이름을 입력하세요"
+      />
+      <button type="submit" disabled={isPending || !name.trim()}>
+        {isPending ? "변경 중..." : "이름 변경"}
+      </button>
+      {state.error && <p style={{color: 'red'}}>{state.error}</p>}
+      {state.success && <p style={{color: 'green'}}>{state.message}</p>}
+    </form>
+  );
+}
+\`\`\`
+
+### 3. useOptimistic - 즉각적인 사용자 경험
+
+**기존의 낙관적 업데이트 구현:**
+\`\`\`jsx
+function TodoList({ todos, onAddTodo }) {
+  const [optimisticTodos, setOptimisticTodos] = useState(todos);
+  const [isAdding, setIsAdding] = useState(false);
+
+  const handleAddTodo = async (text) => {
+    const newTodo = {
+      id: Date.now(),
+      text,
+      completed: false,
+      pending: true
+    };
+
+    // 낙관적 업데이트
+    setOptimisticTodos(prev => [...prev, newTodo]);
+    setIsAdding(true);
+
+    try {
+      const result = await onAddTodo(text);
+      
+      // 성공 시 실제 데이터로 교체
+      setOptimisticTodos(prev => 
+        prev.map(todo => 
+          todo.id === newTodo.id 
+            ? { ...result, pending: false }
+            : todo
+        )
+      );
+    } catch (error) {
+      // 실패 시 낙관적 업데이트 롤백
+      setOptimisticTodos(prev => 
+        prev.filter(todo => todo.id !== newTodo.id)
+      );
+      alert("할 일 추가에 실패했습니다");
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
+  return (
+    <div>
+      {optimisticTodos.map(todo => (
+        <div 
+          key={todo.id} 
+          style={{ 
+            opacity: todo.pending ? 0.6 : 1,
+            backgroundColor: todo.pending ? '#f0f0f0' : 'white'
+          }}
+        >
+          {todo.text}
+          {todo.pending && <span> (저장 중...)</span>}
+        </div>
+      ))}
+      <AddTodoForm onSubmit={handleAddTodo} disabled={isAdding} />
+    </div>
+  );
+}
+\`\`\`
+
+**React 19의 useOptimistic 활용:**
+\`\`\`jsx
+function TodoList({ todos, onAddTodo }) {
+  const [optimisticTodos, addOptimisticTodo] = useOptimistic(
+    todos,
+    (state, newTodo) => [
+      ...state, 
+      { 
+        ...newTodo, 
+        id: Date.now(),
+        pending: true,
+        timestamp: Date.now()
+      }
+    ]
+  );
+
+  const handleAddTodo = async (formData) => {
+    const text = formData.get("text");
+    
+    // 낙관적 업데이트 즉시 적용
+    addOptimisticTodo({
+      text,
+      completed: false
+    });
+
+    try {
+      await onAddTodo(text);
+      // 성공 시 자동으로 pending 상태 해제
+    } catch (error) {
+      // 실패 시 자동으로 롤백
+      console.error("할 일 추가 실패:", error);
+    }
+  };
+
+  return (
+    <div>
+      {optimisticTodos.map(todo => (
+        <div 
+          key={todo.id} 
+          style={{ 
+            opacity: todo.pending ? 0.6 : 1,
+            backgroundColor: todo.pending ? '#f0f0f0' : 'white',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          {todo.text}
+          {todo.pending && (
+            <span style={{color: '#666', fontSize: '0.8em'}}> 
+              (저장 중...)
+            </span>
+          )}
+        </div>
+      ))}
+      <form action={handleAddTodo}>
+        <input name="text" required placeholder="새로운 할 일" />
+        <button type="submit">추가</button>
+      </form>
+    </div>
+  );
+}
+\`\`\`
+
+## 🎯 성능 최적화: 리소스 사전 로드 API
+
+### 4. 리소스 사전 로드 API - 웹 성능의 혁신
+
+**기존의 수동 리소스 최적화:**
+\`\`\`jsx
+function MyComponent() {
+  useEffect(() => {
+    // 폰트 사전 로드
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'preload';
+    fontLink.as = 'font';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';
+    fontLink.crossOrigin = 'anonymous';
+    document.head.appendChild(fontLink);
+
+    // 이미지 사전 로드
+    const imageLink = document.createElement('link');
+    imageLink.rel = 'preload';
+    imageLink.as = 'image';
+    imageLink.href = 'https://example.com/hero-image.jpg';
+    document.head.appendChild(imageLink);
+
+    // DNS 사전 확인
+    const dnsLink = document.createElement('link');
+    dnsLink.rel = 'dns-prefetch';
+    dnsLink.href = 'https://api.example.com';
+    document.head.appendChild(dnsLink);
+
+    // 연결 사전 설정
+    const connectLink = document.createElement('link');
+    connectLink.rel = 'preconnect';
+    connectLink.href = 'https://cdn.example.com';
+    document.head.appendChild(connectLink);
+
+    // 정리 함수
+    return () => {
+      document.head.removeChild(fontLink);
+      document.head.removeChild(imageLink);
+      document.head.removeChild(dnsLink);
+      document.head.removeChild(connectLink);
+    };
+  }, []);
+
+  return <div>컴포넌트 내용</div>;
+}
+\`\`\`
+
+**React 19의 리소스 사전 로드 API:**
+\`\`\`jsx
+import { preload, prefetchDNS, preconnect, preloadModule } from 'react-dom';
+
+function MyComponent() {
+  useEffect(() => {
+    // 폰트 사전 로드
+    preload('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap', { 
+      as: 'font',
+      crossOrigin: 'anonymous'
+    });
+
+    // 이미지 사전 로드
+    preload('https://example.com/hero-image.jpg', { 
+      as: 'image',
+      media: '(min-width: 768px)' // 반응형 조건
+    });
+
+    // CSS 사전 로드
+    preload('https://cdn.example.com/critical-styles.css', { 
+      as: 'style' 
+    });
+
+    // JavaScript 모듈 사전 로드
+    preloadModule('https://cdn.example.com/analytics.js');
+
+    // DNS 사전 확인
+    prefetchDNS('https://api.example.com');
+    prefetchDNS('https://cdn.example.com');
+
+    // 연결 사전 설정
+    preconnect('https://api.example.com', { 
+      crossOrigin: 'anonymous' 
+    });
+    preconnect('https://cdn.example.com');
+
+    // 정리 함수는 필요 없음 - React가 자동으로 관리
+  }, []);
+
+  return <div>컴포넌트 내용</div>;
+}
+\`\`\`
+
+## 🔧 확장성: 커스텀 엘리먼트 지원
+
+### 5. 커스텀 엘리먼트 - 웹 컴포넌트와의 완벽한 통합
+
+**기존의 제한적인 커스텀 엘리먼트 사용:**
+\`\`\`jsx
+function MyComponent() {
+  useEffect(() => {
+    // 커스텀 엘리먼트 정의
+    if (!customElements.get('my-counter')) {
+      class MyCounter extends HTMLElement {
+        constructor() {
+          super();
+          this.count = 0;
+          this.render();
+        }
+
+        render() {
+          this.innerHTML = \`
+            <div>
+              <span>Count: \${this.count}</span>
+              <button onclick="this.parentElement.increment()">+</button>
+            </div>
+          \`;
+        }
+
+        increment() {
+          this.count++;
+          this.render();
+        }
+      }
+
+      customElements.define('my-counter', MyCounter);
+    }
+  }, []);
+
+  return (
+    <div>
+      <my-counter></my-counter>
+    </div>
+  );
+}
+\`\`\`
+
+**React 19의 완벽한 커스텀 엘리먼트 지원:**
+\`\`\`jsx
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      {/* React 상태와 완벽하게 연동 */}
+      <my-counter
+        count={count}
+        onIncrement={() => setCount(prev => prev + 1)}
+        onDecrement={() => setCount(prev => prev - 1)}
+        data-custom-attribute="hello"
+        style={{ 
+          '--counter-color': count > 5 ? 'red' : 'blue',
+          '--counter-size': Math.max(16, count * 2) + 'px'
+        }}
+      >
+        <span slot="label">React 19 카운터</span>
+      </my-counter>
+
+      {/* 이벤트 리스너도 자연스럽게 작동 */}
+      <my-chart
+        data={chartData}
+        onDataPointClick={(e) => {
+          console.log('차트 클릭:', e.detail);
+          setSelectedPoint(e.detail);
+        }}
+        onZoom={(e) => {
+          console.log('줌 레벨:', e.detail.zoom);
+        }}
+      />
+    </div>
+  );
+}
+\`\`\`
+
+## 🎨 실제 프로젝트에서의 활용 사례
+
+### 실무 적용 예시 1: 이커머스 상품 관리
+
+\`\`\`jsx
+function ProductManagement() {
+  const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  // 상품 추가 액션
+  const addProduct = async (formData) => {
+    'use server';
+    
+    const productData = {
+      name: formData.get('name'),
+      price: parseFloat(formData.get('price')),
+      category: formData.get('category'),
+      description: formData.get('description')
+    };
+
+    try {
+      const newProduct = await createProduct(productData);
+      return { success: true, product: newProduct };
+    } catch (error) {
+      return { success: false, error: error.message };
+    }
+  };
+
+  // 상품 삭제 액션
+  const deleteProduct = async (productId) => {
+    'use server';
+    
+    try {
+      await removeProduct(productId);
+      return { success: true };
+    } catch (error) {
+      return { success: false, error: error.message };
+    }
+  };
+
+  return (
+    <div>
+      <h2>상품 관리</h2>
+      
+      {/* 상품 추가 폼 */}
+      <form action={addProduct}>
+        <input name="name" placeholder="상품명" required />
+        <input name="price" type="number" step="0.01" placeholder="가격" required />
+        <select name="category">
+          <option value="electronics">전자제품</option>
+          <option value="clothing">의류</option>
+          <option value="books">도서</option>
+        </select>
+        <textarea name="description" placeholder="상품 설명"></textarea>
+        <button type="submit">상품 추가</button>
+      </form>
+
+      {/* 상품 목록 */}
+      <div className="product-grid">
+        {products
+          .filter(p => selectedCategory === 'all' || p.category === selectedCategory)
+          .map(product => (
+            <div key={product.id} className="product-card">
+              <h3>{product.name}</h3>
+              <p>가격: ₩{product.price.toLocaleString()}</p>
+              <p>카테고리: {product.category}</p>
+              <form action={deleteProduct}>
+                <input type="hidden" name="productId" value={product.id} />
+                <button type="submit" className="delete-btn">삭제</button>
+              </form>
+            </div>
+          ))}
+      </div>
+    </div>
+  );
+}
+\`\`\`
+
+### 실무 적용 예시 2: 실시간 채팅 애플리케이션
+
+\`\`\`jsx
+function ChatApplication() {
+  const [messages, setMessages] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
+
+  // 메시지 전송 액션
+  const sendMessage = async (formData) => {
+    'use server';
+    
+    const messageText = formData.get('message');
+    const userId = formData.get('userId');
+    
+    try {
+      const newMessage = await createMessage({
+        text: messageText,
+        userId,
+        timestamp: new Date().toISOString()
+      });
+      
+      return { success: true, message: newMessage };
+    } catch (error) {
+      return { success: false, error: error.message };
+    }
+  };
+
+  // 낙관적 업데이트로 즉각적인 피드백
+  const [optimisticMessages, addOptimisticMessage] = useOptimistic(
+    messages,
+    (state, newMessage) => [
+      ...state,
+      {
+        ...newMessage,
+        id: Date.now(),
+        pending: true,
+        timestamp: new Date().toISOString()
+      }
+    ]
+  );
+
+  const handleSendMessage = async (formData) => {
+    const messageText = formData.get('message');
+    
+    // 낙관적 업데이트
+    addOptimisticMessage({
+      text: messageText,
+      userId: 'current-user',
+      pending: true
+    });
+
+    try {
+      const result = await sendMessage(formData);
+      if (result.success) {
+        // 성공 시 pending 상태 자동 해제
+        console.log('메시지 전송 성공');
+      }
+    } catch (error) {
+      console.error('메시지 전송 실패:', error);
+    }
+  };
+
+  return (
+    <div className="chat-container">
+      <div className="messages">
+        {optimisticMessages.map(message => (
+          <div 
+            key={message.id} 
+            className={\`message \${message.pending ? 'pending' : ''}\`}
+          >
+            <span className="user">{message.userId}</span>
+            <span className="text">{message.text}</span>
+            {message.pending && <span className="status">전송 중...</span>}
+          </div>
+        ))}
+      </div>
+
+      <form action={handleSendMessage} className="message-form">
+        <input 
+          name="message" 
+          placeholder="메시지를 입력하세요..." 
+          required 
+        />
+        <input type="hidden" name="userId" value="current-user" />
+        <button type="submit">전송</button>
+      </form>
+    </div>
+  );
+}
+\`\`\`
+
+## 🚀 마이그레이션 전략 및 체크리스트
+
+### 단계별 마이그레이션 계획
+
+#### 1단계: 의존성 업데이트 및 기본 설정
+- [ ] React 19 설치: \`npm install react@19 react-dom@19\`
+- [ ] TypeScript 타입 업데이트: \`npm install @types/react@19 @types/react-dom@19\`
+- [ ] Next.js 사용 시: \`npm install next@15\` (React 19 지원)
+- [ ] 기존 코드의 호환성 검사 실행
+
+#### 2단계: Actions 시스템 도입
+- [ ] 간단한 폼 컴포넌트부터 Actions 적용
+- [ ] 기존 \`useState\` + \`useEffect\` 패턴을 Actions로 점진적 교체
+- [ ] 에러 처리 로직을 Actions의 자동 에러 처리로 변경
+- [ ] 로딩 상태 관리를 Actions의 자동 pending 상태로 변경
+
+#### 3단계: useOptimistic 활용
+- [ ] 사용자 상호작용이 많은 컴포넌트에 useOptimistic 적용
+- [ ] 낙관적 업데이트 로직을 useOptimistic으로 단순화
+- [ ] 실패 시 롤백 로직 검증
+
+#### 4단계: 성능 최적화
+- [ ] 리소스 사전 로드 API 적용
+- [ ] 폰트, 이미지, 스타일시트 사전 로드 설정
+- [ ] API 엔드포인트 DNS 사전 확인 및 연결 사전 설정
+- [ ] 성능 측정 및 개선 효과 검증
+
+#### 5단계: 고급 기능 활용
+- [ ] 커스텀 엘리먼트 통합
+- [ ] 새로운 에러 바운더리 옵션 활용
+- [ ] Suspense와 Actions의 조합으로 더 나은 로딩 상태 관리
+
+### 마이그레이션 시 주의사항
+
+#### 1. 호환성 이슈
+- **useTransition 변경**: React 19에서 useTransition의 동작이 변경됨
+- **에러 바운더리**: 새로운 에러 처리 옵션 도입
+- **서드파티 라이브러리**: 일부 라이브러리가 React 19와 호환되지 않을 수 있음
+
+#### 2. 성능 고려사항
+- **Actions의 자동 상태 관리**: 불필요한 리렌더링 방지
+- **리소스 사전 로드**: 초기 로딩 성능 향상
+- **낙관적 업데이트**: 사용자 경험 개선
+
+#### 3. 테스트 전략
+- **단위 테스트**: Actions의 동작 검증
+- **통합 테스트**: 폼 제출 및 상태 변화 검증
+- **성능 테스트**: 리소스 사전 로드 효과 측정
+
+## 💡 React 19의 미래와 영향
+
+### 개발자 경험의 혁신
+React 19는 단순한 기능 추가가 아닌, React 개발의 패러다임을 바꾸는 혁신입니다. Actions 시스템을 통해 개발자들은 복잡한 상태 관리 로직에 시간을 낭비하지 않고, 사용자 경험과 비즈니스 로직에 집중할 수 있게 되었습니다.
+
+### 웹 성능의 새로운 기준
+리소스 사전 로드 API는 웹 성능 최적화의 새로운 표준을 제시합니다. 개발자들이 수동으로 관리해야 했던 리소스 최적화를 React가 자동으로 처리하여, 더 빠르고 반응성 좋은 웹 애플리케이션을 쉽게 구축할 수 있게 되었습니다.
+
+### 확장성과 유연성
+커스텀 엘리먼트 지원은 React 생태계를 웹 컴포넌트와 완벽하게 통합시킵니다. 이는 기존 HTML 요소들과의 호환성을 유지하면서도, React의 강력한 상태 관리와 렌더링 시스템을 활용할 수 있게 해줍니다.
+
+## 📚 추가 자료 및 학습 리소스
+
+더 자세한 내용과 최신 정보는 [React 19 공식 문서](https://ko.react.dev/blog/2024/12/05/react-19)를 참고하세요. 공식 문서에는 각 기능의 상세한 사용법과 예시 코드가 포함되어 있어, 실무 적용에 도움이 될 것입니다.
+
+### 추천 학습 순서
+1. **Actions 기본 개념** - 비동기 작업의 자동화 이해
+2. **useActionState** - 폼 상태 관리의 단순화
+3. **useOptimistic** - 낙관적 업데이트의 구현
+4. **리소스 사전 로드 API** - 성능 최적화 기법
+5. **커스텀 엘리먼트** - 웹 컴포넌트와의 통합
+
+React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를 통해 구축된 애플리케이션들은 더 나은 성능, 더 나은 사용자 경험, 그리고 더 나은 개발자 경험을 제공할 것입니다.`,
+      category: 'React',
+      date: '2025.09.01',
+      thumbnailColor: '#f1f5f9',
+      categoryColor: '#3b82f6',
+      tags: [
+        'React',
+        'React19',
+        'Frontend',
+        'JavaScript',
+        'Actions',
+        'useOptimistic',
+      ],
     },
   ];
 
-  const categories = [
-    '전체',
-    'React',
-    'TypeScript',
-    'Next.js',
-    'JavaScript',
-    'CSS',
-    '개발팁',
-  ];
+  const categories = ['전체', 'React'];
 
   const filteredPosts =
     selectedCategory === '전체'
@@ -574,6 +864,7 @@ useEffect(() => {
             {filteredPosts.map(post => (
               <article
                 key={post.id}
+                className="rainbow-border"
                 style={{
                   backgroundColor: 'var(--bg-secondary)',
                   borderRadius: '0.75rem',
@@ -581,6 +872,7 @@ useEffect(() => {
                   border: '1px solid var(--border-color)',
                   transition: 'all 0.2s ease',
                   cursor: 'pointer',
+                  position: 'relative',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
@@ -602,8 +894,8 @@ useEffect(() => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: post.categoryColor,
-                    fontSize: '0.875rem',
-                    fontWeight: '600',
+                    fontSize: '1.5rem',
+                    fontWeight: '700',
                   }}
                 >
                   {post.category}
@@ -661,13 +953,12 @@ useEffect(() => {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'space-between',
+                      justifyContent: 'flex-end',
                       fontSize: '0.75rem',
                       color: 'var(--text-secondary)',
                     }}
                   >
                     <span>{post.date}</span>
-                    <span>{post.readTime}</span>
                   </div>
                 </div>
               </article>
@@ -739,7 +1030,7 @@ useEffect(() => {
             {/* 모달 헤더 */}
             <div
               style={{
-                padding: '2rem 2rem 1rem 2rem',
+                padding: '1rem 2rem 0.75rem 2rem',
                 borderBottom: '1px solid var(--border-color)',
                 position: 'sticky',
                 top: 0,
@@ -755,26 +1046,12 @@ useEffect(() => {
                 }}
               >
                 <div>
-                  <span
-                    style={{
-                      backgroundColor: selectedPost.categoryColor,
-                      color: 'white',
-                      padding: '0.5rem 1rem',
-                      borderRadius: '1rem',
-                      fontSize: '0.875rem',
-                      fontWeight: '500',
-                      display: 'inline-block',
-                      marginBottom: '1rem',
-                    }}
-                  >
-                    {selectedPost.category}
-                  </span>
                   <h2
                     style={{
-                      fontSize: '1.875rem',
+                      fontSize: '1.25rem',
                       fontWeight: '700',
                       color: 'var(--text-primary)',
-                      marginBottom: '0.5rem',
+                      marginBottom: '0.25rem',
                       lineHeight: '1.3',
                     }}
                   >
@@ -783,14 +1060,12 @@ useEffect(() => {
                   <div
                     style={{
                       display: 'flex',
-                      gap: '1rem',
-                      fontSize: '0.875rem',
+                      alignItems: 'center',
+                      fontSize: '0.75rem',
                       color: 'var(--text-secondary)',
                     }}
                   >
                     <span>{selectedPost.date}</span>
-                    <span>•</span>
-                    <span>{selectedPost.readTime}</span>
                   </div>
                 </div>
                 <button
@@ -798,11 +1073,11 @@ useEffect(() => {
                   style={{
                     background: 'none',
                     border: 'none',
-                    fontSize: '1.5rem',
+                    fontSize: '1.125rem',
                     color: 'var(--text-secondary)',
                     cursor: 'pointer',
-                    padding: '0.5rem',
-                    borderRadius: '0.5rem',
+                    padding: '0.25rem',
+                    borderRadius: '0.25rem',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={e => {
@@ -821,7 +1096,16 @@ useEffect(() => {
             </div>
 
             {/* 모달 내용 */}
-            <div style={{ padding: '2rem' }}>
+            <div
+              style={{
+                padding: '2rem',
+                maxHeight: '60vh',
+                overflowY: 'auto',
+                scrollbarWidth: 'thin',
+                scrollbarColor: 'var(--accent-color) var(--bg-secondary)',
+              }}
+              className="custom-scrollbar"
+            >
               <div
                 style={{
                   color: 'var(--text-primary)',
@@ -1045,6 +1329,61 @@ useEffect(() => {
                           </div>
                         </div>
                       );
+                    } else if (
+                      line.includes('[') &&
+                      line.includes('](') &&
+                      line.includes(')')
+                    ) {
+                      // 마크다운 링크 처리
+                      const linkMatch = line.match(/\[([^\]]+)\]\(([^)]+)\)/);
+                      if (linkMatch) {
+                        const [, linkText, linkUrl] = linkMatch;
+                        elements.push(
+                          <p
+                            key={key}
+                            style={{
+                              marginBottom: '1.25rem',
+                              lineHeight: '1.8',
+                              fontSize: '1rem',
+                              color: 'var(--text-primary)',
+                            }}
+                          >
+                            <a
+                              href={linkUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                color: 'var(--accent-color)',
+                                textDecoration: 'underline',
+                                fontWeight: '500',
+                              }}
+                              onMouseEnter={e => {
+                                e.currentTarget.style.textDecoration = 'none';
+                              }}
+                              onMouseLeave={e => {
+                                e.currentTarget.style.textDecoration =
+                                  'underline';
+                              }}
+                            >
+                              {linkText}
+                            </a>
+                          </p>
+                        );
+                      } else {
+                        elements.push(
+                          <p
+                            key={key}
+                            style={{
+                              marginBottom: '1.25rem',
+                              lineHeight: '1.8',
+                              fontSize: '1rem',
+                              color: 'var(--text-primary)',
+                            }}
+                          >
+                            {line}
+                          </p>
+                        );
+                      }
                     } else {
                       elements.push(
                         <p
