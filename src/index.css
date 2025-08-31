@@ -531,11 +531,55 @@ body {
 /* Project cards grid container */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  justify-items: center;
+  align-items: start;
+  justify-content: center;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+    justify-items: center;
+    align-items: start;
+    justify-content: center;
+  }
+
+  .project-card {
+    padding: 0.5rem !important;
+  }
+
+  /* 모바일에서 강제 패딩 적용 */
+  div.project-card {
+    padding: 0.5rem !important;
+  }
+
+  /* 모바일에서 모든 프로젝트 카드에 강제 패딩 적용 */
+  .projects-grid .project-card {
+    padding: 0.5rem !important;
+  }
+
+  /* 모바일에서 전체 컨테이너 패딩 */
+  .w-full.max-w-5xl.mx-auto {
+    padding: 0 1rem !important;
+  }
+
+  /* 모바일에서 Projects 섹션 전체 패딩 */
+  section.mb-16.pt-8.pb-8.px-4 {
+    padding: 2rem 1rem !important;
+  }
+
+  /* 모바일에서 전체 페이지 패딩 */
+  body {
+    padding: 0 0.5rem !important;
+  }
 }
 
 /* Project card */
@@ -544,6 +588,17 @@ body {
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
+  padding: 0.75rem !important;
+}
+
+/* 강제 패딩 적용 */
+div.project-card {
+  padding: 0.75rem !important;
+}
+
+/* 모든 프로젝트 카드에 강제 패딩 적용 */
+.projects-grid .project-card {
+  padding: 0.75rem !important;
 }
 
 @keyframes rainbow-border {

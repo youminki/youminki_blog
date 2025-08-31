@@ -6584,20 +6584,20 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
 
   return (
     <>
-      <main style={{ padding: '2rem 0' }}>
+      <main style={{ padding: '1rem 0' }}>
         <div
           style={{
             maxWidth: '800px',
             margin: '0 auto',
-            padding: '0 1.5rem',
+            padding: '0 1rem',
           }}
         >
           {/* 카테고리 필터 */}
           <div
             style={{
               display: 'flex',
-              gap: '0.5rem',
-              marginBottom: '2rem',
+              gap: '0.75rem',
+              marginBottom: '1.5rem',
               flexWrap: 'wrap',
               justifyContent: 'center',
             }}
@@ -6667,7 +6667,7 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                   key={category}
                   onClick={() => handleCategoryClick(category)}
                   style={{
-                    padding: '0.5rem 1rem',
+                    padding: '0.75rem 1.25rem',
                     borderRadius: '1.5rem',
                     border: `1px solid ${colors.border}`,
                     backgroundColor: colors.bg,
@@ -6680,6 +6680,7 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                       selectedCategory === category
                         ? '0 4px 12px rgba(0, 0, 0, 0.15)'
                         : 'none',
+                    minHeight: '44px', // 터치 친화적인 최소 높이
                   }}
                   onMouseEnter={e => {
                     if (selectedCategory !== category) {
@@ -6713,7 +6714,7 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
           <div
             style={{
               textAlign: 'center',
-              marginBottom: '2rem',
+              marginBottom: '1.5rem',
               color: 'var(--text-secondary)',
               fontSize: '0.875rem',
             }}
@@ -6725,8 +6726,8 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
           <div
             style={{
               display: 'grid',
-              gap: '2rem',
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '1.5rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
               maxWidth: '800px',
               margin: '0 auto',
             }}
@@ -6758,13 +6759,13 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                 {/* 썸네일 이미지 */}
                 <div
                   style={{
-                    height: '200px',
+                    height: '180px',
                     backgroundColor: getCategoryThumbnailColor(post.category),
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: getCategoryTextColor(post.category),
-                    fontSize: '1.5rem',
+                    fontSize: '1.25rem',
                     fontWeight: '700',
                   }}
                 >
@@ -6772,7 +6773,7 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                 </div>
 
                 {/* 포스트 내용 */}
-                <div style={{ padding: '1.5rem' }}>
+                <div style={{ padding: '1.25rem' }}>
                   {/* 태그 */}
                   <div style={{ marginBottom: '0.75rem' }}>
                     <span
@@ -6781,9 +6782,9 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                           post.category
                         ),
                         color: getCategoryTextColor(post.category),
-                        padding: '0.25rem 0.75rem',
+                        padding: '0.375rem 0.875rem',
                         borderRadius: '1rem',
-                        fontSize: '0.75rem',
+                        fontSize: '0.875rem',
                         fontWeight: '500',
                         border: `1px solid ${getCategoryTextColor(post.category)}`,
                       }}
@@ -6795,7 +6796,7 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                   {/* 제목 */}
                   <h3
                     style={{
-                      fontSize: '1.25rem',
+                      fontSize: '1.125rem',
                       fontWeight: '600',
                       color: 'var(--text-primary)',
                       marginBottom: '0.75rem',
@@ -6813,7 +6814,7 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                       lineHeight: '1.6',
                       marginBottom: '1rem',
                       display: '-webkit-box',
-                      WebkitLineClamp: 3,
+                      WebkitLineClamp: 2,
                       WebkitBoxOrient: 'vertical',
                       overflow: 'hidden',
                     }}
