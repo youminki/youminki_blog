@@ -16,9 +16,13 @@ const Skills: React.FC = () => {
         했습니다.
       </p>
       <div className="skills-single-row">
-        {SKILLS_DATA.map((category, index) => (
-          <SkillCategory key={index} category={category} />
-        ))}
+        {SKILLS_DATA && SKILLS_DATA.length > 0 ? (
+          SKILLS_DATA.map((category, index) => (
+            <SkillCategory key={index} category={category} />
+          ))
+        ) : (
+          <p className="text-gray-500">스킬 데이터를 불러올 수 없습니다.</p>
+        )}
       </div>
     </section>
   );

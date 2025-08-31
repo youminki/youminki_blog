@@ -15,9 +15,13 @@ const SkillCategory: React.FC<SkillCategoryProps> = React.memo(
             {category.title}
           </h3>
           <div className="flex flex-wrap gap-1.5 mt-3">
-            {category.skills.map((skill, skillIndex) => (
-              <SkillChip key={skillIndex} skill={skill} />
-            ))}
+            {category.skills && category.skills.length > 0 ? (
+              category.skills.map((skill, skillIndex) => (
+                <SkillChip key={skillIndex} skill={skill} />
+              ))
+            ) : (
+              <p className="text-gray-500">스킬 정보가 없습니다.</p>
+            )}
           </div>
         </div>
       </div>
