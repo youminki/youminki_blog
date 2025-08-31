@@ -68,6 +68,51 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
       }
     }, [styles]);
 
+    // 모달 열림/닫힘 시 배경 스크롤 제어
+    useEffect(() => {
+      if (isOpen) {
+        // 모달이 열릴 때 배경 스크롤 비활성화
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = '0px'; // 스크롤바로 인한 레이아웃 시프트 방지
+      } else {
+        // 모달이 닫힐 때 배경 스크롤 활성화
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+      }
+
+      // 컴포넌트 언마운트 시 정리
+      return () => {
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+      };
+    }, [isOpen]);
+
+    // ESC 키로 모달 닫기 및 포커스 관리
+    useEffect(() => {
+      const handleEscapeKey = (event: KeyboardEvent) => {
+        if (event.key === 'Escape' && isOpen) {
+          onClose();
+        }
+      };
+
+      if (isOpen) {
+        document.addEventListener('keydown', handleEscapeKey);
+
+        // 모달이 열릴 때 첫 번째 포커스 가능한 요소에 포커스
+        const firstFocusableElement = modalContainerRef.current?.querySelector(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        ) as HTMLElement;
+
+        if (firstFocusableElement) {
+          firstFocusableElement.focus();
+        }
+      }
+
+      return () => {
+        document.removeEventListener('keydown', handleEscapeKey);
+      };
+    }, [isOpen, onClose]);
+
     console.log('=== ProjectModal 렌더링 ===');
     console.log('isOpen:', isOpen);
     console.log('project:', project);
@@ -795,7 +840,17 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
       >
         <div
           ref={modalContainerRef}
-          style={styles.container}
+          style={{
+            ...styles.container,
+            // 스크롤 최적화 스타일 추가
+            overscrollBehavior: 'contain', // 모달 내부 스크롤 시 배경 스크롤 방지
+            scrollbarWidth: 'thin', // Firefox 스크롤바 스타일
+            scrollbarColor: '#6b7280 #1f2937', // 스크롤바 색상
+            // 부드러운 스크롤 동작
+            scrollBehavior: 'smooth',
+            // 터치 디바이스에서 스크롤 최적화
+            WebkitOverflowScrolling: 'touch',
+          }}
           onClick={e => e.stopPropagation()}
           data-testid="modal-container"
           data-modal-container-id={styles.container['--modal-container-id']}
@@ -983,6 +1038,8 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 styles.closeButton['--modal-close-button-id']
               }
               data-testid="modal-close-button"
+              aria-label="모달 닫기"
+              type="button"
             >
               닫기
             </button>
