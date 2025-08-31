@@ -27,12 +27,28 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover"
+              onError={e => {
+                console.error(
+                  '이미지 로딩 실패:',
+                  project.title,
+                  project.image
+                );
+                const target = e.currentTarget;
+                const fallback =
+                  target.parentElement?.querySelector('.image-fallback');
+                if (fallback) {
+                  target.style.display = 'none';
+                  (fallback as HTMLElement).style.display = 'flex';
+                }
+              }}
             />
-          ) : (
-            <div className="w-full h-full bg-gray-700 flex items-center justify-center">
-              <span className="text-gray-400">이미지 없음</span>
-            </div>
-          )}
+          ) : null}
+          <div
+            className="w-full h-full bg-gray-700 flex items-center justify-center image-fallback"
+            style={{ display: project.image ? 'none' : 'flex' }}
+          >
+            <span className="text-gray-400">이미지 없음</span>
+          </div>
         </div>
 
         {/* Project Info */}

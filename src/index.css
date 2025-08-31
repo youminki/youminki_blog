@@ -554,16 +554,27 @@ body {
 
   .project-card {
     padding: 0.5rem !important;
+    min-height: 450px;
+    height: 450px;
   }
 
   /* 모바일에서 강제 패딩 적용 */
   div.project-card {
     padding: 0.5rem !important;
+    min-height: 450px;
+    height: 450px;
   }
 
   /* 모바일에서 모든 프로젝트 카드에 강제 패딩 적용 */
   .projects-grid .project-card {
     padding: 0.5rem !important;
+    min-height: 450px;
+    height: 450px;
+  }
+
+  /* 모바일에서 이미지 높이 조정 */
+  .project-card img {
+    height: 200px;
   }
 
   /* 모바일에서 전체 컨테이너 패딩 */
@@ -589,6 +600,10 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   padding: 0.75rem !important;
+  min-height: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 강제 패딩 적용 */
@@ -599,6 +614,43 @@ div.project-card {
 /* 모든 프로젝트 카드에 강제 패딩 적용 */
 .projects-grid .project-card {
   padding: 0.75rem !important;
+  min-height: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 프로젝트 카드 내부 요소들의 높이 조정 */
+.project-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.project-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.project-card p {
+  margin: 0 0 0.75rem 0;
+  flex-grow: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.project-card .mb-4 {
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 @keyframes rainbow-border {
