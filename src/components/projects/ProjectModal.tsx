@@ -131,13 +131,6 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
       }
     };
 
-    const handleButtonHover = (
-      e: React.MouseEvent<HTMLButtonElement>,
-      isHover: boolean
-    ) => {
-      e.currentTarget.style.backgroundColor = isHover ? '#8b5cf6' : '#a78bfa';
-    };
-
     // Melpik 사용자 웹 & 하이브리드 앱인 경우 화면설계 이미지 섹션 렌더링 (관리자 제외)
     const renderMelpikUIScreenshots = () => {
       const projectTitle = project.title.toLowerCase();
@@ -1378,222 +1371,310 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
 
     return (
       <div
-        style={styles.overlay}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+          padding: '1rem',
+        }}
         onClick={handleBackdropClick}
-        data-testid="modal-overlay"
-        data-modal-id={styles.overlay['--modal-id']}
       >
         <div
           ref={modalContainerRef}
           style={{
-            ...styles.container,
-            // 스크롤 최적화 스타일 추가
-            overscrollBehavior: 'contain', // 모달 내부 스크롤 시 배경 스크롤 방지
-            scrollbarWidth: 'thin', // Firefox 스크롤바 스타일
-            scrollbarColor: '#6b7280 #1f2937', // 스크롤바 색상
-            // 부드러운 스크롤 동작
-            scrollBehavior: 'smooth',
-            // 터치 디바이스에서 스크롤 최적화
-            WebkitOverflowScrolling: 'touch',
+            backgroundColor: 'var(--bg-primary)',
+            borderRadius: '1rem',
+            maxWidth: '800px',
+            width: '100%',
+            maxHeight: '95vh',
+            overflow: 'auto',
+            position: 'relative',
+            border: '1px solid var(--border-color)',
+            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
           }}
+          className="custom-scrollbar"
           onClick={e => e.stopPropagation()}
-          data-testid="modal-container"
-          data-modal-container-id={styles.container['--modal-container-id']}
         >
           {/* 모달 헤더 */}
           <div
-            style={styles.header}
-            data-modal-header-id={styles.header['--modal-header-id']}
+            style={{
+              padding: '1rem 2rem 0.75rem 2rem',
+              borderBottom: '1px solid var(--border-color)',
+              position: 'sticky',
+              top: 0,
+              backgroundColor: 'var(--bg-primary)',
+              zIndex: 10,
+            }}
           >
-            <h2
-              style={styles.title}
-              data-modal-title-id={styles.title['--modal-title-id']}
-            >
-              {project.title}
-            </h2>
-          </div>
-
-          {/* 프로젝트 이미지 */}
-          <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-            <img
-              src={project.image}
-              alt={project.title}
-              style={{
-                width: '100%',
-                maxWidth: '500px',
-                height: 'auto',
-                borderRadius: '8px',
-                border: '1px solid #374151',
-              }}
-            />
-          </div>
-
-          {/* 프로젝트 설명 */}
-          <div style={{ marginBottom: '15px' }}>
-            <p
-              style={styles.projectDescription}
-              data-modal-project-desc-id={
-                styles.projectDescription['--modal-project-desc-id']
-              }
-            >
-              {project.description}
-            </p>
-          </div>
-
-          {/* 사용 기술 */}
-          <div style={{ marginBottom: '15px' }}>
-            <h4
-              style={styles.sectionTitle}
-              data-modal-section-title-id={
-                styles.sectionTitle['--modal-section-title-id']
-              }
-            >
-              사용 기술 ({project.technologies.length}개)
-            </h4>
-            <div
-              style={styles.techContainer}
-              data-modal-tech-container-id={
-                styles.techContainer['--modal-tech-container-id']
-              }
-            >
-              {project.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  style={styles.techTag}
-                  data-modal-tech-tag-id={styles.techTag['--modal-tech-tag-id']}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* 주요 기능 */}
-          <div style={{ marginBottom: '15px' }}>
-            <h4
-              style={styles.sectionTitle}
-              data-modal-section-title-id={
-                styles.sectionTitle['--modal-section-title-id']
-              }
-            >
-              주요 기능 ({project.features.length}개)
-            </h4>
-            <ul
-              style={styles.featuresList}
-              data-modal-features-list-id={
-                styles.featuresList['--modal-features-list-id']
-              }
-            >
-              {project.features.map((feature, index) => (
-                <li
-                  key={index}
-                  style={styles.featureItem}
-                  data-modal-feature-item-id={
-                    styles.featureItem['--modal-feature-item-id']
-                  }
-                >
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 프로젝트 링크 */}
-          <div style={{ marginBottom: '15px', textAlign: 'center' }}>
             <div
               style={{
                 display: 'flex',
-                gap: '8px',
-                justifyContent: 'center',
-                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
               }}
             >
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <div>
+                <h2
                   style={{
-                    backgroundColor: '#333',
-                    color: 'white',
-                    padding: '8px 16px',
-                    borderRadius: '4px',
-                    textDecoration: 'none',
-                    fontWeight: 'bold',
-                    fontSize: '14px',
-                    transition: 'background-color 0.2s',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.backgroundColor = '#555';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.backgroundColor = '#333';
+                    fontSize: '1.25rem',
+                    fontWeight: '700',
+                    color: 'var(--text-primary)',
+                    marginBottom: '0.25rem',
+                    lineHeight: '1.3',
                   }}
                 >
-                  GitHub 보기
-                </a>
-              )}
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    backgroundColor: '#a78bfa',
-                    color: 'white',
-                    padding: '8px 16px',
-                    borderRadius: '4px',
-                    textDecoration: 'none',
-                    fontWeight: 'bold',
-                    fontSize: '14px',
-                    transition: 'background-color 0.2s',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.backgroundColor = '#8b5cf6';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.backgroundColor = '#a78bfa';
-                  }}
-                >
-                  라이브 데모
-                </a>
-              )}
+                  {project.title}
+                </h2>
+              </div>
+              <button
+                onClick={onClose}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '1.125rem',
+                  color: 'var(--text-secondary)',
+                  cursor: 'pointer',
+                  padding: '0.25rem',
+                  borderRadius: '0.25rem',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+                  e.currentTarget.style.color = 'var(--text-primary)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'var(--text-secondary)';
+                }}
+              >
+                ×
+              </button>
             </div>
           </div>
 
-          {/* Melpik 관리자 페이지인 경우 관리자 화면설계 이미지 섹션 렌더링 */}
-          {renderAdminMelpikScreenshots()}
-
-          {/* Melpik 사용자 웹 & 하이브리드 앱인 경우 화면설계 이미지 섹션 렌더링 (관리자 제외) */}
-          {renderMelpikUIScreenshots()}
-
-          {/* ADHD 프로젝트인 경우 mutsideout 이미지들 렌더링 */}
-          {renderADHDUIScreenshots()}
-
-          {/* 클로버 프로젝트인 경우 Clover 이미지들 렌더링 */}
-          {renderCloverUIScreenshots()}
-
-          {/* 닫기 버튼 */}
+          {/* 모달 내용 */}
           <div
-            style={styles.buttonContainer}
-            data-modal-button-container-id={
-              styles.buttonContainer['--modal-button-container-id']
-            }
+            style={{
+              padding: '2rem',
+              maxHeight: '75vh',
+              overflowY: 'auto',
+              scrollbarWidth: 'thin',
+              scrollbarColor: 'var(--accent-color) var(--bg-secondary)',
+            }}
+            className="custom-scrollbar"
           >
-            <button
-              style={styles.closeButton}
-              onClick={onClose}
-              onMouseEnter={e => handleButtonHover(e, true)}
-              onMouseLeave={e => handleButtonHover(e, false)}
-              data-modal-close-button-id={
-                styles.closeButton['--modal-close-button-id']
-              }
-              data-testid="modal-close-button"
-              aria-label="모달 닫기"
-              type="button"
-            >
-              닫기
-            </button>
+            {/* 프로젝트 이미지 */}
+            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{
+                  width: '100%',
+                  maxWidth: '500px',
+                  height: 'auto',
+                  borderRadius: '0.75rem',
+                  border: '1px solid var(--border-color)',
+                }}
+              />
+            </div>
+
+            {/* 프로젝트 설명 */}
+            <div style={{ marginBottom: '2rem' }}>
+              <p
+                style={{
+                  color: 'var(--text-primary)',
+                  lineHeight: '1.8',
+                  fontSize: '1rem',
+                  marginBottom: '1.5rem',
+                }}
+              >
+                {project.description}
+              </p>
+            </div>
+
+            {/* 사용 기술 */}
+            <div style={{ marginBottom: '2rem' }}>
+              <h4
+                style={{
+                  fontSize: '1.125rem',
+                  fontWeight: '600',
+                  color: 'var(--text-primary)',
+                  marginBottom: '1rem',
+                }}
+              >
+                사용 기술 ({project.technologies.length}개)
+              </h4>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '0.75rem',
+                  flexWrap: 'wrap',
+                }}
+              >
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    style={{
+                      backgroundColor: 'var(--bg-secondary)',
+                      color: 'var(--text-secondary)',
+                      padding: '0.5rem 1rem',
+                      borderRadius: '1.5rem',
+                      fontSize: '0.875rem',
+                      border: '1px solid var(--border-color)',
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* 주요 기능 */}
+            <div style={{ marginBottom: '2rem' }}>
+              <h4
+                style={{
+                  fontSize: '1.125rem',
+                  fontWeight: '600',
+                  color: 'var(--text-primary)',
+                  marginBottom: '1rem',
+                }}
+              >
+                주요 기능 ({project.features.length}개)
+              </h4>
+              <ul
+                style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0,
+                }}
+              >
+                {project.features.map((feature, index) => (
+                  <li
+                    key={index}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      marginBottom: '0.75rem',
+                      paddingLeft: '1rem',
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: 'var(--accent-color)',
+                        marginRight: '0.75rem',
+                        marginTop: '0.5rem',
+                        fontSize: '1.5rem',
+                        lineHeight: 1,
+                      }}
+                    >
+                      •
+                    </span>
+                    <span
+                      style={{
+                        flex: 1,
+                        lineHeight: '1.7',
+                        color: 'var(--text-primary)',
+                      }}
+                    >
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* 프로젝트 링크 */}
+            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '1rem',
+                  justifyContent: 'center',
+                  flexWrap: 'wrap',
+                }}
+              >
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      backgroundColor: 'var(--bg-secondary)',
+                      color: 'var(--text-primary)',
+                      padding: '0.75rem 1.5rem',
+                      borderRadius: '0.5rem',
+                      textDecoration: 'none',
+                      fontWeight: '600',
+                      fontSize: '0.875rem',
+                      border: '1px solid var(--border-color)',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.backgroundColor =
+                        'var(--accent-color)';
+                      e.currentTarget.style.color = 'white';
+                      e.currentTarget.style.borderColor = 'var(--accent-color)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.backgroundColor =
+                        'var(--bg-secondary)';
+                      e.currentTarget.style.color = 'var(--text-primary)';
+                      e.currentTarget.style.borderColor = 'var(--border-color)';
+                    }}
+                  >
+                    GitHub 보기
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      backgroundColor: 'var(--accent-color)',
+                      color: 'white',
+                      padding: '0.75rem 1.5rem',
+                      borderRadius: '0.5rem',
+                      textDecoration: 'none',
+                      fontWeight: '600',
+                      fontSize: '0.875rem',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow =
+                        '0 4px 12px var(--shadow-medium)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    라이브 데모
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {/* Melpik 관리자 페이지인 경우 관리자 화면설계 이미지 섹션 렌더링 */}
+            {renderAdminMelpikScreenshots()}
+
+            {/* Melpik 사용자 웹 & 하이브리드 앱인 경우 화면설계 이미지 섹션 렌더링 (관리자 제외) */}
+            {renderMelpikUIScreenshots()}
+
+            {/* ADHD 프로젝트인 경우 mutsideout 이미지들 렌더링 */}
+            {renderADHDUIScreenshots()}
+
+            {/* 클로버 프로젝트인 경우 Clover 이미지들 렌더링 */}
+            {renderCloverUIScreenshots()}
           </div>
         </div>
       </div>

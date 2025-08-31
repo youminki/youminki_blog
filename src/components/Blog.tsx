@@ -1019,7 +1019,7 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
               borderRadius: '1rem',
               maxWidth: '800px',
               width: '100%',
-              maxHeight: '90vh',
+              maxHeight: '95vh',
               overflow: 'auto',
               position: 'relative',
               border: '1px solid var(--border-color)',
@@ -1099,7 +1099,7 @@ React 19는 React 생태계의 새로운 시작점이며, 이번 업데이트를
             <div
               style={{
                 padding: '2rem',
-                maxHeight: '60vh',
+                maxHeight: '75vh',
                 overflowY: 'auto',
                 scrollbarWidth: 'thin',
                 scrollbarColor: 'var(--accent-color) var(--bg-secondary)',
