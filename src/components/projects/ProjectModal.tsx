@@ -589,6 +589,318 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
       return null;
     };
 
+    // ADHD 프로젝트인 경우 mutsideout 이미지들 렌더링
+    const renderADHDUIScreenshots = () => {
+      const projectTitle = project.title.toLowerCase();
+      if (
+        projectTitle.includes('adhd') ||
+        projectTitle.includes('감정') ||
+        projectTitle.includes('집중')
+      ) {
+        return (
+          <div style={{ marginBottom: '20px' }}>
+            <h4
+              style={styles.sectionTitle}
+              data-modal-section-title-id={
+                styles.sectionTitle['--modal-section-title-id']
+              }
+            >
+              🎨 ADHD 서비스 UI 화면
+            </h4>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                gap: '15px',
+                marginBottom: '15px',
+              }}
+            >
+              {/* 회원가입 화면 */}
+              <div
+                style={{
+                  border: '2px solid var(--accent-color)',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={project.images?.[0] || ''}
+                  alt="ADHD 서비스 - 회원가입 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  📝 회원가입
+                </p>
+              </div>
+
+              {/* 플래너(투두) 화면 */}
+              <div
+                style={{
+                  border: '2px solid var(--accent-color)',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={project.images?.[1] || ''}
+                  alt="ADHD 서비스 - 플래너(투두) 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  📋 플래너(투두)
+                </p>
+              </div>
+
+              {/* 실시간집중세션 화면 */}
+              <div
+                style={{
+                  border: '2px solid var(--accent-color)',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={project.images?.[2] || ''}
+                  alt="ADHD 서비스 - 실시간집중세션 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🎯 실시간집중세션
+                </p>
+              </div>
+
+              {/* 설문조사 화면 */}
+              <div
+                style={{
+                  border: '2px solid var(--accent-color)',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={project.images?.[3] || ''}
+                  alt="ADHD 서비스 - 설문조사 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  📊 설문조사
+                </p>
+              </div>
+
+              {/* 뽀모도로 화면 */}
+              <div
+                style={{
+                  border: '2px solid var(--accent-color)',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={project.images?.[4] || ''}
+                  alt="ADHD 서비스 - 뽀모도로 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  ⏰ 뽀모도로
+                </p>
+              </div>
+
+              {/* 메인페이지 화면 */}
+              <div
+                style={{
+                  border: '2px solid var(--accent-color)',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={project.images?.[5] || ''}
+                  alt="ADHD 서비스 - 메인페이지 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🏠 메인페이지
+                </p>
+              </div>
+
+              {/* 로그인 화면 */}
+              <div
+                style={{
+                  border: '2px solid var(--accent-color)',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={project.images?.[6] || ''}
+                  alt="ADHD 서비스 - 로그인 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  🔐 로그인
+                </p>
+              </div>
+
+              {/* 감정일기 화면 */}
+              <div
+                style={{
+                  border: '2px solid var(--accent-color)',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={project.images?.[7] || ''}
+                  alt="ADHD 서비스 - 감정일기 화면"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}
+                />
+                <p
+                  style={{
+                    margin: '8px 0 0 0',
+                    fontSize: '12px',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  💝 감정일기
+                </p>
+              </div>
+            </div>
+            <div
+              style={{
+                backgroundColor: 'var(--bg-secondary)',
+                padding: '12px',
+                borderRadius: '6px',
+                border: '1px solid var(--accent-color)',
+                textAlign: 'center',
+              }}
+            >
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '13px',
+                  color: 'var(--text-primary)',
+                  lineHeight: 1.4,
+                }}
+              >
+                💡 <strong>Mutsideout</strong>는 ADHD 사용자를 위한 감정 기록 및
+                집중 보조 웹 서비스로, 감정 조절과 집중에 어려움을 겪는
+                사용자들이 자신의 상태를 시각적으로 기록하고, 뽀모도로 방식의
+                타이머 및 플래너 기능을 통해 일상 루틴을 관리할 수 있도록
+                돕습니다.
+              </p>
+            </div>
+          </div>
+        );
+      }
+      return null;
+    };
+
     // Melpik 관리자 페이지인 경우 관리자 화면설계 이미지 섹션 렌더링
     const renderAdminMelpikScreenshots = () => {
       const projectTitle = project.title.toLowerCase();
@@ -1021,6 +1333,9 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
 
           {/* Melpik 사용자 웹 & 하이브리드 앱인 경우 화면설계 이미지 섹션 렌더링 (관리자 제외) */}
           {renderMelpikUIScreenshots()}
+
+          {/* ADHD 프로젝트인 경우 mutsideout 이미지들 렌더링 */}
+          {renderADHDUIScreenshots()}
 
           {/* 닫기 버튼 */}
           <div

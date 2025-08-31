@@ -7,6 +7,7 @@ export interface Project {
   liveUrl?: string;
   features: string[];
   image: string;
+  images?: string[];
 }
 
 export interface Skill {

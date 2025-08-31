@@ -4,6 +4,16 @@ import projectImg2 from '../assets/projectImg2.jpg';
 import projectImg3 from '../assets/projectImg3.jpg';
 import projectImg4 from '../assets/projectImg4.jpg';
 
+// mutsideout 이미지들 import
+import 회원가입 from '../assets/mutsideout/회원가입.png';
+import 플래너투두 from '../assets/mutsideout/플래너(투두).png';
+import 실시간집중세션 from '../assets/mutsideout/실시간집중세션.png';
+import 설문조사 from '../assets/mutsideout/설문조사.png';
+import 뽀모도로 from '../assets/mutsideout/뽀모도로.png';
+import 메인페이지 from '../assets/mutsideout/메인페이지.png';
+import 로그인 from '../assets/mutsideout/로그인.png';
+import 감정일기 from '../assets/mutsideout/감정일기.png';
+
 export const PROJECTS_DATA: Project[] = [
   {
     id: 1,
@@ -94,6 +104,16 @@ export const PROJECTS_DATA: Project[] = [
       '성능 최적화',
       '반응형 디자인',
       '팀 협업 워크플로우',
+    ],
+    images: [
+      회원가입,
+      플래너투두,
+      실시간집중세션,
+      설문조사,
+      뽀모도로,
+      메인페이지,
+      로그인,
+      감정일기,
     ],
   },
   {
