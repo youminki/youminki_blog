@@ -4,28 +4,34 @@ import react from '@vitejs/plugin-react';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
-  assetsInclude: ['**/*.jpeg', '**/*.jpg', '**/*.png', '**/*.svg'],
+
+  // 정적 파일 서빙 설정
   publicDir: 'public',
-  build: {
-    assetsDir: 'assets',
-    rollupOptions: {
-      output: {
-        assetFileNames: assetInfo => {
-          if (assetInfo.name && /\.(jpeg|jpg|png|svg)$/.test(assetInfo.name)) {
-            return 'assets/[name].[ext]';
-          }
-          return 'assets/[name]-[hash].[ext]';
-        },
-      },
-    },
-  },
+
+  // 서버 설정
   server: {
     port: 5173,
     host: true,
-    fs: {
-      strict: false,
-      allow: ['..'],
+  },
+
+  // 빌드 설정
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+      },
+    },
+  },
+
+  // 정적 파일 처리
+  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'],
+
+  // 경로 별칭 설정
+  resolve: {
+    alias: {
+      '@': '/src',
     },
   },
 });
