@@ -1,8 +1,22 @@
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-700 py-8">
-      <div className="max-w-[1000px] mx-auto px-6 text-center">
-        <p className="text-gray-400">
+    <footer 
+      style={{
+        borderTop: '1px solid var(--border-color)',
+        padding: '2rem 0',
+        marginTop: 'auto',
+        backgroundColor: 'var(--bg-primary)',
+      }}
+    >
+      <div 
+        style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '0 1.5rem',
+          textAlign: 'center',
+        }}
+      >
+        <p style={{ color: 'var(--text-secondary)' }}>
           © 2024 Youminki. Built with React, TypeScript, and Tailwind CSS.
         </p>
       </div>

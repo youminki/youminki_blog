@@ -6,58 +6,14 @@ const ThemeToggle: React.FC = () => {
 
   return (
     <button
-      style={{
-        position: 'fixed',
-        bottom: '32px',
-        right: '32px',
-        zIndex: 9999,
-        width: '56px',
-        height: '56px',
-        borderRadius: '50%',
-        backgroundColor: 'var(--bg-secondary)',
-        border: '2px solid var(--border-color)',
-        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-        backdropFilter: 'blur(8px)',
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.transform = 'scale(1.1)';
-        e.currentTarget.style.boxShadow =
-          '0 20px 40px -10px rgba(0, 0, 0, 0.2)';
-        e.currentTarget.style.backgroundColor = 'var(--accent-color)';
-        e.currentTarget.style.borderColor = 'var(--accent-color)';
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.transform = 'scale(1)';
-        e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.1)';
-        e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
-        e.currentTarget.style.borderColor = 'var(--border-color)';
-      }}
+      className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       {theme === 'light' ? (
-        <MdDarkMode
-          style={{
-            width: '24px',
-            height: '24px',
-            color: 'var(--text-primary)',
-            transition: 'all 0.3s ease',
-          }}
-        />
+        <MdDarkMode className="w-5 h-5" />
       ) : (
-        <MdLightMode
-          style={{
-            width: '24px',
-            height: '24px',
-            color: 'var(--text-primary)',
-            transition: 'all 0.3s ease',
-          }}
-        />
+        <MdLightMode className="w-5 h-5" />
       )}
     </button>
   );
