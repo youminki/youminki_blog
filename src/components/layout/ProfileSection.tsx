@@ -9,7 +9,7 @@ const ProfileSection: React.FC = () => {
       <div className="profile-image">
         <div className="profile-image-container">
           <img
-            src="/src/assets/profile-photo.jpeg"
+            src="/면접사진.jpeg"
             alt="유민기 면접사진"
             className="profile-image"
           />

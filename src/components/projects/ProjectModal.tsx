@@ -126,7 +126,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/홈페이지_모바일UI.gif"
+                  src="/melpik/홈페이지_모바일UI.gif"
                   alt="MelpikUI 화면 1 - 메인 홈 화면"
                   style={{
                     width: '100%',
@@ -158,7 +158,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/이용권결제_모바일UI.gif"
+                  src="/melpik/이용권결제_모바일UI.gif"
                   alt="MelpikUI 화면 2 - 이용권 결제"
                   style={{
                     width: '100%',
@@ -190,7 +190,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/제품결제_모바일UI.gif"
+                  src="/melpik/제품결제_모바일UI.gif"
                   alt="MelpikUI 화면 3 - 제품 상세/결제"
                   style={{
                     width: '100%',
@@ -222,7 +222,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/페이지네이션_모바일UI.gif"
+                  src="/melpik/페이지네이션_모바일UI.gif"
                   alt="MelpikUI 화면 4 - 각 페이지 구성"
                   style={{
                     width: '100%',
@@ -293,7 +293,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/Web/홈_웹UI.gif"
+                  src="/melpik/Web/홈_웹UI.gif"
                   alt="Melpik 웹 UI - 홈 화면"
                   style={{
                     width: '100%',
@@ -325,7 +325,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/Web/홈상세_웹UI.gif"
+                  src="/melpik/Web/홈상세_웹UI.gif"
                   alt="Melpik 웹 UI - 홈 상세 화면"
                   style={{
                     width: '100%',
@@ -357,7 +357,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/Web/브랜드_웹UI.gif"
+                  src="/melpik/Web/브랜드_웹UI.gif"
                   alt="Melpik 웹 UI - 브랜드 화면"
                   style={{
                     width: '100%',
@@ -389,7 +389,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/Web/다이어리_웹UI.gif"
+                  src="/melpik/Web/다이어리_웹UI.gif"
                   alt="Melpik 웹 UI - 다이어리 화면"
                   style={{
                     width: '100%',
@@ -421,7 +421,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/Web/이용내역_이용권_웹UI.gif"
+                  src="/melpik/Web/이용내역_이용권_웹UI.gif"
                   alt="Melpik 웹 UI - 이용내역 및 이용권 화면"
                   style={{
                     width: '100%',
@@ -453,7 +453,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/Web/결제수단_내옷장_웹UI.gif"
+                  src="/melpik/Web/결제수단_내옷장_웹UI.gif"
                   alt="Melpik 웹 UI - 결제수단 및 내옷장 화면"
                   style={{
                     width: '100%',
@@ -485,7 +485,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/Web/고객센터_웹UI.gif"
+                  src="/melpik/Web/고객센터_웹UI.gif"
                   alt="Melpik 웹 UI - 고객센터 화면"
                   style={{
                     width: '100%',
@@ -517,7 +517,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/melpik/Web/내정보_웹UI.gif"
+                  src="/melpik/Web/내정보_웹UI.gif"
                   alt="Melpik 웹 UI - 내정보 화면"
                   style={{
                     width: '100%',
@@ -577,7 +577,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/admin-melpik/Adobe Express - 전체 메뉴리스트.gif"
+                  src="/admin-melpik/관리자_전체 메뉴리스트.gif"
                   alt="전체 메뉴리스트"
                   style={{
                     width: '100%',
@@ -609,7 +609,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/admin-melpik/Adobe Express - 회원 관리리스트.gif"
+                  src="/admin-melpik/관리자_회원 관리리스트.gif"
                   alt="회원 관리리스트"
                   style={{
                     width: '100%',
@@ -641,7 +641,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/admin-melpik/Adobe Express - 제품 관리리스트.gif"
+                  src="/admin-melpik/관리자_제품 관리리스트.gif"
                   alt="제품 관리리스트"
                   style={{
                     width: '100%',
@@ -673,7 +673,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/admin-melpik/Adobe Express - 설정 관리리스트.gif"
+                  src="/admin-melpik/관리자_설정 관리리스트.gif"
                   alt="설정 관리리스트"
                   style={{
                     width: '100%',
@@ -705,7 +705,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/admin-melpik/Adobe Express - 브랜드_이용권 관리리스트.gif"
+                  src="/admin-melpik/관리자_브랜드_이용권 관리리스트.gif"
                   alt="브랜드_이용권 관리리스트"
                   style={{
                     width: '100%',
@@ -737,7 +737,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 }}
               >
                 <img
-                  src="/src/assets/admin-melpik/Adobe Express - 대여_구매내역 관리리스트.gif"
+                  src="/admin-melpik/관리자_대여_구매내역 관리리스트.gif"
                   alt="대여_구매내역 관리리스트"
                   style={{
                     width: '100%',
