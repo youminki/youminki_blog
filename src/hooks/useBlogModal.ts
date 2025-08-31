@@ -7,6 +7,7 @@ export interface BlogPost {
   category: string;
   date: string;
   tags: string[];
+  postType?: 'react19' | 'typescript59' | 'custom';
 }
 
 export const useBlogModal = () => {
