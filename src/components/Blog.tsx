@@ -7,6 +7,32 @@ const Blog = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('전체');
 
+  // 마크다운 텍스트를 HTML로 변환하는 유틸리티 함수
+  const convertMarkdownToHTML = (text: string): string => {
+    return (
+      text
+        // **텍스트** 패턴을 <strong> 태그로 변환
+        .replace(
+          /\*\*(.*?)\*\*/g,
+          '<strong style="font-weight: 600; color: var(--accent-color);">$1</strong>'
+        )
+        // __텍스트__ 패턴도 <strong> 태그로 변환 (대안 마크다운 문법)
+        .replace(
+          /__(.*?)__/g,
+          '<strong style="font-weight: 600; color: var(--accent-color);">$1</strong>'
+        )
+        // *텍스트* 패턴을 <em> 태그로 변환
+        .replace(/\*(.*?)\*/g, '<em style="font-style: italic;">$1</em>')
+        // _텍스트_ 패턴도 <em> 태그로 변환
+        .replace(/_(.*?)_/g, '<em style="font-style: italic;">$1</em>')
+        // `텍스트` 패턴을 <code> 태그로 변환
+        .replace(
+          /`(.*?)`/g,
+          '<code style="background-color: var(--bg-secondary); padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: monospace; font-size: 0.875rem;">$1</code>'
+        )
+    );
+  };
+
   // 모달 열림/닫힘 시 배경 스크롤 제어
   useEffect(() => {
     if (isOpen) {
@@ -604,69 +630,11 @@ const Blog = () => {
                       elements.push(
                         <div key={key} style={{ height: '1rem' }} />
                       );
-                    } else if (line.includes('<strong>')) {
-                      // HTML strong 태그 처리 (리스트 아이템인 경우)
-                      if (line.startsWith('- ')) {
-                        const contentWithoutBullet = line.replace('- ', '');
-                        const processedLine = contentWithoutBullet.replace(
-                          /<strong>(.*?)<\/strong>/g,
-                          (_, content) => {
-                            return `<strong style="font-weight: 600; color: var(--accent-color);">${content}</strong>`;
-                          }
-                        );
-                        elements.push(
-                          <div
-                            key={key}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'flex-start',
-                              marginBottom: '0.75rem',
-                              paddingLeft: '1rem',
-                            }}
-                          >
-                            <span
-                              style={{
-                                color: 'var(--accent-color)',
-                                marginRight: '0.75rem',
-                                fontSize: '1.2rem',
-                                lineHeight: '1.7',
-                                display: 'flex',
-                                alignItems: 'center',
-                                minWidth: '1rem',
-                              }}
-                            >
-                              •
-                            </span>
-                            <span
-                              style={{ flex: 1, lineHeight: '1.7' }}
-                              dangerouslySetInnerHTML={{
-                                __html: processedLine,
-                              }}
-                            />
-                          </div>
-                        );
-                      } else {
-                        // 일반 텍스트에서 strong 태그 처리
-                        const processedLine = line.replace(
-                          /<strong>(.*?)<\/strong>/g,
-                          (_, content) => {
-                            return `<strong style="font-weight: 600; color: var(--accent-color);">${content}</strong>`;
-                          }
-                        );
-                        elements.push(
-                          <p
-                            key={key}
-                            style={{
-                              marginBottom: '0.75rem',
-                              lineHeight: '1.6',
-                              fontSize: '1rem',
-                              color: 'var(--text-primary)',
-                            }}
-                            dangerouslySetInnerHTML={{ __html: processedLine }}
-                          />
-                        );
-                      }
                     } else if (line.startsWith('- ')) {
+                      // 리스트 아이템 처리 (마크다운 변환 포함)
+                      const contentWithoutBullet = line.replace('- ', '');
+                      const processedLine =
+                        convertMarkdownToHTML(contentWithoutBullet);
                       elements.push(
                         <div
                           key={key}
@@ -690,12 +658,16 @@ const Blog = () => {
                           >
                             •
                           </span>
-                          <span style={{ flex: 1, lineHeight: '1.7' }}>
-                            {line.replace('- ', '')}
-                          </span>
+                          <span
+                            style={{ flex: 1, lineHeight: '1.7' }}
+                            dangerouslySetInnerHTML={{
+                              __html: processedLine,
+                            }}
+                          />
                         </div>
                       );
                     } else if (line.startsWith('**') && line.endsWith('**')) {
+                      // 전체 라인이 **로 감싸진 경우 (제목 스타일)
                       elements.push(
                         <p
                           key={key}
@@ -799,6 +771,8 @@ const Blog = () => {
                         );
                       }
                     } else {
+                      // 일반 텍스트 처리 (마크다운 변환 포함)
+                      const processedLine = convertMarkdownToHTML(line);
                       elements.push(
                         <p
                           key={key}
@@ -808,9 +782,8 @@ const Blog = () => {
                             fontSize: '1rem',
                             color: 'var(--text-primary)',
                           }}
-                        >
-                          {line}
-                        </p>
+                          dangerouslySetInnerHTML={{ __html: processedLine }}
+                        />
                       );
                     }
                   }
