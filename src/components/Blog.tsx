@@ -1,10 +1,29 @@
 import { useBlogModal, type BlogPost } from '../hooks/useBlogModal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Blog = () => {
   const { isOpen, openModal, closeModal } = useBlogModal();
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('전체');
+
+  // 모달 열림/닫힘 시 배경 스크롤 제어
+  useEffect(() => {
+    if (isOpen) {
+      // 모달이 열릴 때 배경 스크롤 비활성화
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '0px'; // 스크롤바로 인한 레이아웃 시프트 방지
+    } else {
+      // 모달이 닫힐 때 배경 스크롤 활성화
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
+
+    // 컴포넌트 언마운트 시 정리
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    };
+  }, [isOpen]);
 
   // 카테고리별 썸네일 색상 함수
   const getCategoryThumbnailColor = (category: string) => {
@@ -6855,17 +6874,17 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1000,
-            padding: '1rem',
+            padding: window.innerWidth <= 768 ? '0.5rem' : '1rem',
           }}
           onClick={closeModal}
         >
           <div
             style={{
               backgroundColor: 'var(--bg-primary)',
-              borderRadius: '1rem',
+              borderRadius: window.innerWidth <= 768 ? '0.5rem' : '1rem',
               maxWidth: '800px',
               width: '100%',
-              maxHeight: '95vh',
+              maxHeight: window.innerWidth <= 768 ? '98vh' : '95vh',
               overflow: 'auto',
               position: 'relative',
               border: '1px solid var(--border-color)',
@@ -6876,7 +6895,10 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
             {/* 모달 헤더 */}
             <div
               style={{
-                padding: '1rem 2rem 0.75rem 2rem',
+                padding:
+                  window.innerWidth <= 768
+                    ? '0.75rem 1rem 0.5rem 1rem'
+                    : '1rem 2rem 0.75rem 2rem',
                 borderBottom: '1px solid var(--border-color)',
                 position: 'sticky',
                 top: 0,
@@ -6917,26 +6939,40 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                 <button
                   onClick={closeModal}
                   style={{
-                    background: 'none',
-                    border: 'none',
-                    fontSize: '1.125rem',
-                    color: 'var(--text-secondary)',
+                    background: 'var(--bg-secondary)',
+                    border: '2px solid var(--border-color)',
+                    fontSize: '1.25rem',
+                    fontWeight: 'bold',
+                    color: 'var(--text-primary)',
                     cursor: 'pointer',
-                    padding: '0.25rem',
-                    borderRadius: '0.25rem',
+                    padding: '0.5rem',
+                    borderRadius: '50%',
+                    width: '2.5rem',
+                    height: '2.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     transition: 'all 0.2s ease',
+                    lineHeight: 1,
                   }}
                   onMouseEnter={e => {
                     e.currentTarget.style.backgroundColor =
-                      'var(--bg-secondary)';
-                    e.currentTarget.style.color = 'var(--text-primary)';
+                      'var(--accent-color)';
+                    e.currentTarget.style.color = 'white';
+                    e.currentTarget.style.borderColor = 'var(--accent-color)';
+                    e.currentTarget.style.transform = 'scale(1.1)';
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = 'var(--text-secondary)';
+                    e.currentTarget.style.backgroundColor =
+                      'var(--bg-secondary)';
+                    e.currentTarget.style.color = 'var(--text-primary)';
+                    e.currentTarget.style.borderColor = 'var(--border-color)';
+                    e.currentTarget.style.transform = 'scale(1)';
                   }}
+                  aria-label="모달 닫기"
+                  title="닫기"
                 >
-                  ×
+                  ✕
                 </button>
               </div>
             </div>
@@ -6944,8 +6980,8 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
             {/* 모달 내용 */}
             <div
               style={{
-                padding: '0.75rem',
-                maxHeight: '75vh',
+                padding: window.innerWidth <= 768 ? '0.5rem' : '0.75rem',
+                maxHeight: window.innerWidth <= 768 ? '80vh' : '75vh',
                 overflowY: 'auto',
                 scrollbarWidth: 'thin',
                 scrollbarColor: 'var(--accent-color) var(--bg-secondary)',

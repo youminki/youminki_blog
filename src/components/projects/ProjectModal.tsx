@@ -113,6 +113,32 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
       };
     }, [isOpen, onClose]);
 
+    // ESC 키로 모달 닫기 및 포커스 관리
+    useEffect(() => {
+      const handleEscapeKey = (event: KeyboardEvent) => {
+        if (event.key === 'Escape' && isOpen) {
+          onClose();
+        }
+      };
+
+      if (isOpen) {
+        document.addEventListener('keydown', handleEscapeKey);
+
+        // 모달이 열릴 때 첫 번째 포커스 가능한 요소에 포커스
+        const firstFocusableElement = modalContainerRef.current?.querySelector(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        ) as HTMLElement;
+
+        if (firstFocusableElement) {
+          firstFocusableElement.focus();
+        }
+      }
+
+      return () => {
+        document.removeEventListener('keydown', handleEscapeKey);
+      };
+    }, [isOpen, onClose]);
+
     console.log('=== ProjectModal 렌더링 ===');
     console.log('isOpen:', isOpen);
     console.log('project:', project);
@@ -1382,7 +1408,7 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           alignItems: 'center',
           justifyContent: 'center',
           zIndex: 1000,
-          padding: '1rem',
+          padding: isMobile ? '0.5rem' : '1rem',
         }}
         onClick={handleBackdropClick}
       >
@@ -1390,10 +1416,10 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           ref={modalContainerRef}
           style={{
             backgroundColor: 'var(--bg-primary)',
-            borderRadius: '1rem',
+            borderRadius: isMobile ? '0.5rem' : '1rem',
             maxWidth: '800px',
             width: '100%',
-            maxHeight: '95vh',
+            maxHeight: isMobile ? '98vh' : '95vh',
             overflow: 'auto',
             position: 'relative',
             border: '1px solid var(--border-color)',
@@ -1405,7 +1431,9 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           {/* 모달 헤더 */}
           <div
             style={{
-              padding: '1rem 2rem 0.75rem 2rem',
+              padding: isMobile
+                ? '0.75rem 1rem 0.5rem 1rem'
+                : '1rem 2rem 0.75rem 2rem',
               borderBottom: '1px solid var(--border-color)',
               position: 'sticky',
               top: 0,
@@ -1436,25 +1464,38 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
               <button
                 onClick={onClose}
                 style={{
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '1.125rem',
-                  color: 'var(--text-secondary)',
+                  background: 'var(--bg-secondary)',
+                  border: '2px solid var(--border-color)',
+                  fontSize: '1.25rem',
+                  fontWeight: 'bold',
+                  color: 'var(--text-primary)',
                   cursor: 'pointer',
-                  padding: '0.25rem',
-                  borderRadius: '0.25rem',
+                  padding: '0.5rem',
+                  borderRadius: '50%',
+                  width: '2.5rem',
+                  height: '2.5rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   transition: 'all 0.2s ease',
+                  lineHeight: 1,
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
-                  e.currentTarget.style.color = 'var(--text-primary)';
+                  e.currentTarget.style.backgroundColor = 'var(--accent-color)';
+                  e.currentTarget.style.color = 'white';
+                  e.currentTarget.style.borderColor = 'var(--accent-color)';
+                  e.currentTarget.style.transform = 'scale(1.1)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'var(--text-secondary)';
+                  e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+                  e.currentTarget.style.color = 'var(--text-primary)';
+                  e.currentTarget.style.borderColor = 'var(--border-color)';
+                  e.currentTarget.style.transform = 'scale(1)';
                 }}
+                aria-label="모달 닫기"
+                title="닫기"
               >
-                ×
+                ✕
               </button>
             </div>
           </div>
@@ -1462,8 +1503,8 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           {/* 모달 내용 */}
           <div
             style={{
-              padding: '0.75rem',
-              maxHeight: '75vh',
+              padding: isMobile ? '0.5rem' : '0.75rem',
+              maxHeight: isMobile ? '80vh' : '75vh',
               overflowY: 'auto',
               scrollbarWidth: 'thin',
               scrollbarColor: 'var(--accent-color) var(--bg-secondary)',
