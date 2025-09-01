@@ -3,11 +3,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import Blog from './components/Blog';
-import { useMousePosition } from './hooks/useMousePosition';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'portfolio' | 'blog'>('portfolio');
-  const mousePosition = useMousePosition();
 
   const handleTabChange = (tab: 'portfolio' | 'blog') => {
     setActiveTab(tab);
