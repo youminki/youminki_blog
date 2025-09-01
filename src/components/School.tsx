@@ -31,7 +31,7 @@ const School = () => {
                       key={idx}
                       className="text-sm text-[var(--text-secondary)] flex items-start"
                     >
-                      <span className="text-[var(--accent-color)] mr-2">•</span>
+                      <span className="text-[var(--accent-color)] mr-1">•</span>
                       {achievement}
                     </li>
                   ))}
