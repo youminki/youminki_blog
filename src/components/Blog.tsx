@@ -604,6 +604,68 @@ const Blog = () => {
                       elements.push(
                         <div key={key} style={{ height: '1rem' }} />
                       );
+                    } else if (line.includes('<strong>')) {
+                      // HTML strong 태그 처리 (리스트 아이템인 경우)
+                      if (line.startsWith('- ')) {
+                        const contentWithoutBullet = line.replace('- ', '');
+                        const processedLine = contentWithoutBullet.replace(
+                          /<strong>(.*?)<\/strong>/g,
+                          (_, content) => {
+                            return `<strong style="font-weight: 600; color: var(--accent-color);">${content}</strong>`;
+                          }
+                        );
+                        elements.push(
+                          <div
+                            key={key}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'flex-start',
+                              marginBottom: '0.75rem',
+                              paddingLeft: '1rem',
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: 'var(--accent-color)',
+                                marginRight: '0.75rem',
+                                fontSize: '1.2rem',
+                                lineHeight: '1.7',
+                                display: 'flex',
+                                alignItems: 'center',
+                                minWidth: '1rem',
+                              }}
+                            >
+                              •
+                            </span>
+                            <span
+                              style={{ flex: 1, lineHeight: '1.7' }}
+                              dangerouslySetInnerHTML={{
+                                __html: processedLine,
+                              }}
+                            />
+                          </div>
+                        );
+                      } else {
+                        // 일반 텍스트에서 strong 태그 처리
+                        const processedLine = line.replace(
+                          /<strong>(.*?)<\/strong>/g,
+                          (_, content) => {
+                            return `<strong style="font-weight: 600; color: var(--accent-color);">${content}</strong>`;
+                          }
+                        );
+                        elements.push(
+                          <p
+                            key={key}
+                            style={{
+                              marginBottom: '0.75rem',
+                              lineHeight: '1.6',
+                              fontSize: '1rem',
+                              color: 'var(--text-primary)',
+                            }}
+                            dangerouslySetInnerHTML={{ __html: processedLine }}
+                          />
+                        );
+                      }
                     } else if (line.startsWith('- ')) {
                       elements.push(
                         <div
@@ -619,9 +681,11 @@ const Blog = () => {
                             style={{
                               color: 'var(--accent-color)',
                               marginRight: '0.75rem',
-                              marginTop: '0.5rem',
-                              fontSize: '1.5rem',
-                              lineHeight: 1,
+                              fontSize: '1.2rem',
+                              lineHeight: '1.7',
+                              display: 'flex',
+                              alignItems: 'center',
+                              minWidth: '1rem',
                             }}
                           >
                             •
