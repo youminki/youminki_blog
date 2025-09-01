@@ -26,3 +26,28 @@ export interface ContactInfo {
   url?: string;
   icon: React.ComponentType<any>;
 }
+
+// 데이터 관련 추가 타입들
+export interface PersonalInfo {
+  name: string;
+  title: string;
+  email: string;
+  phone: string;
+  location: string;
+  profileImage: string;
+  summary: string;
+  quote: string;
+}
+
+export interface SocialLink {
+  url: string;
+  label: string;
+}
+
+export interface AppConfig {
+  title: string;
+  description: string;
+  version: string;
+  author: string;
+  keywords: string[];
+}

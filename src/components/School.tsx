@@ -1,13 +1,7 @@
 import { MdSchool } from 'react-icons/md';
+import { EDUCATION_DATA } from '../data';
 
 const School = () => {
-  const experiences = [
-    {
-      title: '명지대학교 컴퓨터공학과',
-      description: '2019.03 ~ 2025.08 (4년제, 졸업)',
-    },
-  ];
-
   return (
     <section>
       <h2 className="section-title flex items-center gap-4">
@@ -15,7 +9,7 @@ const School = () => {
         School
       </h2>
       <div className="space-y-6">
-        {experiences.map((exp, index) => (
+        {EDUCATION_DATA.map((edu, index) => (
           <div key={index} className="relative">
             <div className="section-card">
               {index > 0 && (
@@ -24,9 +18,25 @@ const School = () => {
                 </div>
               )}
               <h3 className="text-xl font-semibold text-[var(--text-primary)] compact-title">
-                {exp.title}
+                {edu.institution} {edu.degree}
               </h3>
-              <p className="section-content">{exp.description}</p>
+              <p className="section-content">{edu.period}</p>
+              {edu.description && (
+                <p className="section-content mt-2">{edu.description}</p>
+              )}
+              {edu.achievements && edu.achievements.length > 0 && (
+                <ul className="mt-3 space-y-1">
+                  {edu.achievements.map((achievement, idx) => (
+                    <li
+                      key={idx}
+                      className="text-sm text-[var(--text-secondary)] flex items-start"
+                    >
+                      <span className="text-[var(--accent-color)] mr-2">•</span>
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         ))}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdEmail, MdPhone, MdLink, MdLocationOn } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
+import { PERSONAL_INFO, CONTACT_INFO, SOCIAL_LINKS } from '../../data';
 
 const ProfileSection: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const ProfileSection: React.FC = () => {
       {/* Main Title Section - 기존 스타일 유지 */}
       <div className="max-w-[800px] mx-auto px-6 text-left mb-12">
         <h1 className="text-4xl font-bold text-white mb-3">
-          유민기 | 프론트엔드 개발자
+          {PERSONAL_INFO.name} | {PERSONAL_INFO.title}
         </h1>
       </div>
 
@@ -18,8 +19,8 @@ const ProfileSection: React.FC = () => {
         <div className="profile-image">
           <div className="profile-image-container">
             <img
-              src="/면접사진.jpeg"
-              alt="유민기 면접사진"
+              src={PERSONAL_INFO.profileImage}
+              alt={`${PERSONAL_INFO.name} 면접사진`}
               className="profile-image"
             />
           </div>
@@ -31,8 +32,8 @@ const ProfileSection: React.FC = () => {
           <div className="quote-card">
             <p className="quote-text">
               "개발을 할 때가 가장 행복한{' '}
-              <span className="quote-highlight">프론트엔드 개발자</span>{' '}
-              유민기입니다."
+              <span className="quote-highlight">{PERSONAL_INFO.title}</span>{' '}
+              {PERSONAL_INFO.name}입니다."
             </p>
           </div>
 
@@ -40,36 +41,36 @@ const ProfileSection: React.FC = () => {
           <div className="contact-container">
             <div className="contact-item">
               <MdLocationOn className="contact-icon" />
-              <span className="contact-text">경기도 안양시</span>
+              <span className="contact-text">{CONTACT_INFO.location}</span>
             </div>
             <div className="contact-item">
               <MdEmail className="contact-icon" />
-              <span className="contact-text">dbalsrl7648@gmail.com</span>
+              <span className="contact-text">{CONTACT_INFO.email}</span>
             </div>
             <div className="contact-item">
               <MdPhone className="contact-icon" />
-              <span className="contact-text">010-5351-7648</span>
+              <span className="contact-text">{CONTACT_INFO.phone}</span>
             </div>
             <div className="contact-item">
               <MdLink className="contact-icon" />
               <a
-                href="https://dbalsrl7648.tistory.com/"
+                href={SOCIAL_LINKS.blog.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-link contact-text"
               >
-                티스토리
+                {SOCIAL_LINKS.blog.label}
               </a>
             </div>
             <div className="contact-item">
               <FaGithub className="contact-icon" />
               <a
-                href="https://github.com/youminki"
+                href={SOCIAL_LINKS.github.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-link contact-text"
               >
-                깃허브
+                {SOCIAL_LINKS.github.label}
               </a>
             </div>
           </div>

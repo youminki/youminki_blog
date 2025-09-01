@@ -1,13 +1,7 @@
 import { MdWork } from 'react-icons/md';
+import { WORK_EXPERIENCES } from '../data';
 
 const Career = () => {
-  const experiences = [
-    {
-      title: '리프트콤마 - 프론트엔드 개발자',
-      description: '2024.08 ~ 재직중 (프리랜서)',
-    },
-  ];
-
   return (
     <section>
       <h2 className="section-title flex items-center gap-4">
@@ -15,7 +9,7 @@ const Career = () => {
         Career
       </h2>
       <div className="space-y-6">
-        {experiences.map((exp, index) => (
+        {WORK_EXPERIENCES.map((exp, index) => (
           <div key={index} className="relative">
             <div className="section-card">
               {index > 0 && (
@@ -24,9 +18,28 @@ const Career = () => {
                 </div>
               )}
               <h3 className="text-xl font-semibold text-[var(--text-primary)] compact-title">
-                {exp.title}
+                {exp.company} - {exp.position}
               </h3>
-              <p className="section-content">{exp.description}</p>
+              <p className="section-content">
+                {exp.period} ({exp.type === 'freelance' ? '프리랜서' : '정규직'}
+                )
+              </p>
+              {exp.description && (
+                <p className="section-content mt-2">{exp.description}</p>
+              )}
+              {exp.achievements && exp.achievements.length > 0 && (
+                <ul className="mt-3 space-y-1">
+                  {exp.achievements.map((achievement, idx) => (
+                    <li
+                      key={idx}
+                      className="text-sm text-[var(--text-secondary)] flex items-start"
+                    >
+                      <span className="text-[var(--accent-color)] mr-2">•</span>
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         ))}

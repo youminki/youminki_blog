@@ -7312,7 +7312,7 @@ console.log('isLoggedIn:', localStorage.getItem('isLoggedIn'));
                     flexWrap: 'wrap',
                   }}
                 >
-                  {selectedPost.tags.map((tag, index) => (
+                  {selectedPost.tags.map((tag: string, index: number) => (
                     <span
                       key={index}
                       style={{

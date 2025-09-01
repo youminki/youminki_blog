@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdBuild } from 'react-icons/md';
-import { SKILLS_DATA } from '../data/skills';
+import { SKILLS_DATA } from '../data';
 import SkillCategory from './skills/SkillCategory';
 
 const Skills: React.FC = () => {

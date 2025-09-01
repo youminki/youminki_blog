@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdRocketLaunch } from 'react-icons/md';
-import { PROJECTS_DATA } from '../data/projects';
+import { PROJECTS_DATA } from '../data';
 import ProjectGrid from './projects/ProjectGrid';
 import ProjectModal from './projects/ProjectModal';
 import { useModal } from '../hooks/useModal';

@@ -25,11 +25,34 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
         <div
           style={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            height: '5rem',
+            height: '3.5rem',
           }}
         >
+          {/* 로고 */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <h1
+              style={{
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                color: 'var(--accent-color)',
+                margin: 0,
+                letterSpacing: '-0.025em',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+              onClick={() => onTabChange('portfolio')}
+            >
+              youminki
+            </h1>
+          </div>
+
           {/* 탭 네비게이션 */}
           <div
             style={{
@@ -45,8 +68,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
               onClick={() => onTabChange('portfolio')}
               style={{
                 position: 'relative',
-                padding: '0.75rem 1.5rem',
-                fontSize: '1.125rem',
+                padding: '0.5rem 1.25rem',
+                fontSize: '1rem',
                 fontWeight: '600',
                 borderRadius: '0.375rem',
                 transition: 'all 0.2s ease',
@@ -70,8 +93,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
               onClick={() => onTabChange('blog')}
               style={{
                 position: 'relative',
-                padding: '0.75rem 1.5rem',
-                fontSize: '1.125rem',
+                padding: '0.5rem 1.25rem',
+                fontSize: '1rem',
                 fontWeight: '600',
                 borderRadius: '0.375rem',
                 transition: 'all 0.2s ease',
