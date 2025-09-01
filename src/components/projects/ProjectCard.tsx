@@ -76,48 +76,110 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(
             {project.description}
           </p>
 
-          {/* Technologies - 모달과 같은 스타일로 가독성 향상 */}
-          <div className="mb-4">
-            <h4 className="text-sm font-semibold text-blue-400 mb-3">
+          {/* Technologies - 개선된 스타일 */}
+          <div
+            style={{
+              marginBottom: '1rem',
+            }}
+          >
+            <h4
+              style={{
+                fontSize: '0.875rem',
+                fontWeight: '600',
+                color: 'var(--accent-color)',
+                marginBottom: '0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
               사용 기술 ({project.technologies.length}개)
             </h4>
-            <div className="flex flex-wrap gap-3">
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '0.5rem',
+              }}
+            >
               {project.technologies.slice(0, 6).map((tech, index) => {
-                // 각 기술별로 다른 색상 적용
-                const getTechColors = () => {
-                  const colorPalette = [
-                    { bg: '#3b82f6', text: 'white', border: '#3b82f6' }, // 파란색
-                    { bg: '#06b6d4', text: 'white', border: '#06b6d4' }, // 청록색
-                    { bg: '#8b5cf6', text: 'white', border: '#8b5cf6' }, // 보라색
-                    { bg: '#10b981', text: 'white', border: '#10b981' }, // 초록색
-                    { bg: '#f59e0b', text: 'white', border: '#f59e0b' }, // 주황색
-                    { bg: '#ef4444', text: 'white', border: '#ef4444' }, // 빨간색
-                  ];
+                // 기술별 색상 매핑
+                const getTechColor = (techName: string) => {
+                  const techColors: { [key: string]: string } = {
+                    // 프론트엔드
+                    React: '#61dafb',
+                    'React Native': '#61dafb',
+                    Vue: '#4fc08d',
+                    Angular: '#dd0031',
+                    TypeScript: '#3178c6',
+                    JavaScript: '#f7df1e',
+                    HTML: '#e34f26',
+                    CSS: '#1572b6',
+                    Tailwind: '#06b6d4',
+                    'Styled Components': '#db7093',
 
-                  return (
-                    colorPalette[index % colorPalette.length] || colorPalette[0]
-                  );
+                    // 백엔드
+                    Node: '#339933',
+                    Express: '#000000',
+                    Python: '#3776ab',
+                    Django: '#092e20',
+                    'Spring Boot': '#6db33f',
+                    Java: '#ed8b00',
+
+                    // 데이터베이스
+                    MongoDB: '#47a248',
+                    MySQL: '#4479a1',
+                    PostgreSQL: '#336791',
+                    Firebase: '#ffca28',
+
+                    // 기타
+                    Docker: '#2496ed',
+                    Git: '#f05032',
+                    AWS: '#ff9900',
+                    Vercel: '#000000',
+                    Netlify: '#00ad9f',
+                  };
+
+                  return techColors[techName] || '#6b7280';
                 };
 
-                const colors = getTechColors();
+                const color = getTechColor(tech);
 
                 return (
                   <span
                     key={index}
-                    className="px-4 py-2 text-xs font-medium rounded-lg transition-all duration-200 shadow-sm"
                     style={{
-                      backgroundColor: colors.bg,
-                      color: colors.text,
-                      border: `1px solid ${colors.border}`,
-                      marginBottom: '8px',
-                      marginRight: '8px',
+                      backgroundColor: `${color}15`,
+                      color: color,
+                      padding: '0.375rem 0.75rem',
+                      fontSize: '0.75rem',
+                      fontWeight: '500',
+                      borderRadius: '0.5rem',
+                      border: `1px solid ${color}30`,
+                      transition: 'all 0.2s ease',
+                      cursor: 'default',
                     }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.transform = 'translateY(-2px)';
-                      e.currentTarget.style.boxShadow =
-                        '0 4px 8px rgba(0, 0, 0, 0.2)';
+                      e.currentTarget.style.backgroundColor = `${color}25`;
+                      e.currentTarget.style.transform = 'translateY(-1px)';
+                      e.currentTarget.style.boxShadow = `0 2px 8px ${color}20`;
                     }}
                     onMouseLeave={e => {
+                      e.currentTarget.style.backgroundColor = `${color}15`;
                       e.currentTarget.style.transform = 'translateY(0)';
                       e.currentTarget.style.boxShadow = 'none';
                     }}
@@ -128,14 +190,132 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(
               })}
               {project.technologies.length > 6 && (
                 <span
-                  className="px-4 py-2 bg-gray-600 text-gray-400 text-xs font-medium rounded-lg border border-gray-500 shadow-sm"
                   style={{
-                    marginBottom: '8px',
-                    marginRight: '8px',
+                    backgroundColor: 'var(--bg-secondary)',
+                    color: 'var(--text-secondary)',
+                    padding: '0.375rem 0.75rem',
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    borderRadius: '0.5rem',
+                    border: '1px solid var(--border-color)',
+                    transition: 'all 0.2s ease',
                   }}
                 >
                   +{project.technologies.length - 6}개 더
                 </span>
+              )}
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div
+            style={{
+              marginTop: '1rem',
+              textAlign: 'center',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                gap: '1rem',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+              }}
+            >
+              {project.githubUrl && (
+                <button
+                  onClick={e => {
+                    e.stopPropagation();
+                    window.open(project.githubUrl, '_blank');
+                  }}
+                  style={{
+                    backgroundColor: 'var(--bg-secondary)',
+                    color: 'var(--text-primary)',
+                    padding: '0.75rem 1.5rem',
+                    borderRadius: '0.5rem',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '0.875rem',
+                    border: '1px solid var(--border-color)',
+                    transition: 'all 0.2s ease',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.backgroundColor =
+                      'var(--accent-color)';
+                    e.currentTarget.style.color = 'white';
+                    e.currentTarget.style.borderColor = 'var(--accent-color)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.backgroundColor =
+                      'var(--bg-secondary)';
+                    e.currentTarget.style.color = 'var(--text-primary)';
+                    e.currentTarget.style.borderColor = 'var(--border-color)';
+                  }}
+                >
+                  GitHub 보기
+                </button>
+              )}
+              {project.liveUrl && (
+                <button
+                  onClick={e => {
+                    e.stopPropagation();
+                    window.open(project.liveUrl, '_blank');
+                  }}
+                  style={{
+                    backgroundColor: 'var(--accent-color)',
+                    color: 'white',
+                    padding: '0.75rem 1.5rem',
+                    borderRadius: '0.5rem',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '0.875rem',
+                    transition: 'all 0.2s ease',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow =
+                      '0 4px 12px var(--shadow-medium)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  라이브 데모
+                </button>
+              )}
+              {!project.githubUrl && !project.liveUrl && (
+                <button
+                  onClick={onClick}
+                  style={{
+                    backgroundColor: 'var(--bg-secondary)',
+                    color: 'var(--text-primary)',
+                    padding: '0.75rem 1.5rem',
+                    borderRadius: '0.5rem',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '0.875rem',
+                    border: '1px solid var(--border-color)',
+                    transition: 'all 0.2s ease',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.backgroundColor =
+                      'var(--accent-color)';
+                    e.currentTarget.style.color = 'white';
+                    e.currentTarget.style.borderColor = 'var(--accent-color)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.backgroundColor =
+                      'var(--bg-secondary)';
+                    e.currentTarget.style.color = 'var(--text-primary)';
+                    e.currentTarget.style.borderColor = 'var(--border-color)';
+                  }}
+                >
+                  자세히 보기
+                </button>
               )}
             </div>
           </div>

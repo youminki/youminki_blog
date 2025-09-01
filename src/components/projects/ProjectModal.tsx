@@ -1403,12 +1403,13 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           zIndex: 1000,
           padding: isMobile ? '0.5rem' : '1rem',
+          backdropFilter: 'blur(4px)',
         }}
         onClick={handleBackdropClick}
       >
@@ -1546,60 +1547,100 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
                 style={{
                   fontSize: '1.125rem',
                   fontWeight: '600',
-                  color: 'var(--text-primary)',
-                  marginBottom: '0.25rem',
+                  color: 'var(--accent-color)',
+                  marginBottom: '0.75rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
                 }}
               >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
                 사용 기술 ({project.technologies.length}개)
               </h4>
               <div
                 style={{
                   display: 'flex',
-                  gap: '0.75rem',
+                  gap: '0.5rem',
                   flexWrap: 'wrap',
                 }}
               >
                 {project.technologies.map((tech, index) => {
-                  // 각 기술별로 다른 색상 적용
-                  const getTechColors = () => {
-                    const colorPalette = [
-                      { bg: '#3b82f6', text: 'white', border: '#3b82f6' }, // 파란색
-                      { bg: '#06b6d4', text: 'white', border: '#06b6d6' }, // 청록색
-                      { bg: '#8b5cf6', text: 'white', border: '#8b5cf6' }, // 보라색
-                      { bg: '#10b981', text: 'white', border: '#10b981' }, // 초록색
-                      { bg: '#f59e0b', text: 'white', border: '#f59e0b' }, // 주황색
-                      { bg: '#ef4444', text: 'white', border: '#ef4444' }, // 빨간색
-                      { bg: '#ec4899', text: 'white', border: '#ec4899' }, // 분홍색
-                      { bg: '#84cc16', text: 'white', border: '#84cc16' }, // 연두색
-                    ];
+                  // 기술별 색상 매핑
+                  const getTechColor = (techName: string) => {
+                    const techColors: { [key: string]: string } = {
+                      // 프론트엔드
+                      React: '#61dafb',
+                      'React Native': '#61dafb',
+                      Vue: '#4fc08d',
+                      Angular: '#dd0031',
+                      TypeScript: '#3178c6',
+                      JavaScript: '#f7df1e',
+                      HTML: '#e34f26',
+                      CSS: '#1572b6',
+                      Tailwind: '#06b6d4',
+                      'Styled Components': '#db7093',
 
-                    return (
-                      colorPalette[index % colorPalette.length] ||
-                      colorPalette[0]
-                    );
+                      // 백엔드
+                      Node: '#339933',
+                      Express: '#000000',
+                      Python: '#3776ab',
+                      Django: '#092e20',
+                      'Spring Boot': '#6db33f',
+                      Java: '#ed8b00',
+
+                      // 데이터베이스
+                      MongoDB: '#47a248',
+                      MySQL: '#4479a1',
+                      PostgreSQL: '#336791',
+                      Firebase: '#ffca28',
+
+                      // 기타
+                      Docker: '#2496ed',
+                      Git: '#f05032',
+                      AWS: '#ff9900',
+                      Vercel: '#000000',
+                      Netlify: '#00ad9f',
+                    };
+
+                    return techColors[techName] || '#6b7280';
                   };
 
-                  const colors = getTechColors();
+                  const color = getTechColor(tech);
 
                   return (
                     <span
                       key={index}
                       style={{
-                        backgroundColor: colors.bg,
-                        color: colors.text,
+                        backgroundColor: `${color}15`,
+                        color: color,
                         padding: '0.5rem 1rem',
-                        borderRadius: '1.5rem',
                         fontSize: '0.875rem',
-                        border: `1px solid ${colors.border}`,
+                        fontWeight: '500',
+                        borderRadius: '0.5rem',
+                        border: `1px solid ${color}30`,
                         transition: 'all 0.2s ease',
-                        cursor: 'pointer',
+                        cursor: 'default',
                       }}
                       onMouseEnter={e => {
-                        e.currentTarget.style.transform = 'translateY(-2px)';
-                        e.currentTarget.style.boxShadow =
-                          '0 4px 8px rgba(0, 0, 0, 0.2)';
+                        e.currentTarget.style.backgroundColor = `${color}25`;
+                        e.currentTarget.style.transform = 'translateY(-1px)';
+                        e.currentTarget.style.boxShadow = `0 2px 8px ${color}20`;
                       }}
                       onMouseLeave={e => {
+                        e.currentTarget.style.backgroundColor = `${color}15`;
                         e.currentTarget.style.transform = 'translateY(0)';
                         e.currentTarget.style.boxShadow = 'none';
                       }}

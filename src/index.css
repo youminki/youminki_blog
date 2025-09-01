@@ -53,25 +53,37 @@
 :root {
   /* Light mode colors */
   --bg-primary: #ffffff;
+  --bg-primary-rgb: 255, 255, 255;
   --bg-secondary: #fbfbfa;
+  --bg-secondary-rgb: 251, 251, 250;
   --text-primary: #37352f;
   --text-secondary: #787774;
   --border-color: #e3e2e0;
+  --border-color-rgb: 227, 226, 224;
   --accent-color: #8b5cf6;
+  --accent-color-rgb: 139, 92, 246;
+  --accent-color-dark: #7c3aed;
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.15);
+  --shadow-heavy: rgba(0, 0, 0, 0.2);
 }
 
 .dark {
   /* Dark mode colors */
   --bg-primary: #191919;
+  --bg-primary-rgb: 25, 25, 25;
   --bg-secondary: #2d2d2d;
+  --bg-secondary-rgb: 45, 45, 45;
   --text-primary: #e8e8e8;
   --text-secondary: #a8a8a8;
   --border-color: #404040;
+  --border-color-rgb: 64, 64, 64;
   --accent-color: #a78bfa;
+  --accent-color-rgb: 167, 139, 250;
+  --accent-color-dark: #8b5cf6;
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-medium: rgba(0, 0, 0, 0.4);
+  --shadow-heavy: rgba(0, 0, 0, 0.6);
 }
 
 /* Global background color */
