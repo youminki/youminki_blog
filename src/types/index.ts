@@ -51,3 +51,14 @@ export interface AppConfig {
   author: string;
   keywords: string[];
 }
+
+// 블로그 관련 타입들
+export interface BlogPost {
+  id: number;
+  title: string;
+  content: string;
+  category: string;
+  date: string;
+  tags: string[];
+  postType?: 'react19' | 'typescript59' | 'custom';
+}
