@@ -577,11 +577,6 @@ body {
     height: 200px;
   }
 
-  /* 모바일에서 전체 컨테이너 패딩 */
-  .w-full.max-w-5xl.mx-auto {
-    padding: 0 1rem !important;
-  }
-
   /* 모바일에서 Projects 섹션 전체 패딩 */
   section.mb-16.pt-8.pb-8.px-4 {
     padding: 2rem 1rem !important;
@@ -589,7 +584,7 @@ body {
 
   /* 모바일에서 전체 페이지 패딩 */
   body {
-    padding: 0 0.5rem !important;
+    padding: 0 1rem !important;
   }
 }
 
