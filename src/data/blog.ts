@@ -34,25 +34,40 @@ const createBlogPost = (config: {
   category: string;
   postType: 'react19' | 'typescript59' | 'custom';
   tags: string[];
+  customDate?: string; // 커스텀 날짜 옵션 추가
 }): BlogPost => {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const day = String(now.getDate()).padStart(2, '0');
-
   let date: string;
-  switch (config.postType) {
-    case 'react19':
-      date = '2024.12.05'; // React 19 실제 릴리스 날짜
-      break;
-    case 'typescript59':
-      date = '2025.08.01'; // TypeScript 5.9 실제 릴리스 날짜
-      break;
-    case 'custom':
-      date = `${year}.${month}.${day}`; // 현재 작성 날짜
-      break;
-    default:
-      date = `${year}.${month}.${day}`;
+
+  if (config.customDate) {
+    // 커스텀 날짜가 제공된 경우 사용
+    date = config.customDate;
+  } else {
+    // postType에 따라 날짜 결정
+    switch (config.postType) {
+      case 'react19':
+        date = '2024.12.05'; // React 19 실제 릴리스 날짜
+        break;
+      case 'typescript59':
+        date = '2025.08.01'; // TypeScript 5.9 실제 릴리스 날짜
+        break;
+      case 'custom': {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        date = `${year}.${month}.${day}`; // 현재 작성 날짜
+        break;
+      }
+      default: {
+        // 기본적으로 현재 날짜 사용 (새 포스트 작성 시)
+        const nowDefault = new Date();
+        const yearDefault = nowDefault.getFullYear();
+        const monthDefault = String(nowDefault.getMonth() + 1).padStart(2, '0');
+        const dayDefault = String(nowDefault.getDate()).padStart(2, '0');
+        date = `${yearDefault}.${monthDefault}.${dayDefault}`;
+        break;
+      }
+    }
   }
 
   return {
@@ -72,10 +87,26 @@ export const validateBlogIds = (): boolean => {
   return ids.length === uniqueIds.size;
 };
 
+// 새 블로그 포스트 추가를 위한 헬퍼 함수
+export const addNewBlogPost = (config: {
+  title: string;
+  content: string;
+  category: string;
+  tags: string[];
+  postType?: 'react19' | 'typescript59' | 'custom';
+}): BlogPost => {
+  return createBlogPost({
+    ...config,
+    postType: config.postType || 'custom', // 기본값은 custom
+    // customDate는 제공하지 않으면 자동으로 현재 날짜 사용
+  });
+};
+
 export const BLOG_POSTS: BlogPost[] = [
   createBlogPost({
     id: 1,
     title: 'React 19의 새로운 기능들',
+    customDate: '2025.07.01',
     content: `# React 19: 혁신적인 개발자 경험의 시작
 
 React 19는 2024년 12월 5일에 안정적으로 릴리스되었으며, 이는 React 생태계의 새로운 시대를 열었습니다. 이번 업데이트는 단순한 기능 추가가 아닌, 개발자들이 더 직관적이고 효율적으로 React 애플리케이션을 구축할 수 있도록 하는 근본적인 변화를 가져왔습니다.
@@ -188,6 +219,7 @@ React 19는 단순히 새로운 기능을 추가한 것이 아니라, React 개�
   createBlogPost({
     id: 2,
     title: 'TypeScript 5.9의 새로운 기능들',
+    customDate: '2025.07.05',
     content: `# TypeScript 5.9: 개발자 경험의 새로운 진보
 
 2025년 8월 1일, Microsoft가 TypeScript 5.9를 공식 발표했습니다! 이번 릴리스는 개발자들의 생산성을 크게 향상시키는 혁신적인 기능들과 최적화를 포함하고 있으며, TypeScript 7.0을 위한 중요한 준비 단계이기도 합니다.
@@ -520,6 +552,7 @@ TypeScript 팀의 지속적인 혁신 덕분에 우리는 더 안전하고 효�
   createBlogPost({
     id: 3,
     title: 'React Effect의 생명주기와 동기화',
+    customDate: '2025.07.10',
     content: `# React Effect의 생명주기와 동기화
 
 React의 useEffect는 컴포넌트와 다른 생명주기를 가집니다. 컴포넌트는 마운트, 업데이트, 마운트 해제할 수 있지만, effect는 동기화를 시작하고 나중에 동기화를 중지하는 두 가지 작업만 할 수 있습니다. 이 사이클은 시간이 지남에 따라 변하는 props와 state에 의존하는 effect의 경우 여러 번 발생할 수 있습니다.
@@ -851,6 +884,7 @@ React Effect의 생명주기를 올바르게 이해하고 활용하면, 더 안�
   createBlogPost({
     id: 4,
     title: '커스텀 Hook으로 로직 재사용하기',
+    customDate: '2025.07.15',
     content: `# 커스텀 Hook으로 로직 재사용하기
 
 React는 useState, useContext, useEffect 같은 내장 Hook들을 제공하지만, 때로는 더 구체적인 목적을 가진 Hook이 필요할 때가 있습니다. 예를 들어, 데이터를 가져오거나, 사용자의 온라인 상태를 확인하거나, 채팅방에 연결하는 등의 특정 기능을 위한 Hook 말입니다. React에서 이런 Hook들을 찾기는 어렵지만, 애플리케이션의 필요에 맞는 본인만의 Hook을 만들 수 있습니다.
@@ -1454,6 +1488,7 @@ return (
   createBlogPost({
     id: 5,
     title: '자동로그인 구현의 기술적 도전과 해결책',
+    customDate: '2025.07.20',
     content: `# 자동로그인 구현의 기술적 도전과 해결책
 
 웹 애플리케이션에서 자동로그인은 사용자 경험을 크게 향상시키는 핵심 기능입니다. 하지만 이 기능을 구현하면서 겪게 되는 다양한 기술적 도전과 보안 문제들을 해결하는 것은 개발자에게 중요한 과제입니다. 실제 프로젝트에서 경험한 문제들과 그 해결책을 바탕으로 자동로그인 구현의 모든 것을 정리해보겠습니다.
@@ -2444,6 +2479,7 @@ const authPerformanceMonitor = new AuthPerformanceMonitor();
   createBlogPost({
     id: 6,
     title: 'TanStack Query로 서버 상태 관리 마스터하기',
+    customDate: '2025.07.25',
     content: `# TanStack Query로 서버 상태 관리 마스터하기
 
 React 애플리케이션에서 서버 상태를 관리하는 것은 복잡하고 까다로운 작업입니다. API 호출, 로딩 상태, 에러 처리, 캐싱, 동기화 등 다양한 문제들을 해결해야 하는데, TanStack Query(구 React Query)는 이러한 문제들을 우아하게 해결해주는 강력한 라이브러리입니다. 실제 프로젝트에서 경험한 문제들과 TanStack Query를 활용한 해결책을 바탕으로 서버 상태 관리의 모든 것을 정리해보겠습니다.
@@ -3115,6 +3151,7 @@ TanStack Query는 React 애플리케이션에서 서버 상태를 관리하는 �
   createBlogPost({
     id: 7,
     title: 'Firebase로 풀스택 개발 마스터하기',
+    customDate: '2025.07.30',
     content: `# Firebase로 풀스택 개발 마스터하기
 
 모던 웹 개발에서 백엔드 인프라 구축은 개발자들에게 큰 도전 과제입니다. 서버 설정, 데이터베이스 관리, 인증 시스템, 호스팅 등 복잡한 작업들을 하나씩 해결해야 하는데, Firebase는 이러한 모든 문제를 클라우드 기반으로 해결해주는 강력한 플랫폼입니다. 실제 프로젝트에서 Firebase를 활용한 경험과 다양한 서비스들을 바탕으로 풀스택 개발의 모든 것을 정리해보겠습니다.
@@ -4153,6 +4190,7 @@ Firebase의 장점을 최대한 활용하면서도 한계를 인식하고, 적�
   createBlogPost({
     id: 8,
     title: '멜픽에서 겪은 리프레시 토큰 갱신 실패 문제와 해결 과정',
+    customDate: '2025.08.01',
     content: `# 멜픽에서 겪은 리프레시 토큰 갱신 실패 문제와 해결 과정
 
 실제 프로덕션 환경에서 발생한 문제는 개발자에게 가장 귀중한 학습 기회를 제공합니다. 멜픽(Melpik) 프로젝트에서 발생한 리프레시 토큰 갱신 실패 문제는 단순한 코드 버그가 아닌, 복잡한 시스템 간 상호작용과 타이밍 이슈가 얽힌 복합적인 문제였습니다. 이 문제를 해결하면서 배운 기술적 인사이트와 해결 과정을 상세히 정리해보겠습니다.
