@@ -66,6 +66,39 @@
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.15);
   --shadow-heavy: rgba(0, 0, 0, 0.2);
+
+  /* 카테고리 색상 변수 - 가독성 높은 색상 */
+  --category-all-bg: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --category-all-color: #ffffff;
+  --category-all-border: #3b82f6;
+  --category-react-bg: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --category-react-color: #ffffff;
+  --category-react-border: #ef4444;
+  --category-typescript-bg: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --category-typescript-color: #ffffff;
+  --category-typescript-border: #10b981;
+  --category-default-bg: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  --category-default-color: #ffffff;
+  --category-default-border: #8b5cf6;
+
+  /* 카테고리 필터 색상 팔레트 - 가독성 높은 색상 */
+  --filter-color-1: #3b82f6;
+  --filter-color-2: #ef4444;
+  --filter-color-3: #10b981;
+  --filter-color-4: #8b5cf6;
+  --filter-color-5: #f59e0b;
+  --filter-color-6: #06b6d4;
+  --filter-color-7: #ec4899;
+  --filter-color-8: #84cc16;
+
+  --filter-light-1: linear-gradient(135deg, #3b82f620 0%, #1d4ed820 100%);
+  --filter-light-2: linear-gradient(135deg, #ef444420 0%, #dc262620 100%);
+  --filter-light-3: linear-gradient(135deg, #10b98120 0%, #05966920 100%);
+  --filter-light-4: linear-gradient(135deg, #8b5cf620 0%, #7c3aed20 100%);
+  --filter-light-5: linear-gradient(135deg, #f59e0b20 0%, #d9770620 100%);
+  --filter-light-6: linear-gradient(135deg, #06b6d420 0%, #0891b220 100%);
+  --filter-light-7: linear-gradient(135deg, #ec489920 0%, #db277720 100%);
+  --filter-light-8: linear-gradient(135deg, #84cc1620 0%, #65a30d20 100%);
 }
 
 .dark {
@@ -84,6 +117,39 @@
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-medium: rgba(0, 0, 0, 0.4);
   --shadow-heavy: rgba(0, 0, 0, 0.6);
+
+  /* 다크 모드 카테고리 색상 변수 - 다크 모드용 가독성 높은 색상 */
+  --category-all-bg: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --category-all-color: #ffffff;
+  --category-all-border: #3b82f6;
+  --category-react-bg: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --category-react-color: #ffffff;
+  --category-react-border: #ef4444;
+  --category-typescript-bg: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --category-typescript-color: #ffffff;
+  --category-typescript-border: #10b981;
+  --category-default-bg: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  --category-default-color: #ffffff;
+  --category-default-border: #8b5cf6;
+
+  /* 다크 모드 카테고리 필터 색상 팔레트 - 다크 모드용 가독성 높은 색상 */
+  --filter-color-1: #3b82f6;
+  --filter-color-2: #ef4444;
+  --filter-color-3: #10b981;
+  --filter-color-4: #8b5cf6;
+  --filter-color-5: #f59e0b;
+  --filter-color-6: #06b6d4;
+  --filter-color-7: #ec4899;
+  --filter-color-8: #84cc16;
+
+  --filter-light-1: linear-gradient(135deg, #3b82f640 0%, #1d4ed840 100%);
+  --filter-light-2: linear-gradient(135deg, #ef444440 0%, #dc262640 100%);
+  --filter-light-3: linear-gradient(135deg, #10b98140 0%, #05966940 100%);
+  --filter-light-4: linear-gradient(135deg, #8b5cf640 0%, #7c3aed40 100%);
+  --filter-light-5: linear-gradient(135deg, #f59e0b40 0%, #d9770640 100%);
+  --filter-light-6: linear-gradient(135deg, #06b6d440 0%, #0891b240 100%);
+  --filter-light-7: linear-gradient(135deg, #ec489940 0%, #db277740 100%);
+  --filter-light-8: linear-gradient(135deg, #84cc1640 0%, #65a30d40 100%);
 }
 
 /* Global background color */

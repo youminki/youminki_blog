@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MdRocketLaunch } from 'react-icons/md';
 import { PROJECTS_DATA } from '../data';
 import ProjectGrid from './projects/ProjectGrid';
 import ProjectModal from './projects/ProjectModal';
 import { useModal } from '../hooks/useModal';
+import { useUrlParams } from '../hooks/useUrlParams';
 
 const Projects: React.FC = () => {
   const { isOpen, selectedProject, openModal, closeModal } = useModal();
+  const { urlParams } = useUrlParams();
 
-  // 디버깅을 위한 로그
-  console.log('=== Projects 컴포넌트 렌더링 ===');
-  console.log('isOpen:', isOpen);
-  console.log('selectedProject:', selectedProject);
-  console.log('PROJECTS_DATA 길이:', PROJECTS_DATA.length);
+  // URL에서 프로젝트 모달 열기
+  useEffect(() => {
+    if (urlParams.projectId) {
+      const project = PROJECTS_DATA.find(
+        proj => proj.id === urlParams.projectId
+      );
+      if (project) {
+        openModal(project);
+      }
+    }
+  }, [urlParams.projectId, openModal]);
 
   return (
     <section className="mb-20">
@@ -28,12 +36,6 @@ const Projects: React.FC = () => {
         isOpen={isOpen}
         onClose={closeModal}
       />
-
-      {/* 디버깅용 상태 표시 */}
-      <div className="fixed top-4 right-4 bg-red-500 text-white p-2 rounded z-[10000] text-xs">
-        모달 상태: {isOpen ? '열림' : '닫힘'} | 프로젝트:{' '}
-        {selectedProject ? selectedProject.title : '없음'}
-      </div>
     </section>
   );
 };

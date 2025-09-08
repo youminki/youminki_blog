@@ -1,45 +1,26 @@
-import { useState, useCallback } from 'react';
-
-export interface BlogPost {
-  id: number;
-  title: string;
-  content: string;
-  category: string;
-  date: string;
-  tags: string[];
-  postType?: 'react19' | 'typescript59' | 'custom';
-}
+import { useGenericModal } from './useGenericModal';
+import { useUrlParams } from './useUrlParams';
+import type { BlogPost } from '../types';
 
 export const useBlogModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const { isOpen, selectedItem, openModal, closeModal } =
+    useGenericModal<BlogPost>();
+  const { updateUrl, removeParam } = useUrlParams();
 
-  const openModal = useCallback((post: BlogPost) => {
-    console.log('useBlogModal - openModal 호출됨:', post.title);
-    setSelectedPost(post);
-    setIsOpen(true);
-    console.log('useBlogModal - 상태 업데이트 완료:', {
-      isOpen: true,
-      selectedPost: post,
-    });
-  }, []);
+  const openModalWithUrl = (post: BlogPost) => {
+    openModal(post);
+    updateUrl({ blogId: post.id });
+  };
 
-  const closeModal = useCallback(() => {
-    console.log('useBlogModal - closeModal 호출됨');
-    setIsOpen(false);
-    setSelectedPost(null);
-    console.log('useBlogModal - 상태 업데이트 완료:', {
-      isOpen: false,
-      selectedPost: null,
-    });
-  }, []);
-
-  console.log('useBlogModal - 현재 상태:', { isOpen, selectedPost });
+  const closeModalWithUrl = () => {
+    closeModal();
+    removeParam('blogId');
+  };
 
   return {
     isOpen,
-    selectedPost,
-    openModal,
-    closeModal,
+    selectedPost: selectedItem,
+    openModal: openModalWithUrl,
+    closeModal: closeModalWithUrl,
   };
 };

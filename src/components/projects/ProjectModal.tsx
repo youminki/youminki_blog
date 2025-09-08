@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import type { Project } from '../../types';
+import { useModalScrollControl } from '../../hooks/useModalScrollControl';
+import { useResponsive } from '../../hooks/useResponsive';
 import {
   createScopedStyles,
   createResponsiveModalStyles,
@@ -17,23 +19,14 @@ interface ProjectModalProps {
 
 const ProjectModal: React.FC<ProjectModalProps> = React.memo(
   ({ project, isOpen, onClose }) => {
-    const [isMobile, setIsMobile] = useState(false);
+    const { isMobile } = useResponsive(768);
     const [styles, setStyles] = useState(createScopedStyles('modal'));
     const modalContainerRef = useRef<HTMLDivElement>(null);
 
-    // 반응형 처리 및 스타일 생성
+    // 반응형 스타일 생성
     useEffect(() => {
-      const checkMobile = () => {
-        const mobile = window.innerWidth <= 768;
-        setIsMobile(mobile);
-        setStyles(createResponsiveModalStyles(mobile));
-      };
-
-      checkMobile();
-      window.addEventListener('resize', checkMobile);
-
-      return () => window.removeEventListener('resize', checkMobile);
-    }, []);
+      setStyles(createResponsiveModalStyles(isMobile));
+    }, [isMobile]);
 
     // 스크롤바 스타일 적용
     useEffect(() => {
@@ -68,24 +61,8 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
       }
     }, [styles]);
 
-    // 모달 열림/닫힘 시 배경 스크롤 제어
-    useEffect(() => {
-      if (isOpen) {
-        // 모달이 열릴 때 배경 스크롤 비활성화
-        document.body.style.overflow = 'hidden';
-        document.body.style.paddingRight = '0px'; // 스크롤바로 인한 레이아웃 시프트 방지
-      } else {
-        // 모달이 닫힐 때 배경 스크롤 활성화
-        document.body.style.overflow = '';
-        document.body.style.paddingRight = '';
-      }
-
-      // 컴포넌트 언마운트 시 정리
-      return () => {
-        document.body.style.overflow = '';
-        document.body.style.paddingRight = '';
-      };
-    }, [isOpen]);
+    // 모달 스크롤 제어
+    useModalScrollControl(isOpen);
 
     // ESC 키로 모달 닫기 및 포커스 관리
     useEffect(() => {

@@ -8,9 +8,27 @@ export interface BlogPost {
   postType?: 'react19' | 'typescript59' | 'custom';
 }
 
+// ID 중복 검사 및 자동 할당 함수
+const usedIds = new Set<number>();
+
+const getUniqueId = (requestedId?: number): number => {
+  if (requestedId && !usedIds.has(requestedId)) {
+    usedIds.add(requestedId);
+    return requestedId;
+  }
+
+  // 요청된 ID가 중복되거나 없으면 자동으로 할당
+  let newId = requestedId || 1;
+  while (usedIds.has(newId)) {
+    newId++;
+  }
+  usedIds.add(newId);
+  return newId;
+};
+
 // 블로그 포스트 생성 헬퍼 함수
 const createBlogPost = (config: {
-  id: number;
+  id?: number; // optional로 변경
   title: string;
   content: string;
   category: string;
@@ -38,13 +56,20 @@ const createBlogPost = (config: {
   }
 
   return {
-    id: config.id,
+    id: getUniqueId(config.id),
     title: config.title,
     content: config.content,
     category: config.category,
     date,
     tags: config.tags,
   };
+};
+
+// ID 중복 검증 함수 export
+export const validateBlogIds = (): boolean => {
+  const ids = BLOG_POSTS.map(post => post.id);
+  const uniqueIds = new Set(ids);
+  return ids.length === uniqueIds.size;
 };
 
 export const BLOG_POSTS: BlogPost[] = [

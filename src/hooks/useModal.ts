@@ -1,36 +1,26 @@
-import { useState, useCallback } from 'react';
+import { useGenericModal } from './useGenericModal';
+import { useUrlParams } from './useUrlParams';
 import type { Project } from '../types';
 
 export const useModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { isOpen, selectedItem, openModal, closeModal } =
+    useGenericModal<Project>();
+  const { updateUrl, removeParam } = useUrlParams();
 
-  const openModal = useCallback((project: Project) => {
-    console.log('useModal - openModal 호출됨:', project.title);
-    setSelectedProject(project);
-    setIsOpen(true);
-    console.log('useModal - 상태 업데이트 완료:', {
-      isOpen: true,
-      selectedProject: project,
-    });
-  }, []);
+  const openModalWithUrl = (project: Project) => {
+    openModal(project);
+    updateUrl({ projectId: project.id });
+  };
 
-  const closeModal = useCallback(() => {
-    console.log('useModal - closeModal 호출됨');
-    setIsOpen(false);
-    setSelectedProject(null);
-    console.log('useModal - 상태 업데이트 완료:', {
-      isOpen: false,
-      selectedProject: null,
-    });
-  }, []);
-
-  console.log('useModal - 현재 상태:', { isOpen, selectedProject });
+  const closeModalWithUrl = () => {
+    closeModal();
+    removeParam('projectId');
+  };
 
   return {
     isOpen,
-    selectedProject,
-    openModal,
-    closeModal,
+    selectedProject: selectedItem,
+    openModal: openModalWithUrl,
+    closeModal: closeModalWithUrl,
   };
 };
