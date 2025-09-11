@@ -31,9 +31,8 @@ const ProfileSection: React.FC = () => {
           {/* Quote */}
           <div className="quote-card">
             <p className="quote-text">
-              "개발을 할 때가 가장 행복한{' '}
-              <span className="quote-highlight">{PERSONAL_INFO.title}</span>{' '}
-              {PERSONAL_INFO.name}입니다."
+              "새로운 기술 습득을 즐기고 클론 코딩이 취미인{' '}
+              <span className="quote-highlight">개발자</span> 유민기입니다."
             </p>
           </div>
 

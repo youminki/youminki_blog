@@ -5,8 +5,8 @@ export const PERSONAL_INFO = {
   phone: '010-5351-7648',
   location: '경기도 안양시',
   profileImage: '/면접사진.jpeg',
-  summary: '개발을 할 때가 가장 행복한 프론트엔드 개발자입니다.',
-  quote: '"개발을 할 때가 가장 행복한 프론트엔드 개발자 유민기입니다."',
+  summary: '클론코딩이 취미인 개발자입니다.',
+  quote: '"클론코딩이 취미인 개발자입니다."',
 } as const;
 
 export const CONTACT_INFO = {
