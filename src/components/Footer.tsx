@@ -17,7 +17,7 @@ const Footer = () => {
         }}
       >
         <p style={{ color: 'var(--text-secondary)' }}>
-          © 2024 Youminki. Built with React, TypeScript, and Tailwind CSS.
+          © 2025 Youminki. Built with React, TypeScript, and Tailwind CSS.
         </p>
       </div>
     </footer>

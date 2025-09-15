@@ -13,7 +13,7 @@ export const CONTACT_INFO = {
   email: 'dbalsrl7648@gmail.com',
   phone: '010-5351-7648',
   github: 'https://github.com/youminki',
-  blog: 'https://dbalsrl7648.tistory.com/',
+  blog: 'https://velog.io/@youminki/posts',
   location: '경기도 안양시',
 } as const;
 
@@ -23,8 +23,8 @@ export const SOCIAL_LINKS = {
     label: '깃허브',
   },
   blog: {
-    url: 'https://dbalsrl7648.tistory.com/',
-    label: '티스토리',
+    url: 'https://velog.io/@youminki/posts',
+    label: '블로그',
   },
   email: {
     url: 'mailto:dbalsrl7648@gmail.com',
