@@ -209,4 +209,64 @@ export const BLOG_POSTS: BlogPost[] = [
       'Programming',
     ],
   }),
+  createBlogPost({
+    id: 10,
+    title:
+      '2만개 데이터로부터 12초를 4초로! LCP 최적화하기 - React 성능 최적화의 모든 것',
+    customDate: '2025.07.10',
+    url: 'https://velog.io/@youminki/2%EB%A7%8C%EA%B0%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C%EB%B6%80%ED%84%B0-12%EC%B4%88-4%EC%B4%88%EB%A1%9C-LCP-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0-React-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83',
+    summary:
+      'me1pik 프로젝트에서 2만개의 대용량 데이터를 처리하면서 LCP(Largest Contentful Paint)를 12초에서 4초로 개선한 실제 경험을 공유합니다. React 성능 최적화의 핵심 기법들과 실전 노하우를 담았습니다.',
+    category: '경험했던 이슈',
+    postType: 'custom',
+    tags: [
+      'Performance',
+      'LCP',
+      'React',
+      'Optimization',
+      'Core Web Vitals',
+      'Frontend',
+      'me1pik',
+      '실전 경험',
+    ],
+  }),
+  createBlogPost({
+    id: 11,
+    title: 'React에서 무한 스크롤 구현 시 발생한 메모리 누수 문제 해결기',
+    customDate: '2025.07.11',
+    url: 'https://velog.io/@youminki/react-infinite-scroll-memory-leak',
+    summary:
+      'React에서 무한 스크롤을 구현하면서 발생한 메모리 누수 문제를 해결한 과정을 공유합니다. 이벤트 리스너 정리, 컴포넌트 언마운트 처리, 그리고 성능 최적화까지 실전 경험을 담았습니다.',
+    category: '경험했던 이슈',
+    postType: 'custom',
+    tags: [
+      'React',
+      'Memory Leak',
+      'Infinite Scroll',
+      'Performance',
+      'Frontend',
+      '실전 경험',
+      '문제 해결',
+    ],
+  }),
+
+  createBlogPost({
+    id: 13,
+    title: 'TypeScript에서 발생한 타입 에러들과 해결 방법 모음',
+    customDate: '2025.07.13',
+    url: 'https://velog.io/@youminki/typescript-common-errors-solutions',
+    summary:
+      'TypeScript 개발 과정에서 자주 마주치는 타입 에러들과 그 해결 방법들을 정리했습니다. Generic, Union Types, Interface 등 다양한 타입 관련 이슈들을 실전 예제와 함께 설명합니다.',
+    category: '경험했던 이슈',
+    postType: 'custom',
+    tags: [
+      'TypeScript',
+      'Type Error',
+      'Generic',
+      'Union Types',
+      'Frontend',
+      '실전 경험',
+      '문제 해결',
+    ],
+  }),
 ];

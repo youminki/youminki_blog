@@ -19,11 +19,15 @@ const Blog: React.FC<BlogProps> = ({
   // 카테고리 목록 메모이제이션
   const categories = useMemo(() => ['전체', ...getAllCategories()], []);
 
-  // 필터된 포스트 메모이제이션
+  // 필터된 포스트 메모이제이션 (최신순 정렬)
   const filteredPosts = useMemo(() => {
-    return selectedCategory === '전체'
-      ? BLOG_POSTS
-      : BLOG_POSTS.filter(post => post.category === selectedCategory);
+    const posts =
+      selectedCategory === '전체'
+        ? BLOG_POSTS
+        : BLOG_POSTS.filter(post => post.category === selectedCategory);
+
+    // ID 기준으로 내림차순 정렬 (최신 포스트가 먼저)
+    return posts.sort((a, b) => b.id - a.id);
   }, [selectedCategory]);
 
   // 이벤트 핸들러 메모이제이션

@@ -48,6 +48,11 @@ export const COLOR_PALETTE: ColorStyle[] = [
     color: 'white',
     border: 'var(--filter-color-8)',
   },
+  {
+    bg: 'var(--filter-color-9)',
+    color: 'white',
+    border: 'var(--filter-color-9)',
+  },
 ];
 
 export const LIGHT_COLOR_PALETTE: ColorStyle[] = [
@@ -91,6 +96,11 @@ export const LIGHT_COLOR_PALETTE: ColorStyle[] = [
     color: 'var(--filter-color-8)',
     border: 'var(--filter-color-8)',
   },
+  {
+    bg: 'var(--filter-light-9)',
+    color: 'var(--filter-color-9)',
+    border: 'var(--filter-color-9)',
+  },
 ];
 
 // 카테고리별 색상 매핑
@@ -103,6 +113,7 @@ const CATEGORY_COLOR_MAP: { [key: string]: number } = {
   Performance: 5,
   Frontend: 6,
   Programming: 7,
+  '경험했던 이슈': 8,
 };
 
 /**

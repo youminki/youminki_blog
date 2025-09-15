@@ -13,19 +13,6 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
     return getCategoryColors(post.category, true);
   }, [post.category]);
 
-  const getCategoryClass = (category: string) => {
-    switch (category) {
-      case '전체':
-        return 'category-all';
-      case 'React':
-        return 'category-react';
-      case 'TypeScript':
-        return 'category-typescript';
-      default:
-        return 'category-default';
-    }
-  };
-
   const handleClick = () => {
     window.open(post.url, '_blank', 'noopener,noreferrer');
   };
@@ -76,11 +63,6 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 
         {/* 요약 */}
         <p className="blog-post-summary">{post.summary}</p>
-
-        {/* 메타 정보 */}
-        <div className="blog-post-meta">
-          <span>{post.date}</span>
-        </div>
       </div>
     </article>
   );
