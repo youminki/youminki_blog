@@ -10,7 +10,7 @@ export default {
     },
   },
   plugins: [
-    function({ addUtilities }: any) {
+    function ({ addUtilities }) {
       addUtilities({
         '.line-clamp-2': {
           display: '-webkit-box',

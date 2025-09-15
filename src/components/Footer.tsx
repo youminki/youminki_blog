@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer 
+    <footer
       style={{
         borderTop: '1px solid var(--border-color)',
         padding: '2rem 0',
@@ -8,7 +8,7 @@ const Footer = () => {
         backgroundColor: 'var(--bg-primary)',
       }}
     >
-      <div 
+      <div
         style={{
           maxWidth: '800px',
           margin: '0 auto',

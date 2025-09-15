@@ -57,8 +57,8 @@ const createBlogPost = (config: {
             month: '2-digit',
             day: '2-digit',
           })
-          .replace(/\./g, '.')
-          .replace(/\s/g, '');
+          .replace(/./g, '.')
+          .replace(/s/g, '');
     }
   }
 
@@ -89,184 +89,60 @@ export const getAllCategories = (): string[] => {
 
 export const BLOG_POSTS: BlogPost[] = [
   createBlogPost({
-    id: 1,
-    title: 'React 19의 새로운 기능들',
-    customDate: '2025.07.01',
-    url: 'https://react.dev/blog/2024/12/05/react-19',
+    id: 15,
+    title: '폴링(Polling)의 개념과 활용, 그리고 대안',
+    customDate: '2025.08.25.',
+    url: 'https://velog.io/@youminki/%ED%8F%B4%EB%A7%81Polling%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%ED%99%9C%EC%9A%A9-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%8C%80%EC%95%88',
     summary:
-      'React 19의 혁신적인 Actions 시스템과 새로운 기능들을 소개합니다. 비동기 작업을 선언적으로 처리할 수 있는 방법과 개발자 경험의 향상에 대해 알아보세요.',
-    category: 'React',
-    tags: ['React', 'React19', 'Actions', 'useActionState', 'Frontend'],
-    postType: 'react19',
-  }),
-
-  createBlogPost({
-    id: 3,
-    title: 'React Effect의 생명주기 완벽 가이드',
-    customDate: '2025.07.03',
-    url: 'https://react.dev/learn/lifecycle-of-reactive-effects',
-    summary:
-      'React의 useEffect Hook의 생명주기를 자세히 알아보고, 언제 실행되고 정리되는지 완벽하게 이해해보세요. Effect의 올바른 사용법과 주의사항을 다룹니다.',
-    category: 'React',
+      '1. 폴링이란 무엇인가 폴링(Polling)은 클라이언트(브라우저, 앱 등)가 주기적으로 서버나 특정 상태를 확인하는 방식이다. 즉, 일정 간격마다 “상태가 바뀌었는가?”를 묻는 기법이다. 짧은 폴링(Short Polling): setInterval 같은 타이머를 이용해 일정 주기로 요청을 반복한다. 긴 폴링(Long Polling): 요청을 서버가 오래 ',
+    category: 'Programming',
     postType: 'custom',
-    tags: [
-      'React',
-      'useEffect',
-      'Lifecycle',
-      'Hooks',
-      'Frontend',
-      'JavaScript',
-    ],
+    tags: ['Programming'],
   }),
   createBlogPost({
-    id: 4,
-    title: '커스텀 Hook 설계 패턴과 모범 사례',
-    customDate: '2025.07.04',
-    url: 'https://react.dev/learn/reusing-logic-with-custom-hooks',
-    summary:
-      'React 커스텀 Hook을 효과적으로 설계하고 사용하는 방법을 알아봅니다. 재사용 가능한 로직을 Hook으로 분리하는 패턴과 모범 사례를 다룹니다.',
-    category: 'React',
-    postType: 'custom',
-    tags: [
-      'React',
-      'Custom Hooks',
-      'Logic Reuse',
-      'Design Patterns',
-      'Frontend',
-      'JavaScript',
-    ],
-  }),
-  createBlogPost({
-    id: 5,
-    title: 'TanStack Query로 서버 상태 관리 마스터하기',
-    customDate: '2025.07.05',
-    url: 'https://tanstack.com/query/latest',
-    summary:
-      'TanStack Query(React Query)를 사용하여 서버 상태를 효율적으로 관리하는 방법을 알아봅니다. 캐싱, 동기화, 에러 처리 등 고급 기능들을 다룹니다.',
-    category: 'React',
-    postType: 'custom',
-    tags: [
-      'TanStack Query',
-      'React Query',
-      '서버 상태 관리',
-      'Caching',
-      'Frontend',
-      'Data Fetching',
-    ],
-  }),
-  createBlogPost({
-    id: 6,
-    title: 'Next.js 15의 새로운 기능과 성능 최적화',
-    customDate: '2025.07.06',
-    url: 'https://nextjs.org/blog/next-15',
-    summary:
-      'Next.js 15에서 도입된 새로운 기능들과 성능 최적화 기법을 살펴봅니다. App Router의 개선사항과 새로운 빌드 최적화에 대해 알아보세요.',
-    category: 'Next.js',
-    postType: 'custom',
-    tags: [
-      'Next.js',
-      'Next.js15',
-      'Performance',
-      'App Router',
-      'Frontend',
-      'React',
-    ],
-  }),
-
-  createBlogPost({
-    id: 8,
-    title: '웹 성능 최적화를 위한 Core Web Vitals 완벽 가이드',
-    customDate: '2025.07.08',
-    url: 'https://web.dev/vitals/',
-    summary:
-      'Google의 Core Web Vitals를 이해하고 웹 성능을 최적화하는 방법을 알아봅니다. LCP, FID, CLS 지표를 개선하는 실전 기법을 다룹니다.',
-    category: 'Performance',
-    postType: 'custom',
-    tags: [
-      'Performance',
-      'Core Web Vitals',
-      'LCP',
-      'FID',
-      'CLS',
-      'Web Optimization',
-    ],
-  }),
-  createBlogPost({
-    id: 9,
-    title: 'JavaScript 비동기 프로그래밍 완벽 가이드',
-    customDate: '2025.07.09',
-    url: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous',
-    summary:
-      'JavaScript의 비동기 프로그래밍을 완벽하게 이해해보세요. Promise, async/await, 이벤트 루프 등 핵심 개념들을 자세히 다룹니다.',
-    category: 'JavaScript',
-    postType: 'custom',
-    tags: [
-      'JavaScript',
-      'Asynchronous',
-      'Promise',
-      'async/await',
-      'Event Loop',
-      'Programming',
-    ],
-  }),
-  createBlogPost({
-    id: 10,
+    id: 14,
     title:
-      '2만개 데이터로부터 12초를 4초로! LCP 최적화하기 - React 성능 최적화의 모든 것',
-    customDate: '2025.07.10',
+      '2만개 데이터로부터 12초 → 4초로 LCP 최적화하기: React 성능 최적화의 모든 것',
+    customDate: '2025.09.15.',
     url: 'https://velog.io/@youminki/2%EB%A7%8C%EA%B0%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C%EB%B6%80%ED%84%B0-12%EC%B4%88-4%EC%B4%88%EB%A1%9C-LCP-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0-React-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83',
     summary:
-      'me1pik 프로젝트에서 2만개의 대용량 데이터를 처리하면서 LCP(Largest Contentful Paint)를 12초에서 4초로 개선한 실제 경험을 공유합니다. React 성능 최적화의 핵심 기법들과 실전 노하우를 담았습니다.',
-    category: '경험했던 이슈',
+      '2만개 크롤링 데이터로부터 12초 → 4초로 LCP 최적화하기: 실제 프로젝트에서 겪은 성능 문제들과 해결 과정 12초의 느린 렌더링 속도 프로젝트 초기, 우리는 2만개의 크롤링 데이터를 한 번에 렌더링하는 방식으로 개발을 시작했습니다. 사용자가 홈페이지에 접속하면 모든 상품 데이터를 동시에 로드하고 렌더링하는 방식이었죠. Largest Contentful',
+    category: 'React',
     postType: 'custom',
-    tags: [
-      'Performance',
-      'LCP',
-      'React',
-      'Optimization',
-      'Core Web Vitals',
-      'Frontend',
-      'me1pik',
-      '실전 경험',
-    ],
+    tags: ['React'],
+  }),
+  createBlogPost({
+    id: 13,
+    title:
+      'React에서 JWT 토큰 관리의 함정과 해결: 멜픽 개발 1년간의 실전 경험담',
+    customDate: '2025.09.15.',
+    url: 'https://velog.io/@youminki/React%EC%97%90%EC%84%9C-JWT-%ED%86%A0%ED%81%B0-%EA%B4%80%EB%A6%AC%EC%9D%98-%ED%95%A8%EC%A0%95%EA%B3%BC-%ED%95%B4%EA%B2%B0-%EB%A9%9C%ED%94%BD-%EA%B0%9C%EB%B0%9C-1%EB%85%84%EA%B0%84%EC%9D%98-%EC%8B%A4%EC%A0%84-%EA%B2%BD%ED%97%98%EB%8B%B4',
+    summary:
+      '�� 문제의 시작: 멜픽 개발 초기 토큰 관리의 혼란 처음에는 단순하게 생각했습니다. "토큰을 localStorage에 저장하고, 만료되면 갱신하면 되지 않을까?"라고요. 하지만 현실은 달랐습니다. iOS 사용자 불만: "앱이 자꾸 로그아웃돼요!" 개발팀 혼란: "왜 갑자기 401 에러가 폭발하는 거죠?" 사용자 이탈: 토큰 문제로 인한 사용자 이탈률 증가',
+    category: 'React',
+    postType: 'custom',
+    tags: ['React'],
+  }),
+  createBlogPost({
+    id: 12,
+    title: 'TypeScript에서 발생한 타입 에러들과 해결 방법 모음',
+    customDate: '2025.09.15.',
+    url: 'https://velog.io/@youminki/TypeScript%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%ED%83%80%EC%9E%85-%EC%97%90%EB%9F%AC%EB%93%A4%EA%B3%BC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%EB%AA%A8%EC%9D%8C',
+    summary:
+      '멜픽 개발 1년간 겪은 TypeScript 타입 에러들 처음에는 JavaScript로 개발하다가 TypeScript로 마이그레이션하면서 겪은 타입 에러들과 그 해결 과정을 정리해보겠습니다. 가장 자주 마주쳤던 에러들: Generic 타입 추론 실패 Union 타입 처리의 복잡성 any 타입 남발로 인한 타입 안전성 상실 전역 타입 선언의 중복 문제 실제 겪',
+    category: 'TypeScript',
+    postType: 'custom',
+    tags: ['TypeScript'],
   }),
   createBlogPost({
     id: 11,
     title: 'React에서 무한 스크롤 구현 시 발생한 메모리 누수 문제 해결기',
-    customDate: '2025.07.11',
+    customDate: '2025.09.15.',
     url: 'https://velog.io/@youminki/React%EC%97%90%EC%84%9C-%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EA%B5%AC%ED%98%84-%EC%8B%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%88%84%EC%88%98-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%EA%B8%B0',
     summary:
-      'React에서 무한 스크롤을 구현하면서 발생한 메모리 누수 문제를 해결한 과정을 공유합니다. 이벤트 리스너 정리, 컴포넌트 언마운트 처리, 그리고 성능 최적화까지 실전 경험을 담았습니다.',
-    category: '경험했던 이슈',
+      '무한 스크롤 메모리 누수 문제들 멜픽 프로젝트에서 2만개의 상품 데이터를 효율적으로 보여주기 위해 무한 스크롤을 구현했을 때였습니다. 처음에는 단순하게 생각했습니다. "IntersectionObserver로 스크롤을 감지하고, 더 많은 아이템을 렌더링하면 되지 않을까?"라고요. 하지만 현실은 달랐습니다. 메모리 사용량: 2시간 사용 후 1.2GB까지 증가 ',
+    category: 'React',
     postType: 'custom',
-    tags: [
-      'React',
-      'Memory Leak',
-      'Infinite Scroll',
-      'Performance',
-      'Frontend',
-      '실전 경험',
-      '문제 해결',
-    ],
-  }),
-
-  createBlogPost({
-    id: 13,
-    title: 'TypeScript에서 발생한 타입 에러들과 해결 방법 모음',
-    customDate: '2025.07.13',
-    url: 'https://velog.io/@youminki/TypeScript%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%ED%83%80%EC%9E%85-%EC%97%90%EB%9F%AC%EB%93%A4%EA%B3%BC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%EB%AA%A8%EC%9D%8C',
-    summary:
-      'TypeScript 개발 과정에서 자주 마주치는 타입 에러들과 그 해결 방법들을 정리했습니다. Generic, Union Types, Interface 등 다양한 타입 관련 이슈들을 실전 예제와 함께 설명합니다.',
-    category: '경험했던 이슈',
-    postType: 'custom',
-    tags: [
-      'TypeScript',
-      'Type Error',
-      'Generic',
-      'Union Types',
-      'Frontend',
-      '실전 경험',
-      '문제 해결',
-    ],
+    tags: ['React'],
   }),
 ];

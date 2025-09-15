@@ -24,7 +24,7 @@ export interface ContactInfo {
   type: 'email' | 'phone' | 'link' | 'github';
   value: string;
   url?: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 // 데이터 관련 추가 타입들
