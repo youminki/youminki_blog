@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { BlogPost } from '../../types';
+import { getCategoryColors } from '../../utils/colorUtils';
 import './Blog.css';
 
 interface BlogPostCardProps {
@@ -7,6 +8,11 @@ interface BlogPostCardProps {
 }
 
 const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
+  // 카테고리별 색상 스타일 생성
+  const categoryColors = useMemo(() => {
+    return getCategoryColors(post.category, true);
+  }, [post.category]);
+
   const getCategoryClass = (category: string) => {
     switch (category) {
       case '전체':
@@ -39,7 +45,14 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
       }}
     >
       {/* 썸네일 이미지 */}
-      <div className={`blog-post-thumbnail ${getCategoryClass(post.category)}`}>
+      <div
+        className="blog-post-thumbnail"
+        style={{
+          background: categoryColors.bg,
+          color: categoryColors.color,
+          borderColor: categoryColors.border,
+        }}
+      >
         {post.category}
       </div>
 
@@ -47,7 +60,13 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
       <div className="blog-post-content">
         {/* 태그 */}
         <div className="blog-post-tag">
-          <span className={getCategoryClass(post.category)}>
+          <span
+            style={{
+              background: categoryColors.bg,
+              color: categoryColors.color,
+              borderColor: categoryColors.border,
+            }}
+          >
             {post.category}
           </span>
         </div>
