@@ -104,9 +104,10 @@ export const generatePostTemplate = (post: {
   category: string;
   date: string;
   tags: string[];
-  postType: string;
+  postType?: 'react19' | 'typescript59' | 'custom';
 }): string => {
   const tagsString = post.tags.map((tag: string) => `'${tag}'`).join(', ');
+  const postType = post.postType || 'custom';
 
   return `  createBlogPost({
     id: ${post.id},
@@ -115,7 +116,7 @@ export const generatePostTemplate = (post: {
     url: '${post.url}',
     summary: '${escapeString(post.summary)}',
     category: '${post.category}',
-    postType: '${post.postType}',
+    postType: '${postType}',
     tags: [${tagsString}],
   }),`;
 };

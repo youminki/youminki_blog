@@ -63,10 +63,3 @@ export interface BlogPost {
   postType?: 'react19' | 'typescript59' | 'custom';
   summary: string;
 }
-
-// ID 중복 검사 및 자동 할당 함수
-export const getUniqueId = (requestedId?: number): number => {
-  // 이 함수는 blogHelpers.ts에서 구현됨
-  // 여기서는 타입만 정의
-  return requestedId || 1;
-};

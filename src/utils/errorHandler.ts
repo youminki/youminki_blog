@@ -3,43 +3,44 @@
  */
 
 export class SyncError extends Error {
-  constructor(
-    message: string,
-    public code: string,
-    public originalError?: Error
-  ) {
+  code: string;
+  originalError?: Error;
+
+  constructor(message: string, code: string, originalError?: Error) {
     super(message);
     this.name = 'SyncError';
+    this.code = code;
+    this.originalError = originalError;
   }
 }
 
 export class ValidationError extends SyncError {
-  constructor(
-    message: string,
-    public field: string
-  ) {
+  field: string;
+
+  constructor(message: string, field: string) {
     super(message, 'VALIDATION_ERROR');
     this.name = 'ValidationError';
+    this.field = field;
   }
 }
 
 export class NetworkError extends SyncError {
-  constructor(
-    message: string,
-    public statusCode?: number
-  ) {
+  statusCode?: number;
+
+  constructor(message: string, statusCode?: number) {
     super(message, 'NETWORK_ERROR');
     this.name = 'NetworkError';
+    this.statusCode = statusCode;
   }
 }
 
 export class ParseError extends SyncError {
-  constructor(
-    message: string,
-    public content?: string
-  ) {
+  content?: string;
+
+  constructor(message: string, content?: string) {
     super(message, 'PARSE_ERROR');
     this.name = 'ParseError';
+    this.content = content;
   }
 }
 

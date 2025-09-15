@@ -126,13 +126,14 @@ const mergePosts = (
 /**
  * 블로그 데이터 파일을 업데이트합니다.
  */
-const updateBlogData = (posts: BlogPost[]) => {
+const updateBlogData = async (posts: BlogPost[]): Promise<void> => {
   try {
     const blogDataPath = join(__dirname, '..', SYNC_CONFIG.BLOG_DATA_PATH);
     logger.debug(`블로그 데이터 파일 업데이트: ${blogDataPath}`);
 
     // 헤더 템플릿
-    const header = `import { BlogPost, getUniqueId } from '../../src/types';
+    const header = `import type { BlogPost } from '../../src/types';
+import { getUniqueId } from '../../src/utils/blogHelpers';
 
 // 블로그 포스트 생성 헬퍼 함수
 const createBlogPost = (config: {
@@ -165,7 +166,7 @@ const createBlogPost = (config: {
             day: '2-digit',
           })
           .replace(/[.]/g, '.')
-          .replace(/[ \t\n\r\f\v]/g, '');
+          .replace(/[ \\t\\n\\r\\f\\v]/g, '');
     }
   }
 
@@ -187,11 +188,30 @@ export const BLOG_POSTS: BlogPost[] = [`;
     const postsData = posts.map(post => generatePostTemplate(post)).join('\n');
 
     const footer = `];
+
+// 모든 카테고리를 가져오는 함수
+export const getAllCategories = (): string[] => {
+  const categories = new Set<string>();
+  BLOG_POSTS.forEach(post => {
+    categories.add(post.category);
+  });
+  return Array.from(categories).sort();
+};
 `;
 
     const newContent = header + '\n' + postsData + '\n' + footer;
 
     writeFileSync(blogDataPath, newContent, 'utf-8');
+
+    // Prettier로 포맷팅 실행
+    try {
+      const { execSync } = await import('child_process');
+      execSync('yarn lint --fix', { cwd: join(__dirname, '..') });
+      logger.debug('Prettier 포맷팅이 완료되었습니다.');
+    } catch (formatError) {
+      logger.warn('Prettier 포맷팅 중 오류 발생:', formatError);
+    }
+
     logger.success(
       `블로그 데이터가 업데이트되었습니다. 총 ${posts.length}개의 포스트가 있습니다.`
     );
@@ -232,7 +252,7 @@ const syncVelogPosts = async () => {
 
     if (newPostCount > 0) {
       // 블로그 데이터 업데이트
-      updateBlogData(mergedPosts);
+      await updateBlogData(mergedPosts);
       logger.success('✅ 동기화가 완료되었습니다!');
     } else {
       logger.info('새로운 포스트가 없어서 업데이트하지 않습니다.');
