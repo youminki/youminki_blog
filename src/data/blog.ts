@@ -234,7 +234,7 @@ export const BLOG_POSTS: BlogPost[] = [
     id: 11,
     title: 'React에서 무한 스크롤 구현 시 발생한 메모리 누수 문제 해결기',
     customDate: '2025.07.11',
-    url: 'https://velog.io/@youminki/react-infinite-scroll-memory-leak',
+    url: 'https://velog.io/@youminki/React%EC%97%90%EC%84%9C-%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EA%B5%AC%ED%98%84-%EC%8B%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%88%84%EC%88%98-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%EA%B8%B0',
     summary:
       'React에서 무한 스크롤을 구현하면서 발생한 메모리 누수 문제를 해결한 과정을 공유합니다. 이벤트 리스너 정리, 컴포넌트 언마운트 처리, 그리고 성능 최적화까지 실전 경험을 담았습니다.',
     category: '경험했던 이슈',
