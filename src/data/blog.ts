@@ -50,7 +50,7 @@ const createBlogPost = (config: {
 
 export const BLOG_POSTS: BlogPost[] = [
   createBlogPost({
-    id: 11,
+    id: 13,
     title: '폴링(Polling)의 개념과 활용, 그리고 대안',
     customDate: '2025.08.25.',
     url: 'https://velog.io/@youminki/%ED%8F%B4%EB%A7%81Polling%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%ED%99%9C%EC%9A%A9-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%8C%80%EC%95%88',
@@ -58,10 +58,10 @@ export const BLOG_POSTS: BlogPost[] = [
       '1. 폴링이란 무엇인가 폴링(Polling)은 클라이언트(브라우저, 앱 등)가 주기적으로 서버나 특정 상태를 확인하는 방식이다. 즉, 일정 간격마다 “상태가 바뀌었는가?”를 묻는 기법이다. 짧은 폴링(Short Polling): setInterval 같은 타이머를 이용해 일정 주기로 요청을 반복한다. 긴 폴링(Long Polling): 요청을 서버가 오래 ',
     category: 'Programming',
     postType: 'custom',
-    tags: ['Programming'],
+    tags: ['Programming', 'Development'],
   }),
   createBlogPost({
-    id: 5,
+    id: 11,
     title:
       '2만개 데이터로부터 12초 → 4초로 LCP 최적화하기: React 성능 최적화의 모든 것',
     customDate: '2025.09.15.',
@@ -70,10 +70,17 @@ export const BLOG_POSTS: BlogPost[] = [
       '2만개 크롤링 데이터로부터 12초 → 4초로 LCP 최적화하기: 실제 프로젝트에서 겪은 성능 문제들과 해결 과정 12초의 느린 렌더링 속도 프로젝트 초기, 우리는 2만개의 크롤링 데이터를 한 번에 렌더링하는 방식으로 개발을 시작했습니다. 사용자가 홈페이지에 접속하면 모든 상품 데이터를 동시에 로드하고 렌더링하는 방식이었죠. Largest Contentful',
     category: 'React',
     postType: 'custom',
-    tags: ['React'],
+    tags: [
+      'React',
+      'LCP',
+      'Frontend',
+      'JavaScript',
+      'Performance',
+      'Core Web Vitals',
+    ],
   }),
   createBlogPost({
-    id: 4,
+    id: 5,
     title:
       'React에서 JWT 토큰 관리의 함정과 해결: 멜픽 개발 1년간의 실전 경험담',
     customDate: '2025.09.15.',
@@ -82,10 +89,10 @@ export const BLOG_POSTS: BlogPost[] = [
       '�� 문제의 시작: 멜픽 개발 초기 토큰 관리의 혼란 처음에는 단순하게 생각했습니다. "토큰을 localStorage에 저장하고, 만료되면 갱신하면 되지 않을까?"라고요. 하지만 현실은 달랐습니다. iOS 사용자 불만: "앱이 자꾸 로그아웃돼요!" 개발팀 혼란: "왜 갑자기 401 에러가 폭발하는 거죠?" 사용자 이탈: 토큰 문제로 인한 사용자 이탈률 증가',
     category: 'React',
     postType: 'custom',
-    tags: ['React'],
+    tags: ['React', 'Frontend', 'JavaScript'],
   }),
   createBlogPost({
-    id: 3,
+    id: 4,
     title: 'TypeScript에서 발생한 타입 에러들과 해결 방법 모음',
     customDate: '2025.09.15.',
     url: 'https://velog.io/@youminki/TypeScript%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%ED%83%80%EC%9E%85-%EC%97%90%EB%9F%AC%EB%93%A4%EA%B3%BC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%EB%AA%A8%EC%9D%8C',
@@ -93,10 +100,10 @@ export const BLOG_POSTS: BlogPost[] = [
       '멜픽 개발 1년간 겪은 TypeScript 타입 에러들 처음에는 JavaScript로 개발하다가 TypeScript로 마이그레이션하면서 겪은 타입 에러들과 그 해결 과정을 정리해보겠습니다. 가장 자주 마주쳤던 에러들: Generic 타입 추론 실패 Union 타입 처리의 복잡성 any 타입 남발로 인한 타입 안전성 상실 전역 타입 선언의 중복 문제 실제 겪',
     category: 'TypeScript',
     postType: 'custom',
-    tags: ['TypeScript'],
+    tags: ['TypeScript', 'JavaScript', 'Java', 'Programming'],
   }),
   createBlogPost({
-    id: 2,
+    id: 3,
     title: 'React에서 무한 스크롤 구현 시 발생한 메모리 누수 문제 해결기',
     customDate: '2025.09.15.',
     url: 'https://velog.io/@youminki/React%EC%97%90%EC%84%9C-%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EA%B5%AC%ED%98%84-%EC%8B%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%88%84%EC%88%98-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%EA%B8%B0',
@@ -104,10 +111,10 @@ export const BLOG_POSTS: BlogPost[] = [
       '무한 스크롤 메모리 누수 문제들 멜픽 프로젝트에서 2만개의 상품 데이터를 효율적으로 보여주기 위해 무한 스크롤을 구현했을 때였습니다. 처음에는 단순하게 생각했습니다. "IntersectionObserver로 스크롤을 감지하고, 더 많은 아이템을 렌더링하면 되지 않을까?"라고요. 하지만 현실은 달랐습니다. 메모리 사용량: 2시간 사용 후 1.2GB까지 증가 ',
     category: 'React',
     postType: 'custom',
-    tags: ['React'],
+    tags: ['React', 'Frontend', 'JavaScript'],
   }),
   createBlogPost({
-    id: 1,
+    id: 2,
     title: 'React에서 스토리북 없이 컴포넌트 문서화를 구현한 경험',
     customDate: '2025.09.15.',
     url: 'https://velog.io/@youminki/React%EC%97%90%EC%84%9C-%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B6%81-%EC%97%86%EC%9D%B4-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%AC%B8%EC%84%9C%ED%99%94%EB%A5%BC-%EA%B5%AC%ED%98%84%ED%95%9C-%EA%B2%BD%ED%97%98',
@@ -115,7 +122,19 @@ export const BLOG_POSTS: BlogPost[] = [
       '멜픽 개발 초기: 스토리북 도입을 고민했던 이유 프로젝트 규모가 커지면서 공통 컴포넌트들이 늘어나고 있었고, 각자 다른 방식으로 컴포넌트를 사용하고 있었습니다. 당시 상황: 공통 컴포넌트: 30개 이상의 재사용 가능한 컴포넌트 팀 규모: 3명의 개발자 문제점: 컴포넌트 사용법을 매번 코드를 봐야 함 의사결정: 스토리북 도입 vs 자체 문서화 시스템 스토리북',
     category: 'React',
     postType: 'custom',
-    tags: ['React'],
+    tags: ['React', 'Frontend', 'JavaScript'],
+  }),
+  createBlogPost({
+    id: 1,
+    title:
+      'Velog에서 내 블로그로 자동 동기화하기: RSS + GitHub Actions로 완전 자동화된 블로그 시스템 구축',
+    customDate: '2025.09.15.',
+    url: 'https://velog.io/@youminki/Velog%EC%97%90%EC%84%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%A1%9C-%EC%9E%90%EB%8F%99-%EB%8F%99%EA%B8%B0%ED%99%94%ED%95%98%EA%B8%B0-RSS-GitHub-Actions%EB%A1%9C-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94%EB%90%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%B6%95',
+    summary:
+      '개발 블로그를 운영하면서 가장 번거로운 일 중 하나는 여러 플랫폼에 같은 글을 올리는 것입니다. Velog에 글을 쓰고 개인 포트폴리오 사이트에도 똑같이 반영하려면 수동으로 복사하고 붙여넣는 작업을 반복해야 했습니다. 이를 해결하기 위해 Velog에 작성한 글을 개인 포트폴리오 사이트에 자동으로 동기화하는 시스템을 구축한 경험을 공유합니다. RSS 피드와 ',
+    category: 'Programming',
+    postType: 'custom',
+    tags: ['Programming', 'Development'],
   }),
 ];
 

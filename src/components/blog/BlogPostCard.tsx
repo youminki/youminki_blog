@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import type { BlogPost } from '../../types';
 import { getCategoryColors } from '../../utils/colorUtils';
+import { getTagPriority } from '../../utils/smartTagGenerator';
 import './Blog.css';
 
 interface BlogPostCardProps {
@@ -12,6 +13,20 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
   const categoryColors = useMemo(() => {
     return getCategoryColors(post.category, true);
   }, [post.category]);
+
+  // 태그 우선순위별로 정렬
+  const sortedTagsWithPriority = useMemo(() => {
+    return post.tags
+      .map(tag => ({
+        tag,
+        priority: getTagPriority(tag, post.title, post.summary),
+      }))
+      .sort((a, b) => {
+        const priorityOrder = { high: 3, medium: 2, low: 1 };
+        return priorityOrder[b.priority] - priorityOrder[a.priority];
+      })
+      .slice(0, 5); // 상위 5개 태그만 표시
+  }, [post.tags, post.title, post.summary]);
 
   const handleClick = () => {
     window.open(post.url, '_blank', 'noopener,noreferrer');
@@ -63,6 +78,27 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 
         {/* 요약 */}
         <p className="blog-post-summary">{post.summary}</p>
+
+        {/* 태그 */}
+        {sortedTagsWithPriority.length > 0 && (
+          <div className="blog-post-tags">
+            {sortedTagsWithPriority.map(({ tag, priority }, index) => (
+              <span
+                key={index}
+                className="blog-post-tag-item"
+                data-priority={priority}
+                style={{
+                  background: categoryColors.bg,
+                  color: categoryColors.color,
+                  borderColor: categoryColors.border,
+                }}
+                title={`${tag} (${priority} priority)`}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </article>
   );

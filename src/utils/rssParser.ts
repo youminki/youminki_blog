@@ -7,6 +7,7 @@ import {
 } from '../config/sync.config';
 import { logger } from './logger';
 import { ParseError, NetworkError, withRetry } from './errorHandler';
+import { generateSmartTags } from './smartTagGenerator';
 
 export interface RSSItem {
   title: string;
@@ -202,9 +203,17 @@ export const convertToVelogPost = (rssItem: RSSItem): VelogPost => {
     // 카테고리 결정
     const category = getCategoryFromTitle(rssItem.title);
 
-    // 태그 생성 (카테고리 + RSS 카테고리들)
-    const tags = [category, ...rssItem.categories].filter(
-      (tag, index, arr) => arr.indexOf(tag) === index // 중복 제거
+    // 스마트 태그 생성
+    const smartTags = generateSmartTags(
+      rssItem.title,
+      cleanDescription,
+      category,
+      rssItem.categories
+    );
+
+    // 태그 로깅
+    logger.debug(
+      `스마트 태그 생성: "${rssItem.title}" -> ${smartTags.join(', ')}`
     );
 
     logger.debug(`포스트 변환: "${rssItem.title}" -> 카테고리: ${category}`);
@@ -215,7 +224,7 @@ export const convertToVelogPost = (rssItem: RSSItem): VelogPost => {
       summary: cleanDescription,
       date: formattedDate,
       category,
-      tags,
+      tags: smartTags,
     };
   } catch {
     throw new ParseError(
