@@ -56,9 +56,10 @@ export interface AppConfig {
 export interface BlogPost {
   id: number;
   title: string;
-  content: string;
+  url: string;
   category: string;
   date: string;
   tags: string[];
   postType?: 'react19' | 'typescript59' | 'custom';
+  summary: string;
 }

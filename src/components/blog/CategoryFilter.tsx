@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import { useUrlParams } from '../../hooks/useUrlParams';
 import './Blog.css';
 
 interface CategoryFilterProps {
@@ -100,7 +99,6 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
   selectedCategory,
   onCategoryClick,
 }) => {
-  const { updateUrl } = useUrlParams();
   // 카테고리별 색상 함수를 useCallback으로 최적화
   const getCategoryColors = useCallback(
     (cat: string, isSelected: boolean) => {
@@ -192,7 +190,6 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
             aria-controls={`blog-posts-${category}`}
             onClick={() => {
               onCategoryClick(category);
-              updateUrl({ category: category === '전체' ? null : category });
             }}
             style={{
               padding: '0.75rem 1.25rem',

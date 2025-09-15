@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import type { Project } from '../../types';
-import { useModalScrollControl } from '../../hooks/useModalScrollControl';
 import { useResponsive } from '../../hooks/useResponsive';
 import {
   createScopedStyles,
@@ -60,9 +59,6 @@ const ProjectModal: React.FC<ProjectModalProps> = React.memo(
         console.warn('스타일 충돌 감지:', conflicts);
       }
     }, [styles]);
-
-    // 모달 스크롤 제어
-    useModalScrollControl(isOpen);
 
     // ESC 키로 모달 닫기 및 포커스 관리
     useEffect(() => {

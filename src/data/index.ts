@@ -8,16 +8,7 @@ import {
   CAREER_GOALS,
   WORK_EXPERIENCES,
 } from './career';
-import {
-  BLOG_POSTS,
-  BLOG_CATEGORIES,
-  BLOG_COLORS,
-  getBlogPostsByCategory,
-  getBlogPostsByTag,
-  getBlogPostById,
-  getAllCategories,
-  getAllTags,
-} from './blog';
+import { BLOG_POSTS, getAllCategories } from './blog';
 
 import {
   APP_CONFIG,
@@ -42,16 +33,7 @@ export { SKILLS_DATA };
 export type { Skill, SkillCategory };
 
 // 블로그 데이터
-export {
-  BLOG_POSTS,
-  BLOG_CATEGORIES,
-  BLOG_COLORS,
-  getBlogPostsByCategory,
-  getBlogPostsByTag,
-  getBlogPostById,
-  getAllCategories,
-  getAllTags,
-};
+export { BLOG_POSTS, getAllCategories };
 export type { BlogPost };
 
 // 개인 정보 및 연락처

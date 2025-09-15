@@ -4,10 +4,9 @@ import './Blog.css';
 
 interface BlogPostCardProps {
   post: BlogPost;
-  onPostClick: (post: BlogPost) => void;
 }
 
-const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, onPostClick }) => {
+const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
   const getCategoryClass = (category: string) => {
     switch (category) {
       case '전체':
@@ -21,17 +20,21 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, onPostClick }) => {
     }
   };
 
+  const handleClick = () => {
+    window.open(post.url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <article
       className={`rainbow-border blog-post-card`}
-      onClick={() => onPostClick(post)}
+      onClick={handleClick}
       role="button"
       tabIndex={0}
       aria-label={`${post.title} 블로그 포스트 읽기`}
       onKeyDown={e => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          onPostClick(post);
+          handleClick();
         }
       }}
     >
@@ -53,7 +56,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, onPostClick }) => {
         <h3 className="blog-post-title">{post.title}</h3>
 
         {/* 요약 */}
-        <p className="blog-post-summary">{post.content.split('\n')[0]}</p>
+        <p className="blog-post-summary">{post.summary}</p>
 
         {/* 메타 정보 */}
         <div className="blog-post-meta">
