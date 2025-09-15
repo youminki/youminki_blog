@@ -254,7 +254,7 @@ export const BLOG_POSTS: BlogPost[] = [
     id: 13,
     title: 'TypeScript에서 발생한 타입 에러들과 해결 방법 모음',
     customDate: '2025.07.13',
-    url: 'https://velog.io/@youminki/typescript-common-errors-solutions',
+    url: 'https://velog.io/@youminki/TypeScript%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%ED%83%80%EC%9E%85-%EC%97%90%EB%9F%AC%EB%93%A4%EA%B3%BC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%EB%AA%A8%EC%9D%8C',
     summary:
       'TypeScript 개발 과정에서 자주 마주치는 타입 에러들과 그 해결 방법들을 정리했습니다. Generic, Union Types, Interface 등 다양한 타입 관련 이슈들을 실전 예제와 함께 설명합니다.',
     category: '경험했던 이슈',
