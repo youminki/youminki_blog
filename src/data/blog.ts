@@ -50,7 +50,7 @@ const createBlogPost = (config: {
 
 export const BLOG_POSTS: BlogPost[] = [
   createBlogPost({
-    id: 10,
+    id: 11,
     title: '폴링(Polling)의 개념과 활용, 그리고 대안',
     customDate: '2025.08.25.',
     url: 'https://velog.io/@youminki/%ED%8F%B4%EB%A7%81Polling%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%ED%99%9C%EC%9A%A9-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%8C%80%EC%95%88',
@@ -61,7 +61,7 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ['Programming'],
   }),
   createBlogPost({
-    id: 9,
+    id: 5,
     title:
       '2만개 데이터로부터 12초 → 4초로 LCP 최적화하기: React 성능 최적화의 모든 것',
     customDate: '2025.09.15.',
@@ -73,7 +73,7 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ['React'],
   }),
   createBlogPost({
-    id: 8,
+    id: 4,
     title:
       'React에서 JWT 토큰 관리의 함정과 해결: 멜픽 개발 1년간의 실전 경험담',
     customDate: '2025.09.15.',
@@ -85,7 +85,7 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ['React'],
   }),
   createBlogPost({
-    id: 7,
+    id: 3,
     title: 'TypeScript에서 발생한 타입 에러들과 해결 방법 모음',
     customDate: '2025.09.15.',
     url: 'https://velog.io/@youminki/TypeScript%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%ED%83%80%EC%9E%85-%EC%97%90%EB%9F%AC%EB%93%A4%EA%B3%BC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%EB%AA%A8%EC%9D%8C',
@@ -96,12 +96,23 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ['TypeScript'],
   }),
   createBlogPost({
-    id: 6,
+    id: 2,
     title: 'React에서 무한 스크롤 구현 시 발생한 메모리 누수 문제 해결기',
     customDate: '2025.09.15.',
     url: 'https://velog.io/@youminki/React%EC%97%90%EC%84%9C-%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EA%B5%AC%ED%98%84-%EC%8B%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%88%84%EC%88%98-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%EA%B8%B0',
     summary:
       '무한 스크롤 메모리 누수 문제들 멜픽 프로젝트에서 2만개의 상품 데이터를 효율적으로 보여주기 위해 무한 스크롤을 구현했을 때였습니다. 처음에는 단순하게 생각했습니다. "IntersectionObserver로 스크롤을 감지하고, 더 많은 아이템을 렌더링하면 되지 않을까?"라고요. 하지만 현실은 달랐습니다. 메모리 사용량: 2시간 사용 후 1.2GB까지 증가 ',
+    category: 'React',
+    postType: 'custom',
+    tags: ['React'],
+  }),
+  createBlogPost({
+    id: 1,
+    title: 'React에서 스토리북 없이 컴포넌트 문서화를 구현한 경험',
+    customDate: '2025.09.15.',
+    url: 'https://velog.io/@youminki/React%EC%97%90%EC%84%9C-%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B6%81-%EC%97%86%EC%9D%B4-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%AC%B8%EC%84%9C%ED%99%94%EB%A5%BC-%EA%B5%AC%ED%98%84%ED%95%9C-%EA%B2%BD%ED%97%98',
+    summary:
+      '멜픽 개발 초기: 스토리북 도입을 고민했던 이유 프로젝트 규모가 커지면서 공통 컴포넌트들이 늘어나고 있었고, 각자 다른 방식으로 컴포넌트를 사용하고 있었습니다. 당시 상황: 공통 컴포넌트: 30개 이상의 재사용 가능한 컴포넌트 팀 규모: 3명의 개발자 문제점: 컴포넌트 사용법을 매번 코드를 봐야 함 의사결정: 스토리북 도입 vs 자체 문서화 시스템 스토리북',
     category: 'React',
     postType: 'custom',
     tags: ['React'],
