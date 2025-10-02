@@ -98,9 +98,9 @@ export const BLOG_POSTS: BlogPost[] = [
     url: 'https://velog.io/@youminki/TypeScript%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%ED%83%80%EC%9E%85-%EC%97%90%EB%9F%AC%EB%93%A4%EA%B3%BC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%EB%AA%A8%EC%9D%8C',
     summary:
       '멜픽 개발 1년간 겪은 TypeScript 타입 에러들 처음에는 JavaScript로 개발하다가 TypeScript로 마이그레이션하면서 겪은 타입 에러들과 그 해결 과정을 정리해보겠습니다. 가장 자주 마주쳤던 에러들: Generic 타입 추론 실패 Union 타입 처리의 복잡성 any 타입 남발로 인한 타입 안전성 상실 전역 타입 선언의 중복 문제 실제 겪',
-    category: 'TypeScript',
+    category: 'Issue & Solution',
     postType: 'custom',
-    tags: ['TypeScript', 'JavaScript', 'Java', 'Programming'],
+    tags: ['TypeScript', 'Issue & Solution', 'Programming'],
   }),
   createBlogPost({
     id: 12,
@@ -109,9 +109,15 @@ export const BLOG_POSTS: BlogPost[] = [
     url: 'https://velog.io/@youminki/React%EC%97%90%EC%84%9C-%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EA%B5%AC%ED%98%84-%EC%8B%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%88%84%EC%88%98-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%EA%B8%B0',
     summary:
       '무한 스크롤 메모리 누수 문제들 멜픽 프로젝트에서 2만개의 상품 데이터를 효율적으로 보여주기 위해 무한 스크롤을 구현했을 때였습니다. 처음에는 단순하게 생각했습니다. "IntersectionObserver로 스크롤을 감지하고, 더 많은 아이템을 렌더링하면 되지 않을까?"라고요. 하지만 현실은 달랐습니다. 메모리 사용량: 2시간 사용 후 1.2GB까지 증가 ',
-    category: 'React',
+    category: 'Issue & Solution',
     postType: 'custom',
-    tags: ['React', 'Frontend', 'JavaScript'],
+    tags: [
+      'React',
+      'Frontend',
+      'JavaScript',
+      'Performance',
+      'Issue & Solution',
+    ],
   }),
   createBlogPost({
     id: 10,

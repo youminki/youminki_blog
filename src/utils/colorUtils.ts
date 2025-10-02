@@ -103,17 +103,30 @@ export const LIGHT_COLOR_PALETTE: ColorStyle[] = [
   },
 ];
 
-// 카테고리별 색상 매핑
+// 카테고리별 색상 매핑 - 실제 사용 카테고리 기반 최적화
 const CATEGORY_COLOR_MAP: { [key: string]: number } = {
+  // 기본 카테고리
   전체: 0,
-  React: 1,
-  'Next.js': 2,
-  TypeScript: 3,
-  JavaScript: 4,
-  Performance: 5,
-  Frontend: 6,
-  Programming: 7,
-  '경험했던 이슈': 8,
+
+  // 현재 사용 중인 주요 카테고리 (겹치지 않는 고유 색상)
+  Programming: 1,
+  React: 2,
+  'Issue & Solution': 3,
+
+  // 향후 확장될 카테고리들 (고유 색상 할당)
+  TypeScript: 4,
+  JavaScript: 5,
+  'Next.js': 6,
+  Performance: 7,
+  Frontend: 8,
+  Backend: 9,
+
+  // 추가 확장 카테고리들 (논리적 그룹핑으로 색상 재활용)
+  'Vue.js': 2, // React와 같은 프레임워크 계열
+  Python: 5, // JavaScript와 같은 언어 계열
+  DevOps: 7, // Performance와 같은 최적화 계열
+  Tools: 7, // Performance와 같은 최적화 계열
+  'Computer Science': 1, // Programming과 같은 기초 계열
 };
 
 /**
