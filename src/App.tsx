@@ -28,7 +28,6 @@ function App() {
     >
       <Header activeTab={activeTab} onTabChange={handleTabChange} />
 
-      {/* 탭 콘텐츠 - flex-grow로 남은 공간 차지 */}
       <main style={{ flex: '1 0 auto', position: 'relative', zIndex: 2 }}>
         {activeTab === 'portfolio' ? (
           <HomePage />
