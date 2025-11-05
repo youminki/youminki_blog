@@ -12,6 +12,7 @@ code_review:
   pull_request_opened:
     help: false
     summary: true
+    summary_language: Korean
     code_review: true
     include_drafts: true
     language: Korean
