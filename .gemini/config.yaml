@@ -1,4 +1,5 @@
-have_fun: false
+have_fun: true
+language: ko
 code_review:
   disable: false
   comment_severity_threshold: MEDIUM
